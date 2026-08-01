@@ -1,0 +1,10 @@
+{
+  "description": "This immersive portfolio showcases creative work through cinematic storytelling, premium motion, and interactive design, appealing to industry professionals and award judges.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
