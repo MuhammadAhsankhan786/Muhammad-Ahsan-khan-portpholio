@@ -1,28 +1,31 @@
 {
-  "headers": [
+  "routes": [
     {
-      "source": "/robots.txt",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "text/plain; charset=utf-8"
-        },
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=0, must-revalidate"
-        }
-      ]
+      "src": "/robots.txt",
+      "dest": "/robots.txt",
+      "headers": {
+        "Content-Type": "text/plain; charset=utf-8",
+        "Cache-Control": "max-age=0, s-maxage=86400, must-revalidate",
+        "X-Robots-Tag": "all"
+      }
     },
     {
-      "source": "/sitemap.xml",
+      "src": "/sitemap.xml",
+      "dest": "/sitemap.xml",
+      "headers": {
+        "Content-Type": "application/xml; charset=utf-8",
+        "Cache-Control": "max-age=0, s-maxage=86400, must-revalidate",
+        "X-Robots-Tag": "all"
+      }
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
       "headers": [
         {
-          "key": "Content-Type",
-          "value": "application/xml; charset=utf-8"
-        },
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=0, must-revalidate"
+          "key": "X-Robots-Tag",
+          "value": "all"
         }
       ]
     }
