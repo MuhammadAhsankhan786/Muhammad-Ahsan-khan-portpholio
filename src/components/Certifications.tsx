@@ -72,7 +72,7 @@ export default function Certifications() {
     <section
       id="certifications"
       ref={sectionRef}
-      className="relative px-6 md:px-20 py-20 md:py-36 bg-[var(--color-surface)] overflow-hidden"
+      className="relative px-6 md:px-20 py-20 md:py-36 bg-[#0D1321] overflow-hidden"
     >
       {/* Background ambient glow */}
       <div
@@ -84,7 +84,7 @@ export default function Certifications() {
           width: 600,
           height: 600,
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(34,197,94,0.06) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(116,140,171,0.06) 0%, transparent 70%)',
           pointerEvents: 'none',
         }}
       />
@@ -102,12 +102,12 @@ export default function Certifications() {
             fontSize: 11,
             letterSpacing: '0.25em',
             textTransform: 'uppercase',
-            color: '#22c55e',
+            color: '#748CAB',
           }}
         >
-          08 — Verified Certifications & Credentials
+          04 — Verified Certifications & Credentials
         </span>
-        <div style={{ flex: 1, height: 1, background: 'rgba(21,21,42,1)' }} />
+        <div style={{ flex: 1, height: 1, background: 'rgba(116,140,171,0.12)' }} />
       </motion.div>
 
       {/* Headline */}
@@ -122,13 +122,13 @@ export default function Certifications() {
             fontWeight: 700,
             letterSpacing: '-0.02em',
             lineHeight: 1.1,
-            color: 'var(--color-foreground)',
+            color: '#F0EBD8',
             margin: '0 0 20px',
           }}
         >
           Verified AI & Software
           <br />
-          <em style={{ fontStyle: 'italic', color: '#22c55e' }}>
+          <em style={{ fontStyle: 'italic', color: '#748CAB' }}>
             Certifications.
           </em>
         </motion.h2>
@@ -137,7 +137,7 @@ export default function Certifications() {
             fontFamily: 'var(--font-body)',
             fontSize: 15,
             lineHeight: 1.7,
-            color: 'rgba(220,220,238,0.6)',
+            color: 'rgba(240,235,216,0.7)',
             margin: 0,
           }}
         >
@@ -156,8 +156,8 @@ export default function Certifications() {
             onClick={() => setActiveCert(cert)}
             data-cursor-hover
             style={{
-              background: '#070712',
-              border: `1px solid ${cert.id === 'micro1-ai' ? 'rgba(34,197,94,0.4)' : 'rgba(124,111,247,0.2)'}`,
+              background: '#1D2D44',
+              border: '1px solid rgba(116,140,171,0.15)',
               borderRadius: 16,
               padding: 32,
               display: 'flex',
@@ -166,9 +166,8 @@ export default function Certifications() {
               cursor: 'pointer',
               position: 'relative',
               overflow: 'hidden',
-              boxShadow: cert.id === 'micro1-ai' ? '0 10px 40px rgba(34,197,94,0.1)' : 'none',
             }}
-            whileHover={{ y: -6, borderColor: cert.badgeColor }}
+            whileHover={{ y: -6, borderColor: '#748CAB' }}
           >
             {/* Top Verified Badge Indicator */}
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20 }}>
@@ -179,19 +178,19 @@ export default function Certifications() {
                   gap: 6,
                   padding: '4px 10px',
                   borderRadius: 20,
-                  background: `${cert.badgeColor}18`,
-                  border: `1px solid ${cert.badgeColor}40`,
-                  color: cert.badgeColor,
+                  background: 'rgba(116,140,171,0.15)',
+                  border: '1px solid rgba(116,140,171,0.3)',
+                  color: '#748CAB',
                   fontFamily: 'var(--font-mono)',
                   fontSize: 10,
                   fontWeight: 600,
                   textTransform: 'uppercase',
                 }}
               >
-                <span style={{ width: 6, height: 6, borderRadius: '50%', background: cert.badgeColor }} />
+                <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#748CAB' }} />
                 VERIFIED CREDENTIAL
               </div>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'rgba(90,90,130,0.8)' }}>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'rgba(240,235,216,0.5)' }}>
                 {cert.date}
               </span>
             </div>
@@ -202,7 +201,7 @@ export default function Certifications() {
                   fontFamily: 'var(--font-display)',
                   fontSize: 20,
                   fontWeight: 700,
-                  color: '#fff',
+                  color: '#F0EBD8',
                   marginBottom: 8,
                   lineHeight: 1.25,
                 }}
@@ -214,7 +213,7 @@ export default function Certifications() {
                 style={{
                   fontFamily: 'var(--font-mono)',
                   fontSize: 11,
-                  color: cert.badgeColor,
+                  color: '#748CAB',
                   marginBottom: 16,
                   fontWeight: 600,
                 }}
@@ -227,7 +226,7 @@ export default function Certifications() {
                   fontFamily: 'var(--font-body)',
                   fontSize: 13,
                   lineHeight: 1.6,
-                  color: 'rgba(220,220,238,0.55)',
+                  color: 'rgba(240,235,216,0.65)',
                   margin: 0,
                   display: '-webkit-box',
                   WebkitLineClamp: 3,
@@ -243,13 +242,13 @@ export default function Certifications() {
               style={{
                 marginTop: 24,
                 paddingTop: 16,
-                borderTop: '1px solid rgba(21,21,42,1)',
+                borderTop: '1px solid rgba(116,140,171,0.12)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
               }}
             >
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'rgba(90,90,130,0.8)' }}>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: '#748CAB' }}>
                 Click to View Certificate →
               </span>
               <span style={{ fontSize: 14 }}>🔍</span>

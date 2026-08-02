@@ -56,8 +56,8 @@ function NetworkNode({ position, size, speed, index }: {
   })
 
   const isCore = index === 0
-  const color = isCore ? '#8b7cf7' : index % 3 === 0 ? '#38bdf8' : '#7c6ff7'
-  const emissive = isCore ? '#5040cc' : '#3020a0'
+  const color = isCore ? '#F0EBD8' : '#748CAB'
+  const emissive = isCore ? '#748CAB' : '#3E5C76'
 
   return (
     <mesh ref={meshRef} position={position}>
@@ -65,10 +65,10 @@ function NetworkNode({ position, size, speed, index }: {
       <meshPhongMaterial
         color={color}
         emissive={emissive}
-        emissiveIntensity={isCore ? 0.8 : 0.5}
+        emissiveIntensity={isCore ? 0.9 : 0.6}
         wireframe
         transparent
-        opacity={isCore ? 0.95 : 0.75}
+        opacity={isCore ? 1.0 : 0.85}
       />
     </mesh>
   )
@@ -77,8 +77,8 @@ function NetworkNode({ position, size, speed, index }: {
 function NetworkGlow({ position, size }: { position: [number, number, number]; size: number }) {
   return (
     <mesh position={position}>
-      <sphereGeometry args={[size * 2.5, 8, 8]} />
-      <meshBasicMaterial color="#7c6ff7" transparent opacity={0.04} />
+      <sphereGeometry args={[size * 2.2, 12, 12]} />
+      <meshBasicMaterial color="#748CAB" transparent opacity={0.12} />
     </mesh>
   )
 }
@@ -94,9 +94,9 @@ function Connections() {
         new THREE.Float32BufferAttribute([...pa, ...pb], 3)
       )
       const mat = new THREE.LineBasicMaterial({
-        color: i % 5 === 0 ? '#38bdf8' : '#4444aa',
+        color: i % 4 === 0 ? '#F0EBD8' : '#748CAB',
         transparent: true,
-        opacity: 0.25 + (i % 3) * 0.1,
+        opacity: 0.45,
       })
       return new THREE.Line(geo, mat)
     })
@@ -115,10 +115,10 @@ function DataPackets() {
   const packetRefs = useRef<THREE.Mesh[]>([])
   const packetData = useMemo(
     () =>
-      CONNECTIONS.slice(0, 8).map((conn, i) => ({
+      CONNECTIONS.slice(0, 10).map((conn, i) => ({
         conn,
-        offset: i * 0.13,
-        speed: 0.18 + (i % 4) * 0.06,
+        offset: i * 0.1,
+        speed: 0.2 + (i % 4) * 0.05,
       })),
     []
   )
@@ -138,7 +138,7 @@ function DataPackets() {
         pa[2] + (pb[2] - pa[2]) * progress,
       )
       const alpha = Math.sin(progress * Math.PI)
-      ;(mesh.material as THREE.MeshBasicMaterial).opacity = alpha * 0.9
+      ;(mesh.material as THREE.MeshBasicMaterial).opacity = alpha * 0.95
     })
   })
 
@@ -149,8 +149,8 @@ function DataPackets() {
           key={i}
           ref={(el) => { if (el) packetRefs.current[i] = el }}
         >
-          <sphereGeometry args={[0.035, 6, 6]} />
-          <meshBasicMaterial color="#a78bfa" transparent opacity={0} />
+          <sphereGeometry args={[0.04, 8, 8]} />
+          <meshBasicMaterial color="#748CAB" transparent opacity={0} />
         </mesh>
       ))}
     </>
@@ -159,7 +159,7 @@ function DataPackets() {
 
 function BackgroundGrid() {
   const grid = useMemo(() => {
-    const g = new THREE.GridHelper(18, 24, '#0d0d24', '#0a0a1e')
+    const g = new THREE.GridHelper(18, 24, '#3E5C76', '#1D2D44')
     return g
   }, [])
 
@@ -168,7 +168,7 @@ function BackgroundGrid() {
 
 function BackgroundParticles() {
   const points = useMemo(() => {
-    const count = 1200
+    const count = 1000
     const pos = new Float32Array(count * 3)
     for (let i = 0; i < count; i++) {
       pos[i * 3]     = (Math.random() - 0.5) * 22
@@ -178,11 +178,11 @@ function BackgroundParticles() {
     const geo = new THREE.BufferGeometry()
     geo.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3))
     const mat = new THREE.PointsMaterial({
-      color: '#5555aa',
-      size: 0.022,
+      color: '#748CAB',
+      size: 0.025,
       sizeAttenuation: true,
       transparent: true,
-      opacity: 0.55,
+      opacity: 0.5,
     })
     return new THREE.Points(geo, mat)
   }, [])
@@ -214,7 +214,6 @@ function Scene() {
   useFrame((state) => {
     if (!groupRef.current) return
     const t = state.clock.elapsedTime
-    // Smooth lerp toward mouse
     groupRef.current.rotation.y +=
       (mouseTarget.current.x + t * 0.04 - groupRef.current.rotation.y) * 0.03
     groupRef.current.rotation.x +=
@@ -223,10 +222,10 @@ function Scene() {
 
   return (
     <>
-      <ambientLight intensity={0.15} />
-      <pointLight position={[4, 4, 4]} intensity={2.5} color="#7c6ff7" />
-      <pointLight position={[-4, -2, 2]} intensity={1.5} color="#38bdf8" />
-      <pointLight position={[0, 6, -4]} intensity={1.0} color="#a78bfa" />
+      <ambientLight intensity={0.5} />
+      <pointLight position={[5, 5, 5]} intensity={4.5} color="#748CAB" />
+      <pointLight position={[-5, -3, 3]} intensity={3.0} color="#748CAB" />
+      <pointLight position={[0, 4, -4]} intensity={2.0} color="#F0EBD8" />
 
       <BackgroundParticles />
       <BackgroundGrid />

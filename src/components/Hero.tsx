@@ -20,27 +20,18 @@ export default function Hero({ onOpenResume }: { onOpenResume?: () => void }) {
     <section
       className="relative min-h-screen grid grid-cols-1 md:grid-cols-2 overflow-hidden bg-[var(--color-background)] pt-20 md:pt-0"
     >
-      {/* Radial gradient bloom */}
+      {/* Radial ambient slate bloom */}
       <div
         style={{
           position: 'absolute',
           inset: 0,
           background:
-            'radial-gradient(ellipse 70% 60% at 65% 50%, rgba(124,111,247,0.08) 0%, transparent 70%)',
-          pointerEvents: 'none',
-        }}
-      />
-      <div
-        style={{
-          position: 'absolute',
-          inset: 0,
-          background:
-            'radial-gradient(ellipse 40% 40% at 20% 80%, rgba(56,189,248,0.05) 0%, transparent 60%)',
+            'radial-gradient(ellipse 70% 60% at 65% 50%, rgba(116,140,171,0.06) 0%, transparent 70%)',
           pointerEvents: 'none',
         }}
       />
 
-      {/* Left: Typography */}
+      {/* Left: Personal Identity & Editorial Typography */}
       <div
         className="flex flex-col justify-center px-6 md:px-20 py-12 md:py-0 relative z-10"
       >
@@ -53,14 +44,14 @@ export default function Hero({ onOpenResume }: { onOpenResume?: () => void }) {
             display: 'flex',
             alignItems: 'center',
             gap: 12,
-            marginBottom: 32,
+            marginBottom: 28,
           }}
         >
           <div
             style={{
               width: 40,
               height: 1,
-              background: 'rgba(124,111,247,0.6)',
+              background: '#748CAB',
             }}
           />
           <span
@@ -68,32 +59,32 @@ export default function Hero({ onOpenResume }: { onOpenResume?: () => void }) {
               fontFamily: 'var(--font-mono)',
               fontSize: 11,
               letterSpacing: '0.2em',
-              color: 'rgba(167,139,250,0.9)',
+              color: '#748CAB',
               textTransform: 'uppercase',
               fontWeight: 600,
             }}
           >
-            Founder, Next Revolution Tech — 2026
+            Founder & Lead Architect — Next Revolution Tech
           </span>
         </motion.div>
 
-        {/* Main headline */}
+        {/* Primary Visual Focus: MUHAMMAD AHSAN KHAN */}
         <h1
           ref={titleRef}
           style={{
             fontFamily: 'var(--font-display)',
-            fontSize: 'clamp(44px, 5.5vw, 84px)',
+            fontSize: 'clamp(44px, 5.2vw, 82px)',
             fontWeight: 800,
-            lineHeight: 0.92,
+            lineHeight: 0.95,
             letterSpacing: '-0.02em',
             margin: 0,
-            marginBottom: 28,
+            marginBottom: 24,
           }}
         >
-          {words.map((word, wi) => (
+          {['MUHAMMAD', 'AHSAN KHAN'].map((line, wi) => (
             <motion.div
-              key={word}
-              initial={{ opacity: 0, y: 60, skewX: -5 }}
+              key={line}
+              initial={{ opacity: 0, y: 50, skewX: -4 }}
               animate={{ opacity: 1, y: 0, skewX: 0 }}
               transition={{
                 duration: 1,
@@ -102,44 +93,57 @@ export default function Hero({ onOpenResume }: { onOpenResume?: () => void }) {
               }}
               style={{
                 display: 'block',
-                color: wi === 1 ? 'transparent' : 'var(--color-foreground)',
-                WebkitTextStroke:
-                  wi === 1 ? '1.5px rgba(124,111,247,0.85)' : undefined,
+                color: wi === 1 ? '#748CAB' : '#F0EBD8',
+                fontStyle: wi === 1 ? 'italic' : 'normal',
               }}
             >
-              {word}
+              {line}
             </motion.div>
           ))}
         </h1>
 
-        {/* Name & Bio */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.7 }}
-          style={{
-            fontFamily: 'var(--font-body)',
-            fontSize: 16,
-            color: 'rgba(220,220,238,0.6)',
-            lineHeight: 1.6,
-            maxWidth: 480,
-            marginBottom: 36,
-          }}
+        {/* Professional Positioning & Tagline */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.6 }}
+          style={{ marginBottom: 32 }}
         >
-          <span style={{ color: 'var(--color-foreground)', fontWeight: 600 }}>
-            Muhammad Ahsan Khan
-          </span>
-          {' '}— Full Stack Developer & Founder of Next Revolution Tech. Specializing in enterprise-grade software, ERP platforms, SaaS, and Agentic AI automation.
-        </motion.p>
+          <div
+            style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: 13,
+              fontWeight: 700,
+              color: '#748CAB',
+              letterSpacing: '0.08em',
+              marginBottom: 10,
+              textTransform: 'uppercase',
+            }}
+          >
+            Full Stack Software Engineer • Founder, Next Revolution Tech
+          </div>
+          <p
+            style={{
+              fontFamily: 'var(--font-body)',
+              fontSize: 15,
+              color: 'rgba(240,235,216,0.75)',
+              lineHeight: 1.65,
+              maxWidth: 520,
+              margin: 0,
+            }}
+          >
+            Handcrafting enterprise-grade software, ERP systems, SaaS platforms, and Agentic AI automation. Delivering timeless digital products across complete SDLC architecture.
+          </p>
+        </motion.div>
 
         {/* Role tags */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.9 }}
-          style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginBottom: 44 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginBottom: 40 }}
         >
-          {roles.map((role) => (
+          {['Full Stack Engineer', 'Founder @ NRT', 'Agentic AI Specialist', 'ERP Architect'].map((role) => (
             <span
               key={role}
               style={{
@@ -147,10 +151,12 @@ export default function Hero({ onOpenResume }: { onOpenResume?: () => void }) {
                 fontSize: 10,
                 letterSpacing: '0.1em',
                 padding: '6px 12px',
-                border: '1px solid rgba(124,111,247,0.3)',
-                color: 'rgba(167,139,250,0.8)',
+                border: '1px solid rgba(116,140,171,0.25)',
+                color: '#F0EBD8',
                 textTransform: 'uppercase',
                 borderRadius: 4,
+                background: '#1D2D44',
+                whiteSpace: 'nowrap',
               }}
             >
               {role}
@@ -158,11 +164,11 @@ export default function Hero({ onOpenResume }: { onOpenResume?: () => void }) {
           ))}
         </motion.div>
 
-        {/* CTAs */}
+        {/* CTAs - Solid Colors No Gradients */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.1 }}
+          transition={{ duration: 0.8, delay: 1.0 }}
           className="flex flex-wrap md:flex-nowrap gap-3 items-center"
         >
           <a
@@ -176,21 +182,21 @@ export default function Hero({ onOpenResume }: { onOpenResume?: () => void }) {
               display: 'inline-flex',
               alignItems: 'center',
               gap: 8,
-              padding: '12px 20px',
-              background: 'linear-gradient(135deg, #7c6ff7, #a78bfa)',
-              color: '#fff',
+              padding: '12px 24px',
+              background: '#748CAB',
+              color: '#0D1321',
               fontFamily: 'var(--font-mono)',
               fontSize: 11,
               letterSpacing: '0.08em',
               textTransform: 'uppercase',
               textDecoration: 'none',
               borderRadius: 6,
-              fontWeight: 600,
+              fontWeight: 700,
               whiteSpace: 'nowrap',
-              transition: 'filter 0.3s ease, transform 0.3s ease',
+              transition: 'background-color 0.3s ease',
             }}
           >
-            View Projects
+            View Work
             <svg width="12" height="12" viewBox="0 0 14 14" fill="none">
               <path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
@@ -205,10 +211,10 @@ export default function Hero({ onOpenResume }: { onOpenResume?: () => void }) {
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: 6,
-                padding: '12px 18px',
-                background: 'rgba(56,189,248,0.12)',
-                border: '1px solid rgba(56,189,248,0.4)',
-                color: '#38bdf8',
+                padding: '12px 20px',
+                background: '#1D2D44',
+                border: '1px solid rgba(116,140,171,0.25)',
+                color: '#F0EBD8',
                 fontFamily: 'var(--font-mono)',
                 fontSize: 11,
                 letterSpacing: '0.08em',
@@ -234,9 +240,10 @@ export default function Hero({ onOpenResume }: { onOpenResume?: () => void }) {
               display: 'inline-flex',
               alignItems: 'center',
               gap: 8,
-              padding: '12px 18px',
-              border: '1px solid rgba(124,111,247,0.3)',
-              color: 'rgba(220,220,238,0.7)',
+              padding: '12px 20px',
+              background: '#1D2D44',
+              border: '1px solid rgba(116,140,171,0.25)',
+              color: '#F0EBD8',
               fontFamily: 'var(--font-mono)',
               fontSize: 11,
               letterSpacing: '0.08em',
@@ -246,7 +253,7 @@ export default function Hero({ onOpenResume }: { onOpenResume?: () => void }) {
               whiteSpace: 'nowrap',
             }}
           >
-            Let's Talk
+            Get In Touch
           </a>
         </motion.div>
 
@@ -255,7 +262,7 @@ export default function Hero({ onOpenResume }: { onOpenResume?: () => void }) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1.3 }}
-          className="grid grid-cols-2 sm:grid-cols-3 gap-6 mt-10 pt-6 border-t border-[rgba(21,21,42,1)]"
+          className="grid grid-cols-2 sm:grid-cols-3 gap-6 mt-10 pt-6 border-t border-[rgba(116,140,171,0.12)]"
         >
           {[
             { value: '10+', label: 'Production Apps' },
@@ -266,11 +273,12 @@ export default function Hero({ onOpenResume }: { onOpenResume?: () => void }) {
               <div
                 style={{
                   fontFamily: 'var(--font-display)',
-                  fontSize: 28,
+                  fontSize: 'clamp(20px, 2.2vw, 28px)',
                   fontWeight: 800,
-                  color: '#a78bfa',
+                  color: '#748CAB',
                   lineHeight: 1,
                   marginBottom: 4,
+                  whiteSpace: 'nowrap',
                 }}
               >
                 {m.value}
@@ -279,9 +287,10 @@ export default function Hero({ onOpenResume }: { onOpenResume?: () => void }) {
                 style={{
                   fontFamily: 'var(--font-mono)',
                   fontSize: 10,
-                  color: 'rgba(90,90,130,1)',
+                  color: 'rgba(240,235,216,0.6)',
                   letterSpacing: '0.1em',
                   textTransform: 'uppercase',
+                  whiteSpace: 'nowrap',
                 }}
               >
                 {m.label}

@@ -56,7 +56,7 @@ export default function GitHubShowcase() {
     <section
       id="github"
       ref={sectionRef}
-      className="relative px-6 md:px-20 py-20 md:py-36 bg-[var(--color-background)] overflow-hidden"
+      className="relative px-6 md:px-20 py-20 md:py-36 bg-[#0D1321] overflow-hidden"
     >
       {/* Section label */}
       <motion.div
@@ -71,12 +71,12 @@ export default function GitHubShowcase() {
             fontSize: 11,
             letterSpacing: '0.25em',
             textTransform: 'uppercase',
-            color: 'rgba(90,90,130,0.6)',
+            color: '#748CAB',
           }}
         >
-          06 — Open Source & Code Activity
+          08 — Open Source & Code Activity
         </span>
-        <div style={{ flex: 1, height: 1, background: 'rgba(21,21,42,1)' }} />
+        <div style={{ flex: 1, height: 1, background: 'rgba(116,140,171,0.12)' }} />
       </motion.div>
 
       {/* Header */}
@@ -93,13 +93,13 @@ export default function GitHubShowcase() {
             fontWeight: 700,
             letterSpacing: '-0.02em',
             lineHeight: 1.1,
-            color: 'var(--color-foreground)',
+            color: '#F0EBD8',
             margin: 0,
           }}
         >
           GitHub Engineering
           <br />
-          <em style={{ fontStyle: 'italic', color: '#a78bfa' }}>
+          <em style={{ fontStyle: 'italic', color: '#748CAB' }}>
             Ecosystem & Repositories.
           </em>
         </motion.h2>
@@ -118,12 +118,12 @@ export default function GitHubShowcase() {
               fontSize: 11,
               letterSpacing: '0.08em',
               textTransform: 'uppercase',
-              color: '#a78bfa',
+              color: '#F0EBD8',
               textDecoration: 'none',
-              border: '1px solid rgba(167,139,250,0.4)',
-              padding: '8px 16px',
+              border: '1px solid rgba(116,140,171,0.25)',
+              padding: '10px 18px',
               borderRadius: 6,
-              background: 'rgba(167,139,250,0.08)',
+              background: '#1D2D44',
             }}
           >
             Personal GitHub (@MuhammadAhsankhan786) ↗
@@ -142,12 +142,12 @@ export default function GitHubShowcase() {
               fontSize: 11,
               letterSpacing: '0.08em',
               textTransform: 'uppercase',
-              color: '#38bdf8',
+              color: '#F0EBD8',
               textDecoration: 'none',
-              border: '1px solid rgba(56,189,248,0.4)',
-              padding: '8px 16px',
+              border: '1px solid rgba(116,140,171,0.25)',
+              padding: '10px 18px',
               borderRadius: 6,
-              background: 'rgba(56,189,248,0.08)',
+              background: '#1D2D44',
             }}
           >
             Org GitHub (@nextrevolutiontech-maker) ↗
@@ -160,7 +160,7 @@ export default function GitHubShowcase() {
         initial={{ opacity: 0, y: 20 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="grid grid-cols-2 lg:grid-cols-4 gap-6 p-6 md:p-8 bg-white/[0.02] border border-[rgba(124,111,247,0.2)] rounded-2xl mb-12"
+        className="grid grid-cols-2 lg:grid-cols-4 gap-6 p-6 md:p-8 bg-[#1D2D44] border border-[rgba(116,140,171,0.15)] rounded-2xl mb-12"
       >
         {[
           { label: 'Public Repositories', val: '25+' },
@@ -168,18 +168,18 @@ export default function GitHubShowcase() {
           { label: 'Organizations Lead', val: 'Next Revolution Tech' },
           { label: 'Primary Language', val: 'TypeScript / React / Node' },
         ].map((stat, idx) => (
-          <div key={idx} className="border-l-0 md:border-l md:border-[rgba(21,21,42,1)] md:pl-6">
-            <div style={{ fontFamily: 'var(--font-display)', fontSize: 24, fontWeight: 800, color: '#fff', marginBottom: 4 }}>
+          <div key={idx} className="border-l-0 md:border-l md:border-[rgba(116,140,171,0.12)] md:pl-6">
+            <div style={{ fontFamily: 'var(--font-display)', fontSize: 24, fontWeight: 800, color: '#F0EBD8', marginBottom: 4 }}>
               {stat.val}
             </div>
-            <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'rgba(90,90,130,0.8)', textTransform: 'uppercase' }}>
+            <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: '#748CAB', textTransform: 'uppercase' }}>
               {stat.label}
             </div>
           </div>
         ))}
       </motion.div>
 
-      {/* Pinned Repositories Grid */}
+      {/* Pinned Repos Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
         {pinnedRepos.map((repo, idx) => (
           <motion.a
@@ -187,44 +187,43 @@ export default function GitHubShowcase() {
             href={repo.link}
             target="_blank"
             rel="noopener noreferrer"
-            data-cursor-hover
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.8, delay: 0.3 + idx * 0.1 }}
+            data-cursor-hover
             style={{
-              background: '#070712',
-              border: '1px solid rgba(255,255,255,0.06)',
+              display: 'block',
+              background: '#1D2D44',
+              border: '1px solid rgba(116,140,171,0.15)',
               borderRadius: 14,
-              padding: 28,
+              padding: 24,
               textDecoration: 'none',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'space-between',
-              transition: 'border-color 0.3s, transform 0.3s',
+              transition: 'border-color 0.3s ease, transform 0.3s ease',
             }}
-            whileHover={{ borderColor: 'rgba(124,111,247,0.5)', y: -4 }}
+            whileHover={{ borderColor: '#748CAB', y: -4 }}
           >
-            <div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 }}>
-                <svg width="18" height="18" viewBox="0 0 16 16" fill="rgba(220,220,238,0.6)">
-                  <path fillRule="evenodd" d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 010-1.5h1.75v-2h-8a1 1 0 00-1 1v.75a.75.75 0 01-1.5 0V2.5zM4.5 1.5a1 1 0 00-1 1v7.625c.34-.236.753-.375 1.2-.375h8.5V1.5h-8.7z" />
-                </svg>
-                <span style={{ fontFamily: 'var(--font-display)', fontSize: 18, fontWeight: 700, color: '#fff' }}>
-                  {repo.name}
-                </span>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
+              <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: '#748CAB', display: 'flex', alignItems: 'center', gap: 6 }}>
+                <span>📦</span> public repository
               </div>
-              <p style={{ fontFamily: 'var(--font-body)', fontSize: 13, color: 'rgba(220,220,238,0.5)', lineHeight: 1.6, margin: '0 0 20px' }}>
-                {repo.desc}
-              </p>
+              <div style={{ fontSize: 12, color: 'rgba(240,235,216,0.5)' }}>↗</div>
             </div>
 
-            <div style={{ display: 'flex', alignItems: 'center', gap: 20, fontFamily: 'var(--font-mono)', fontSize: 11, color: 'rgba(90,90,130,0.8)' }}>
+            <h3 style={{ fontFamily: 'var(--font-display)', fontSize: 18, fontWeight: 700, color: '#F0EBD8', marginBottom: 8 }}>
+              {repo.name}
+            </h3>
+
+            <p style={{ fontFamily: 'var(--font-body)', fontSize: 13, color: 'rgba(240,235,216,0.65)', lineHeight: 1.6, marginBottom: 20 }}>
+              {repo.desc}
+            </p>
+
+            <div style={{ display: 'flex', alignItems: 'center', gap: 16, fontFamily: 'var(--font-mono)', fontSize: 11, color: 'rgba(240,235,216,0.7)' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                <span style={{ width: 8, height: 8, borderRadius: '50%', background: repo.langColor }} />
-                <span>{repo.lang}</span>
+                <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#748CAB' }} />
+                {repo.lang}
               </div>
-              <div>⭐ {repo.stars} stars</div>
-              <div>🍴 {repo.forks} forks</div>
+              <div>⭐ {repo.stars}</div>
+              <div>🍴 {repo.forks}</div>
             </div>
           </motion.a>
         ))}

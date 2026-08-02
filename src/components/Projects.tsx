@@ -26,7 +26,7 @@ const projectsData: ProjectDetail[] = [
       { v: 'RBAC', l: 'Security Architecture' },
       { v: 'Live', l: 'Production Active' },
     ],
-    accentColor: '#7c6ff7',
+    accentColor: '#748CAB',
     link: 'https://nrt-ai-opr.nextrevolutiontech.tech/login',
     github: 'https://github.com/MuhammadAhsankhan786',
     year: '2025',
@@ -52,7 +52,7 @@ const projectsData: ProjectDetail[] = [
       { v: 'RAG', l: 'Vector Memory' },
       { v: 'Active', l: 'R&D Phase' },
     ],
-    accentColor: '#38bdf8',
+    accentColor: '#748CAB',
     link: 'https://github.com/MuhammadAhsankhan786',
     github: 'https://github.com/MuhammadAhsankhan786',
     year: '2026',
@@ -78,7 +78,7 @@ const projectsData: ProjectDetail[] = [
       { v: '100%', l: 'HIPAA & RBAC Compliant' },
       { v: 'Live', l: 'Production Ready' },
     ],
-    accentColor: '#a78bfa',
+    accentColor: '#748CAB',
     link: 'https://pulse-portal.com/login',
     github: 'https://github.com/MuhammadAhsankhan786',
     year: '2025',
@@ -104,7 +104,7 @@ const projectsData: ProjectDetail[] = [
       { v: 'Real-time', l: 'Parcel Tracking' },
       { v: 'Live', l: 'Production Active' },
     ],
-    accentColor: '#4ade80',
+    accentColor: '#748CAB',
     link: 'https://hk-fabric-powered-by-parcel-ls3eigbee.vercel.app',
     github: 'https://github.com/nextrevolutiontech-maker',
     year: '2025',
@@ -130,7 +130,7 @@ const projectsData: ProjectDetail[] = [
       { v: 'Automated', l: 'Grade & PDF Reports' },
       { v: 'Live', l: 'Production' },
     ],
-    accentColor: '#f59e0b',
+    accentColor: '#748CAB',
     link: 'https://student-portal-mangment-system-dqjm.vercel.app',
     github: 'https://github.com/MuhammadAhsankhan786',
     year: '2024',
@@ -156,7 +156,7 @@ const projectsData: ProjectDetail[] = [
       { v: '100%', l: 'Responsive & Fast' },
       { v: 'Live', l: 'Global Edge' },
     ],
-    accentColor: '#7c6ff7',
+    accentColor: '#748CAB',
     link: 'https://www.nextrevolutiontech.tech',
     github: 'https://github.com/nextrevolutiontech-maker',
     year: '2025',
@@ -182,7 +182,7 @@ const projectsData: ProjectDetail[] = [
       { v: 'Mobile', l: 'First UX' },
       { v: 'Live', l: 'Production Active' },
     ],
-    accentColor: '#ec4899',
+    accentColor: '#748CAB',
     link: 'https://saba-jojo-saloon.vercel.app',
     github: 'https://github.com/MuhammadAhsankhan786',
     year: '2024',
@@ -208,7 +208,7 @@ const projectsData: ProjectDetail[] = [
       { v: '0% Data Loss', l: 'Local Sync' },
       { v: 'Live', l: 'Production Active' },
     ],
-    accentColor: '#38bdf8',
+    accentColor: '#748CAB',
     link: 'https://satellite-offline-platform.vercel.app',
     github: 'https://github.com/MuhammadAhsankhan786',
     year: '2024',
@@ -234,7 +234,7 @@ const projectsData: ProjectDetail[] = [
       { v: '100%', l: 'Responsive' },
       { v: 'Live', l: 'Production Active' },
     ],
-    accentColor: '#f59e0b',
+    accentColor: '#748CAB',
     link: 'https://full-ecom-front-end.vercel.app/home',
     github: 'https://github.com/MuhammadAhsankhan786',
     year: '2024',
@@ -260,7 +260,7 @@ const projectsData: ProjectDetail[] = [
       { v: 'Instant', l: 'Live Feeds' },
       { v: 'Live', l: 'Production Active' },
     ],
-    accentColor: '#ffca28',
+    accentColor: '#748CAB',
     link: 'https://social-firebase-app.vercel.app',
     github: 'https://github.com/MuhammadAhsankhan786',
     year: '2024',
@@ -286,7 +286,7 @@ const projectsData: ProjectDetail[] = [
       { v: 'Live', l: 'Registration Hub' },
       { v: 'Live', l: 'Production Active' },
     ],
-    accentColor: '#7c6ff7',
+    accentColor: '#748CAB',
     link: 'https://event-management-system-ten-ashy.vercel.app',
     github: 'https://github.com/MuhammadAhsankhan786',
     year: '2024',
@@ -335,9 +335,9 @@ function BrowserMockup({
           transformStyle: 'preserve-3d',
           borderRadius: 12,
           overflow: 'hidden',
-          boxShadow: `0 30px 80px rgba(0,0,0,0.8), 0 0 50px ${project.accentColor}25`,
-          border: '1px solid rgba(255,255,255,0.08)',
-          background: 'linear-gradient(135deg, #090914 0%, #121124 100%)',
+          boxShadow: '0 20px 50px rgba(0,0,0,0.5)',
+          border: '1px solid rgba(116,140,171,0.2)',
+          background: '#1D2D44',
           width: '100%',
           aspectRatio: '16/10',
           position: 'relative',
@@ -347,8 +347,8 @@ function BrowserMockup({
         <div
           style={{
             height: 36,
-            background: 'rgba(255,255,255,0.03)',
-            borderBottom: '1px solid rgba(255,255,255,0.05)',
+            background: '#0D1321',
+            borderBottom: '1px solid rgba(116,140,171,0.15)',
             display: 'flex',
             alignItems: 'center',
             padding: '0 14px',
@@ -363,7 +363,7 @@ function BrowserMockup({
               flex: 1,
               margin: '0 12px',
               height: 20,
-              background: 'rgba(255,255,255,0.04)',
+              background: 'rgba(116,140,171,0.08)',
               borderRadius: 4,
               display: 'flex',
               alignItems: 'center',
@@ -371,8 +371,8 @@ function BrowserMockup({
               gap: 6,
             }}
           >
-            <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#4ade80', opacity: 0.8 }} />
-            <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'rgba(255,255,255,0.35)' }}>
+            <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#748CAB', opacity: 0.9 }} />
+            <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'rgba(240,235,216,0.5)' }}>
               {project.link.replace('https://', '')}
             </span>
           </div>
@@ -381,23 +381,23 @@ function BrowserMockup({
         {/* Inner Content Display */}
         <div style={{ padding: 20, height: 'calc(100% - 36px)', display: 'flex', flexDirection: 'column', gap: 12 }}>
           <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
-            <div style={{ width: 8, height: 8, borderRadius: '50%', background: project.accentColor }} />
-            <span style={{ fontFamily: 'var(--font-display)', fontSize: 16, fontWeight: 700, color: '#fff' }}>
+            <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#748CAB' }} />
+            <span style={{ fontFamily: 'var(--font-display)', fontSize: 16, fontWeight: 700, color: '#F0EBD8' }}>
               {project.name}
             </span>
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8 }}>
             {project.metrics.map((m, i) => (
-              <div key={i} style={{ background: 'rgba(255,255,255,0.03)', padding: 8, borderRadius: 6, border: `1px solid ${project.accentColor}30` }}>
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: 12, fontWeight: 700, color: project.accentColor }}>{m.v}</div>
-                <div style={{ fontSize: 9, color: 'rgba(255,255,255,0.3)', fontFamily: 'var(--font-mono)' }}>{m.l}</div>
+              <div key={i} style={{ background: '#0D1321', padding: 8, borderRadius: 6, border: '1px solid rgba(116,140,171,0.15)' }}>
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: 12, fontWeight: 700, color: '#748CAB' }}>{m.v}</div>
+                <div style={{ fontSize: 9, color: 'rgba(240,235,216,0.6)', fontFamily: 'var(--font-mono)' }}>{m.l}</div>
               </div>
             ))}
           </div>
 
-          <div style={{ flex: 1, background: 'rgba(255,255,255,0.02)', borderRadius: 6, padding: 12, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: 8 }}>
-            <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: '#a78bfa' }}>
+          <div style={{ flex: 1, background: '#0D1321', borderRadius: 6, padding: 12, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: 8, border: '1px solid rgba(116,140,171,0.12)' }}>
+            <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: '#748CAB', fontWeight: 600 }}>
               Click to Explore Case Study →
             </span>
           </div>
@@ -425,7 +425,7 @@ function ProjectPanel({
       initial={{ opacity: 0, y: 60 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-      className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center pb-16 mb-16 border-b border-[rgba(21,21,42,1)]"
+      className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center pb-16 mb-16 border-b border-[rgba(116,140,171,0.12)]"
     >
       {/* Text side */}
       <div>
@@ -435,8 +435,9 @@ function ProjectPanel({
             fontSize: 11,
             letterSpacing: '0.2em',
             textTransform: 'uppercase',
-            color: project.accentColor,
+            color: '#748CAB',
             marginBottom: 16,
+            fontWeight: 600,
           }}
         >
           {project.category} • {project.year}
@@ -449,7 +450,7 @@ function ProjectPanel({
             fontWeight: 800,
             letterSpacing: '-0.02em',
             lineHeight: 1.05,
-            color: 'var(--color-foreground)',
+            color: '#F0EBD8',
             marginBottom: 12,
           }}
         >
@@ -460,7 +461,7 @@ function ProjectPanel({
           style={{
             fontFamily: 'var(--font-body)',
             fontSize: 14,
-            color: 'rgba(220,220,238,0.5)',
+            color: '#748CAB',
             fontStyle: 'italic',
             marginBottom: 20,
           }}
@@ -473,7 +474,7 @@ function ProjectPanel({
             fontFamily: 'var(--font-body)',
             fontSize: 14,
             lineHeight: 1.7,
-            color: 'rgba(220,220,238,0.6)',
+            color: 'rgba(240,235,216,0.75)',
             marginBottom: 28,
             maxWidth: 440,
           }}
@@ -492,9 +493,9 @@ function ProjectPanel({
                 letterSpacing: '0.08em',
                 textTransform: 'uppercase',
                 padding: '4px 10px',
-                background: `${project.accentColor}12`,
-                border: `1px solid ${project.accentColor}30`,
-                color: project.accentColor,
+                background: '#1D2D44',
+                border: '1px solid rgba(116,140,171,0.2)',
+                color: '#F0EBD8',
                 borderRadius: 4,
               }}
             >
@@ -503,7 +504,7 @@ function ProjectPanel({
           ))}
         </div>
 
-        {/* Buttons */}
+        {/* Buttons - Solid Colors No Gradients */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 16, flexWrap: 'wrap' }}>
           <button
             onClick={() => onOpenModal(project)}
@@ -512,9 +513,9 @@ function ProjectPanel({
               display: 'inline-flex',
               alignItems: 'center',
               gap: 8,
-              padding: '10px 20px',
-              background: `linear-gradient(135deg, ${project.accentColor}, #a78bfa)`,
-              color: '#fff',
+              padding: '10px 22px',
+              background: '#748CAB',
+              color: '#0D1321',
               fontFamily: 'var(--font-mono)',
               fontSize: 11,
               letterSpacing: '0.1em',
@@ -522,7 +523,7 @@ function ProjectPanel({
               borderRadius: 6,
               border: 'none',
               cursor: 'pointer',
-              fontWeight: 600,
+              fontWeight: 700,
             }}
           >
             Explore Case Study
@@ -537,14 +538,16 @@ function ProjectPanel({
               display: 'inline-flex',
               alignItems: 'center',
               gap: 6,
+              padding: '10px 18px',
+              background: '#1D2D44',
+              border: '1px solid rgba(116,140,171,0.25)',
+              color: '#F0EBD8',
               fontFamily: 'var(--font-mono)',
               fontSize: 11,
               letterSpacing: '0.1em',
               textTransform: 'uppercase',
-              color: 'rgba(220,220,238,0.7)',
               textDecoration: 'none',
-              borderBottom: '1px solid rgba(124,111,247,0.3)',
-              paddingBottom: 2,
+              borderRadius: 6,
             }}
           >
             Live Demo ↗
@@ -575,7 +578,7 @@ export default function Projects({
   return (
     <section
       id="projects"
-      className="relative px-6 md:px-20 py-20 md:py-36 bg-[var(--color-background)] overflow-hidden"
+      className="relative px-6 md:px-20 py-20 md:py-36 bg-[#0D1321] overflow-hidden"
     >
       {/* Section label */}
       <motion.div
@@ -596,15 +599,15 @@ export default function Projects({
             fontSize: 11,
             letterSpacing: '0.25em',
             textTransform: 'uppercase',
-            color: 'rgba(90,90,130,0.6)',
+            color: '#748CAB',
           }}
         >
-          05 — Selected Enterprise Work
+          06 — Selected Enterprise Work
         </span>
-        <div style={{ flex: 1, height: 1, background: 'rgba(21,21,42,1)' }} />
+        <div style={{ flex: 1, height: 1, background: 'rgba(116,140,171,0.12)' }} />
       </motion.div>
 
-      {/* Category Filter Pills */}
+      {/* Category Filter Pills - Solid Colors No Gradients */}
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, marginBottom: 80 }}>
         {categories.map((cat) => (
           <button
@@ -612,9 +615,9 @@ export default function Projects({
             onClick={() => setActiveCategory(cat)}
             data-cursor-hover
             style={{
-              background: activeCategory === cat ? 'linear-gradient(135deg, #7c6ff7, #a78bfa)' : 'rgba(255,255,255,0.03)',
-              border: activeCategory === cat ? 'none' : '1px solid rgba(124,111,247,0.2)',
-              color: activeCategory === cat ? '#fff' : 'rgba(220,220,238,0.6)',
+              background: activeCategory === cat ? '#748CAB' : '#1D2D44',
+              border: activeCategory === cat ? 'none' : '1px solid rgba(116,140,171,0.15)',
+              color: activeCategory === cat ? '#0D1321' : '#F0EBD8',
               padding: '8px 18px',
               borderRadius: 6,
               fontFamily: 'var(--font-mono)',
@@ -622,7 +625,7 @@ export default function Projects({
               letterSpacing: '0.08em',
               textTransform: 'uppercase',
               cursor: 'pointer',
-              fontWeight: activeCategory === cat ? 600 : 400,
+              fontWeight: activeCategory === cat ? 700 : 400,
               transition: 'all 0.3s ease',
             }}
           >

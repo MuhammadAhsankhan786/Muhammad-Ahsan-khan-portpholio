@@ -35,10 +35,10 @@ export default function Cursor() {
         ringPos.current.y += (pos.current.y - ringPos.current.y) * 0.1
         ring.style.transform = `translate(${ringPos.current.x}px, ${ringPos.current.y}px) scale(${hovering.current ? 1.8 : 1})`
         ring.style.borderColor = hovering.current
-          ? 'rgba(167, 139, 250, 0.9)'
-          : 'rgba(124, 111, 247, 0.5)'
+          ? '#748CAB'
+          : 'rgba(116, 140, 171, 0.4)'
         ring.style.backgroundColor = hovering.current
-          ? 'rgba(124, 111, 247, 0.08)'
+          ? 'rgba(116, 140, 171, 0.08)'
           : 'transparent'
       }
       raf = requestAnimationFrame(animate)
@@ -63,10 +63,10 @@ export default function Cursor() {
           left: 0,
           width: 6,
           height: 6,
-          background: '#a78bfa',
+          background: '#F0EBD8',
           borderRadius: '50%',
           pointerEvents: 'none',
-          zIndex: 99999,
+          zIndex: 1000000,
           transform: 'translate(-50%, -50%)',
           transition: 'background 0.15s ease',
           marginLeft: -3,
@@ -82,10 +82,10 @@ export default function Cursor() {
           left: 0,
           width: 36,
           height: 36,
-          border: '1px solid rgba(124, 111, 247, 0.5)',
+          border: '1px solid rgba(116, 140, 171, 0.4)',
           borderRadius: '50%',
           pointerEvents: 'none',
-          zIndex: 99998,
+          zIndex: 999999,
           marginLeft: -18,
           marginTop: -18,
           transition: 'border-color 0.2s ease, background-color 0.2s ease, scale 0.2s ease',

@@ -7,7 +7,6 @@ const experiences = [
     role: 'Founder & Full Stack Developer',
     period: 'June 2025 — Present',
     location: 'Pakistan (Remote / Global)',
-    color: '#7c6ff7',
     highlights: [
       'Founded and actively leading Next Revolution Tech, a growing software startup delivering enterprise software, AI automation, and custom digital products.',
       'Designed, developed, and deployed 10+ production web applications across ERP, Healthcare, Education, Retail, Event Management, and eCommerce.',
@@ -23,7 +22,6 @@ const experiences = [
     role: 'Full Stack Developer',
     period: 'January 2024 — May 2025',
     location: 'Pakistan',
-    color: '#38bdf8',
     highlights: [
       'Developed responsive web applications using React.js, Next.js, and modern TypeScript.',
       'Built reusable UI component libraries and scalable frontend architecture.',
@@ -50,7 +48,7 @@ function ExperienceItem({
       initial={{ opacity: 0, y: 50 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.9, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
-      className="grid grid-cols-1 md:grid-cols-[240px_1fr] gap-6 md:gap-16 pb-12 mb-12 border-b border-[rgba(21,21,42,1)]"
+      className="grid grid-cols-1 md:grid-cols-[240px_1fr] gap-6 md:gap-16 pb-12 mb-12 border-b border-[rgba(116,140,171,0.12)]"
     >
       {/* Left column */}
       <div>
@@ -59,7 +57,7 @@ function ExperienceItem({
             fontFamily: 'var(--font-display)',
             fontSize: 26,
             fontWeight: 700,
-            color: exp.color,
+            color: '#748CAB',
             marginBottom: 8,
             lineHeight: 1.1,
           }}
@@ -70,7 +68,7 @@ function ExperienceItem({
           style={{
             fontFamily: 'var(--font-mono)',
             fontSize: 11,
-            color: 'rgba(90,90,130,0.8)',
+            color: 'rgba(240,235,216,0.6)',
             letterSpacing: '0.08em',
             marginBottom: 4,
           }}
@@ -81,7 +79,7 @@ function ExperienceItem({
           style={{
             fontFamily: 'var(--font-mono)',
             fontSize: 10,
-            color: 'rgba(90,90,130,0.5)',
+            color: 'rgba(240,235,216,0.4)',
             letterSpacing: '0.08em',
           }}
         >
@@ -95,8 +93,8 @@ function ExperienceItem({
             width: 8,
             height: 8,
             borderRadius: '50%',
-            background: exp.color,
-            boxShadow: `0 0 12px ${exp.color}60`,
+            background: '#748CAB',
+            boxShadow: '0 0 10px rgba(116,140,171,0.5)',
           }}
         />
       </div>
@@ -108,7 +106,7 @@ function ExperienceItem({
             fontFamily: 'var(--font-body)',
             fontSize: 16,
             fontWeight: 600,
-            color: '#fff',
+            color: '#F0EBD8',
             marginBottom: 20,
             letterSpacing: '0.01em',
           }}
@@ -127,7 +125,7 @@ function ExperienceItem({
                 fontFamily: 'var(--font-body)',
                 fontSize: 14,
                 lineHeight: 1.65,
-                color: 'rgba(220,220,238,0.6)',
+                color: 'rgba(240,235,216,0.75)',
               }}
             >
               <span
@@ -136,7 +134,7 @@ function ExperienceItem({
                   width: 5,
                   height: 5,
                   borderRadius: '50%',
-                  background: 'rgba(124,111,247,0.7)',
+                  background: '#748CAB',
                   marginTop: 8,
                 }}
               />
@@ -155,8 +153,9 @@ function ExperienceItem({
                 fontSize: 10,
                 letterSpacing: '0.1em',
                 padding: '4px 10px',
-                border: '1px solid rgba(124,111,247,0.2)',
-                color: 'rgba(167,139,250,0.8)',
+                background: '#0D1321',
+                border: '1px solid rgba(116,140,171,0.2)',
+                color: '#F0EBD8',
                 textTransform: 'uppercase',
                 borderRadius: 4,
               }}
@@ -178,7 +177,7 @@ export default function Experience() {
     <section
       id="experience"
       ref={ref}
-      className="relative px-6 md:px-20 py-20 md:py-36 bg-[var(--color-surface)] overflow-hidden"
+      className="relative px-6 md:px-20 py-20 md:py-36 bg-[#1D2D44] overflow-hidden"
     >
       {/* Background radial ambient glow */}
       <div
@@ -189,7 +188,7 @@ export default function Experience() {
           width: 600,
           height: 600,
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(167,139,250,0.05) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(116,140,171,0.05) 0%, transparent 70%)',
           pointerEvents: 'none',
         }}
       />
@@ -207,12 +206,12 @@ export default function Experience() {
             fontSize: 11,
             letterSpacing: '0.25em',
             textTransform: 'uppercase',
-            color: 'rgba(90,90,130,0.6)',
+            color: '#748CAB',
           }}
         >
-          04 — Professional Experience
+          05 — Professional Work Experience
         </span>
-        <div style={{ flex: 1, height: 1, background: 'rgba(21,21,42,1)' }} />
+        <div style={{ flex: 1, height: 1, background: 'rgba(116,140,171,0.12)' }} />
       </motion.div>
 
       {/* Main Headline */}
@@ -227,13 +226,13 @@ export default function Experience() {
             fontWeight: 700,
             letterSpacing: '-0.02em',
             lineHeight: 1.1,
-            color: 'var(--color-foreground)',
+            color: '#F0EBD8',
             margin: '0 0 20px',
           }}
         >
           Engineering Leadership
           <br />
-          <em style={{ fontStyle: 'italic', color: '#a78bfa' }}>
+          <em style={{ fontStyle: 'italic', color: '#748CAB' }}>
             & Career Track.
           </em>
         </motion.h2>

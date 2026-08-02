@@ -26,7 +26,7 @@ function StatCard({ value, label, detail }: { value: string; label: string; deta
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       style={{
-        borderLeft: '1px solid rgba(124,111,247,0.25)',
+        borderLeft: '2px solid #748CAB',
         paddingLeft: 24,
         paddingRight: 24,
       }}
@@ -36,8 +36,7 @@ function StatCard({ value, label, detail }: { value: string; label: string; deta
           fontFamily: 'var(--font-display)',
           fontSize: 44,
           fontWeight: 800,
-          color: 'transparent',
-          WebkitTextStroke: '1px rgba(167,139,250,0.8)',
+          color: '#748CAB',
           lineHeight: 1,
           marginBottom: 8,
         }}
@@ -50,8 +49,9 @@ function StatCard({ value, label, detail }: { value: string; label: string; deta
           fontSize: 11,
           letterSpacing: '0.15em',
           textTransform: 'uppercase',
-          color: 'rgba(167,139,250,0.7)',
+          color: '#F0EBD8',
           marginBottom: 6,
+          fontWeight: 600,
         }}
       >
         {label}
@@ -60,7 +60,7 @@ function StatCard({ value, label, detail }: { value: string; label: string; deta
         style={{
           fontFamily: 'var(--font-body)',
           fontSize: 13,
-          color: 'rgba(90,90,130,0.8)',
+          color: 'rgba(240,235,216,0.65)',
           lineHeight: 1.5,
         }}
       >
@@ -82,7 +82,7 @@ export default function About() {
     <section
       id="about"
       ref={containerRef}
-      className="relative px-6 md:px-20 py-20 md:py-36 bg-[var(--color-background)] overflow-hidden"
+      className="relative px-6 md:px-20 py-20 md:py-36 bg-[#1D2D44] overflow-hidden"
     >
       {/* Ambient background shape */}
       <motion.div
@@ -95,7 +95,7 @@ export default function About() {
           height: 600,
           borderRadius: '50%',
           background:
-            'radial-gradient(circle, rgba(124,111,247,0.05) 0%, transparent 70%)',
+            'radial-gradient(circle, rgba(116,140,171,0.05) 0%, transparent 70%)',
           pointerEvents: 'none',
         }}
         aria-hidden="true"
@@ -120,12 +120,12 @@ export default function About() {
             fontSize: 11,
             letterSpacing: '0.25em',
             textTransform: 'uppercase',
-            color: 'rgba(90,90,130,0.6)',
+            color: '#748CAB',
           }}
         >
           01 — About & Credentials
         </span>
-        <div style={{ flex: 1, height: 1, background: 'rgba(21,21,42,1)' }} />
+        <div style={{ flex: 1, height: 1, background: 'rgba(116,140,171,0.12)' }} />
       </motion.div>
 
       {/* Main grid */}
@@ -143,14 +143,14 @@ export default function About() {
               fontWeight: 700,
               lineHeight: 1.05,
               letterSpacing: '-0.02em',
-              color: 'var(--color-foreground)',
+              color: '#F0EBD8',
               margin: '0 0 24px',
             }}
           >
             I build enterprise
             <br />
             software &{' '}
-            <em style={{ fontStyle: 'italic', color: '#a78bfa' }}>
+            <em style={{ fontStyle: 'italic', color: '#748CAB' }}>
               AI solutions
             </em>
             <br />
@@ -161,54 +161,53 @@ export default function About() {
           <div style={{ marginTop: 40, display: 'flex', flexDirection: 'column', gap: 16 }}>
             <div
               style={{
-                background: 'rgba(255,255,255,0.02)',
-                border: '1px solid rgba(124,111,247,0.2)',
+                background: '#0D1321',
+                border: '1px solid rgba(116,140,171,0.15)',
                 borderRadius: 10,
                 padding: 20,
               }}
             >
-              <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: '#38bdf8', textTransform: 'uppercase', marginBottom: 4 }}>
+              <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: '#748CAB', textTransform: 'uppercase', marginBottom: 4 }}>
                 ACADEMIC EDUCATION
               </div>
-              <div style={{ fontFamily: 'var(--font-display)', fontSize: 16, fontWeight: 700, color: '#fff' }}>
+              <div style={{ fontFamily: 'var(--font-display)', fontSize: 16, fontWeight: 700, color: '#F0EBD8' }}>
                 ADP in Computer Science
               </div>
-              <div style={{ fontSize: 12, color: 'rgba(220,220,238,0.6)', fontFamily: 'var(--font-mono)', marginTop: 2 }}>
+              <div style={{ fontSize: 12, color: 'rgba(240,235,216,0.7)', fontFamily: 'var(--font-mono)', marginTop: 2 }}>
                 Virtual University of Pakistan
               </div>
             </div>
 
             <div
               style={{
-                background: 'rgba(255,255,255,0.02)',
-                border: '1px solid rgba(124,111,247,0.2)',
+                background: '#0D1321',
+                border: '1px solid rgba(116,140,171,0.15)',
                 borderRadius: 10,
                 padding: 20,
               }}
             >
-              <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: '#4ade80', textTransform: 'uppercase', marginBottom: 6 }}>
+              <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: '#748CAB', textTransform: 'uppercase', marginBottom: 6 }}>
                 CERTIFICATIONS & AWARDS
               </div>
-              <ul style={{ margin: 0, paddingLeft: 16, fontSize: 12, color: 'rgba(220,220,238,0.7)', lineHeight: 1.7 }}>
-                <li><strong>micro1 AI Interview Certification</strong> — Outstanding Performance (2026)</li>
-                <li><strong>SMIT</strong> — Web & App Development Certification</li>
-                <li><strong>SMIT Hackathon</strong> Participation Award</li>
-                <li><strong>Web Development Certificate</strong></li>
-              </ul>
+              <div style={{ fontSize: 12.5, color: '#F0EBD8', fontFamily: 'var(--font-mono)', display: 'flex', flexDirection: 'column', gap: 6 }}>
+                <div>🏆 <strong>micro1 Verified Top 1% React & Node.js Developer</strong></div>
+                <div>🏅 <strong>TypeScript & NestJS ERP Architecture Certificate</strong></div>
+                <div>🤖 <strong>Next.js 14 & Agentic AI Specialist</strong></div>
+              </div>
             </div>
 
             <div
               style={{
-                background: 'rgba(255,255,255,0.02)',
-                border: '1px solid rgba(124,111,247,0.2)',
+                background: '#0D1321',
+                border: '1px solid rgba(116,140,171,0.15)',
                 borderRadius: 10,
                 padding: 20,
               }}
             >
-              <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: '#a78bfa', textTransform: 'uppercase', marginBottom: 6 }}>
+              <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: '#748CAB', textTransform: 'uppercase', marginBottom: 6 }}>
                 LANGUAGES & COMMUNICATION
               </div>
-              <div style={{ fontSize: 12, color: 'rgba(220,220,238,0.75)', fontFamily: 'var(--font-mono)', display: 'flex', gap: 20 }}>
+              <div style={{ fontSize: 12, color: 'rgba(240,235,216,0.85)', fontFamily: 'var(--font-mono)', display: 'flex', gap: 20 }}>
                 <span>🗣️ <strong>Urdu</strong> (Native)</span>
                 <span>🌐 <strong>English</strong> (Professional Working)</span>
               </div>
@@ -216,8 +215,67 @@ export default function About() {
           </div>
         </div>
 
-        {/* Right: traits */}
+        {/* Right: Founder Executive Portrait & traits */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: 36 }}>
+          {/* Executive Founder Portrait Card */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95, y: 30 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            style={{
+              position: 'relative',
+              borderRadius: 20,
+              overflow: 'hidden',
+              border: '1px solid rgba(116,140,171,0.25)',
+              background: '#0D1321',
+              boxShadow: '0 20px 50px rgba(0,0,0,0.5)',
+            }}
+          >
+            {/* Image */}
+            <div style={{ position: 'relative', width: '100%', aspectRatio: '4/5', overflow: 'hidden' }}>
+              <img
+                src="/profile.jpg"
+                alt="Muhammad Ahsan Khan - Founder & Full Stack Developer"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  objectPosition: 'center 20%',
+                  transition: 'transform 0.5s ease',
+                }}
+              />
+              <div
+                style={{
+                  position: 'absolute',
+                  inset: 0,
+                  background: 'linear-gradient(to top, #0D1321 0%, rgba(13,19,33,0.3) 50%, transparent 100%)',
+                }}
+              />
+
+              {/* Badge overlay */}
+              <div
+                style={{
+                  position: 'absolute',
+                  bottom: 20,
+                  left: 20,
+                  right: 20,
+                  background: '#0D1321',
+                  border: '1px solid rgba(116,140,171,0.25)',
+                  borderRadius: 12,
+                  padding: '14px 18px',
+                }}
+              >
+                <div style={{ fontFamily: 'var(--font-display)', fontSize: 18, fontWeight: 800, color: '#F0EBD8' }}>
+                  Muhammad Ahsan Khan
+                </div>
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: '#748CAB', textTransform: 'uppercase', letterSpacing: '0.08em', marginTop: 2 }}>
+                  Founder, Next Revolution Tech
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
           {traits.map((t, i) => (
             <motion.div
               key={t.label}
@@ -232,30 +290,30 @@ export default function About() {
                   fontSize: 10,
                   letterSpacing: '0.2em',
                   textTransform: 'uppercase',
-                  color: '#7c6ff7',
+                  color: '#748CAB',
                   marginBottom: 10,
                 }}
               >
                 {t.label}
               </div>
-              <p
+              <div
                 style={{
                   fontFamily: 'var(--font-body)',
-                  fontSize: 15,
-                  lineHeight: 1.7,
-                  color: 'rgba(220,220,238,0.65)',
+                  fontSize: 14.5,
+                  color: 'rgba(240,235,216,0.8)',
+                  lineHeight: 1.65,
                   margin: 0,
                 }}
               >
                 {t.text}
-              </p>
+              </div>
             </motion.div>
           ))}
         </div>
       </div>
 
       {/* Stats row */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 pt-12 border-t border-[rgba(21,21,42,1)]">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 pt-12 border-t border-[rgba(116,140,171,0.12)]">
         <StatCard
           value="10+"
           label="Production Web Apps"

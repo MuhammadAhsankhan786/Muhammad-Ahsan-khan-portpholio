@@ -1,0 +1,17 @@
+{
+  "name": "Muhammad Ahsan Khan — Senior Full Stack Software Engineer",
+  "short_name": "Ahsan Khan",
+  "icons": [
+    {
+      "src": "/profile.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ],
+  "theme_color": "#0D1321",
+  "background_color": "#0D1321",
+  "display": "standalone",
+  "orientation": "portrait",
+  "start_url": "/",
+  "description": "Portfolio of Muhammad Ahsan Khan — Founder & Full Stack Engineer specializing in Enterprise ERP & Agentic AI."
+}

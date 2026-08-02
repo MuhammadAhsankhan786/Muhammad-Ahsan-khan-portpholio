@@ -1,3 +1,6 @@
+# Allow all Search Engines & AI Crawlers (Googlebot, Bingbot, ChatGPT, Perplexity)
 User-agent: *
 Allow: /
+
+# Sitemap Location
 Sitemap: https://www.nextrevolutiontech.tech/sitemap.xml

@@ -53,8 +53,8 @@ export default function ProjectModal({
           transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
           onClick={(e) => e.stopPropagation()}
           style={{
-            background: '#0a0a14',
-            border: `1px solid ${project.accentColor}40`,
+            background: '#1D2D44',
+            border: '1px solid rgba(116,140,171,0.25)',
             borderRadius: 20,
             maxWidth: 920,
             width: '100%',
@@ -62,18 +62,18 @@ export default function ProjectModal({
             display: 'flex',
             flexDirection: 'column',
             overflow: 'hidden',
-            boxShadow: `0 40px 100px rgba(0,0,0,0.9), 0 0 60px ${project.accentColor}25`,
+            boxShadow: '0 40px 100px rgba(0,0,0,0.9)',
           }}
         >
           {/* Header Bar */}
           <div
             style={{
               padding: '24px 32px',
-              borderBottom: '1px solid rgba(21,21,42,1)',
+              borderBottom: '1px solid rgba(116,140,171,0.12)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
-              background: 'rgba(255,255,255,0.02)',
+              background: '#0D1321',
             }}
           >
             <div>
@@ -83,7 +83,7 @@ export default function ProjectModal({
                   fontSize: 11,
                   letterSpacing: '0.2em',
                   textTransform: 'uppercase',
-                  color: project.accentColor,
+                  color: '#748CAB',
                   marginBottom: 4,
                 }}
               >
@@ -94,7 +94,7 @@ export default function ProjectModal({
                   fontFamily: 'var(--font-display)',
                   fontSize: 32,
                   fontWeight: 800,
-                  color: '#fff',
+                  color: '#F0EBD8',
                   margin: 0,
                   lineHeight: 1,
                 }}
@@ -107,9 +107,9 @@ export default function ProjectModal({
               onClick={onClose}
               data-cursor-hover
               style={{
-                background: 'rgba(255,255,255,0.05)',
-                border: '1px solid rgba(255,255,255,0.1)',
-                color: '#fff',
+                background: '#1D2D44',
+                border: '1px solid rgba(116,140,171,0.25)',
+                color: '#F0EBD8',
                 width: 36,
                 height: 36,
                 borderRadius: '50%',
@@ -136,9 +136,9 @@ export default function ProjectModal({
             <div
               style={{
                 fontSize: 18,
-                color: 'rgba(220,220,238,0.7)',
+                color: 'rgba(240,235,216,0.75)',
                 fontStyle: 'italic',
-                borderLeft: `3px solid ${project.accentColor}`,
+                borderLeft: '3px solid #748CAB',
                 paddingLeft: 16,
               }}
             >
@@ -151,10 +151,10 @@ export default function ProjectModal({
                 display: 'grid',
                 gridTemplateColumns: 'repeat(3, 1fr)',
                 gap: 16,
-                background: 'rgba(255,255,255,0.02)',
+                background: '#0D1321',
                 padding: 20,
                 borderRadius: 12,
-                border: '1px solid rgba(255,255,255,0.05)',
+                border: '1px solid rgba(116,140,171,0.15)',
               }}
             >
               {project.metrics.map((m, i) => (
@@ -164,7 +164,7 @@ export default function ProjectModal({
                       fontFamily: 'var(--font-display)',
                       fontSize: 28,
                       fontWeight: 800,
-                      color: project.accentColor,
+                      color: '#748CAB',
                     }}
                   >
                     {m.v}
@@ -173,7 +173,7 @@ export default function ProjectModal({
                     style={{
                       fontFamily: 'var(--font-mono)',
                       fontSize: 11,
-                      color: 'rgba(90,90,130,0.8)',
+                      color: 'rgba(240,235,216,0.6)',
                       textTransform: 'uppercase',
                     }}
                   >
@@ -186,44 +186,44 @@ export default function ProjectModal({
             {/* Sections */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
               <div>
-                <h3 style={{ fontFamily: 'var(--font-mono)', fontSize: 12, letterSpacing: '0.15em', textTransform: 'uppercase', color: project.accentColor, marginBottom: 8 }}>
+                <h3 style={{ fontFamily: 'var(--font-mono)', fontSize: 12, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#748CAB', marginBottom: 8 }}>
                   01. Overview
                 </h3>
-                <p style={{ fontFamily: 'var(--font-body)', fontSize: 14, lineHeight: 1.7, color: 'rgba(220,220,238,0.7)', margin: 0 }}>
+                <p style={{ fontFamily: 'var(--font-body)', fontSize: 14, lineHeight: 1.7, color: 'rgba(240,235,216,0.75)', margin: 0 }}>
                   {project.overview}
                 </p>
               </div>
 
               <div>
-                <h3 style={{ fontFamily: 'var(--font-mono)', fontSize: 12, letterSpacing: '0.15em', textTransform: 'uppercase', color: project.accentColor, marginBottom: 8 }}>
+                <h3 style={{ fontFamily: 'var(--font-mono)', fontSize: 12, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#748CAB', marginBottom: 8 }}>
                   02. Industry Problem
                 </h3>
-                <p style={{ fontFamily: 'var(--font-body)', fontSize: 14, lineHeight: 1.7, color: 'rgba(220,220,238,0.7)', margin: 0 }}>
+                <p style={{ fontFamily: 'var(--font-body)', fontSize: 14, lineHeight: 1.7, color: 'rgba(240,235,216,0.75)', margin: 0 }}>
                   {project.problem}
                 </p>
               </div>
 
               <div>
-                <h3 style={{ fontFamily: 'var(--font-mono)', fontSize: 12, letterSpacing: '0.15em', textTransform: 'uppercase', color: project.accentColor, marginBottom: 8 }}>
+                <h3 style={{ fontFamily: 'var(--font-mono)', fontSize: 12, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#748CAB', marginBottom: 8 }}>
                   03. Enterprise Solution
                 </h3>
-                <p style={{ fontFamily: 'var(--font-body)', fontSize: 14, lineHeight: 1.7, color: 'rgba(220,220,238,0.7)', margin: 0 }}>
+                <p style={{ fontFamily: 'var(--font-body)', fontSize: 14, lineHeight: 1.7, color: 'rgba(240,235,216,0.75)', margin: 0 }}>
                   {project.solution}
                 </p>
               </div>
 
               <div>
-                <h3 style={{ fontFamily: 'var(--font-mono)', fontSize: 12, letterSpacing: '0.15em', textTransform: 'uppercase', color: project.accentColor, marginBottom: 8 }}>
+                <h3 style={{ fontFamily: 'var(--font-mono)', fontSize: 12, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#748CAB', marginBottom: 8 }}>
                   04. System Architecture
                 </h3>
-                <p style={{ fontFamily: 'var(--font-body)', fontSize: 14, lineHeight: 1.7, color: 'rgba(220,220,238,0.7)', margin: 0 }}>
+                <p style={{ fontFamily: 'var(--font-body)', fontSize: 14, lineHeight: 1.7, color: 'rgba(240,235,216,0.75)', margin: 0 }}>
                   {project.architecture}
                 </p>
               </div>
 
               {/* Tech Stack */}
               <div>
-                <h3 style={{ fontFamily: 'var(--font-mono)', fontSize: 12, letterSpacing: '0.15em', textTransform: 'uppercase', color: project.accentColor, marginBottom: 12 }}>
+                <h3 style={{ fontFamily: 'var(--font-mono)', fontSize: 12, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#748CAB', marginBottom: 12 }}>
                   Tech Stack & Tooling
                 </h3>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
@@ -235,9 +235,9 @@ export default function ProjectModal({
                         fontSize: 11,
                         letterSpacing: '0.08em',
                         padding: '6px 14px',
-                        background: `${project.accentColor}15`,
-                        border: `1px solid ${project.accentColor}35`,
-                        color: project.accentColor,
+                        background: '#0D1321',
+                        border: '1px solid rgba(116,140,171,0.2)',
+                        color: '#F0EBD8',
                         borderRadius: 4,
                       }}
                     >
@@ -255,7 +255,7 @@ export default function ProjectModal({
                 alignItems: 'center',
                 gap: 16,
                 paddingTop: 16,
-                borderTop: '1px solid rgba(21,21,42,1)',
+                borderTop: '1px solid rgba(116,140,171,0.12)',
               }}
             >
               {project.link && (
@@ -269,15 +269,15 @@ export default function ProjectModal({
                     alignItems: 'center',
                     gap: 10,
                     padding: '14px 28px',
-                    background: `linear-gradient(135deg, ${project.accentColor}, #a78bfa)`,
-                    color: '#fff',
+                    background: '#748CAB',
+                    color: '#0D1321',
                     fontFamily: 'var(--font-mono)',
                     fontSize: 12,
                     letterSpacing: '0.1em',
                     textTransform: 'uppercase',
                     textDecoration: 'none',
                     borderRadius: 6,
-                    fontWeight: 600,
+                    fontWeight: 700,
                   }}
                 >
                   Launch Live Demo
@@ -298,8 +298,9 @@ export default function ProjectModal({
                     alignItems: 'center',
                     gap: 10,
                     padding: '14px 28px',
-                    border: '1px solid rgba(124,111,247,0.3)',
-                    color: 'rgba(220,220,238,0.7)',
+                    background: '#0D1321',
+                    border: '1px solid rgba(116,140,171,0.25)',
+                    color: '#F0EBD8',
                     fontFamily: 'var(--font-mono)',
                     fontSize: 12,
                     letterSpacing: '0.1em',

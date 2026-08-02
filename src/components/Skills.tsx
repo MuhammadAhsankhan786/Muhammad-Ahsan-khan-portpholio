@@ -236,7 +236,7 @@ export default function Skills() {
     <section
       id="skills"
       ref={sectionRef}
-      className="relative px-6 md:px-20 py-20 md:py-36 bg-[var(--color-surface)] overflow-hidden"
+      className="relative px-6 md:px-20 py-20 md:py-36 bg-[#1D2D44] overflow-hidden"
     >
       {/* Background ambient glow */}
       <div
@@ -248,7 +248,7 @@ export default function Skills() {
           width: 700,
           height: 700,
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(124,111,247,0.06) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(116,140,171,0.05) 0%, transparent 70%)',
           pointerEvents: 'none',
         }}
       />
@@ -266,12 +266,12 @@ export default function Skills() {
             fontSize: 11,
             letterSpacing: '0.25em',
             textTransform: 'uppercase',
-            color: 'rgba(90,90,130,0.6)',
+            color: '#748CAB',
           }}
         >
-          06 — Orbital Skill Architecture
+          07 — Orbital Skill Architecture
         </span>
-        <div style={{ flex: 1, height: 1, background: 'rgba(21,21,42,1)' }} />
+        <div style={{ flex: 1, height: 1, background: 'rgba(116,140,171,0.12)' }} />
       </motion.div>
 
       {/* Main Grid Layout */}
@@ -288,13 +288,13 @@ export default function Skills() {
               fontWeight: 700,
               letterSpacing: '-0.02em',
               lineHeight: 1.1,
-              color: 'var(--color-foreground)',
+              color: '#F0EBD8',
               margin: '0 0 20px',
             }}
           >
             Engineering Capabilities
             <br />
-            <em style={{ fontStyle: 'italic', color: '#a78bfa' }}>
+            <em style={{ fontStyle: 'italic', color: '#748CAB' }}>
               & Tech Stack.
             </em>
           </motion.h2>
@@ -303,7 +303,7 @@ export default function Skills() {
               fontFamily: 'var(--font-body)',
               fontSize: 15,
               lineHeight: 1.7,
-              color: 'rgba(220,220,238,0.6)',
+              color: 'rgba(240,235,216,0.7)',
               margin: '0 0 32px',
               maxWidth: 480,
             }}
@@ -314,8 +314,8 @@ export default function Skills() {
           {/* Active Skill Inspector Card */}
           <div
             style={{
-              background: '#070712',
-              border: `1px solid ${hoveredSkill ? hoveredSkill.color : 'rgba(124,111,247,0.3)'}`,
+              background: '#0D1321',
+              border: `1px solid ${hoveredSkill ? hoveredSkill.color : 'rgba(116,140,171,0.25)'}`,
               borderRadius: 14,
               padding: 24,
               minHeight: 140,
@@ -345,15 +345,15 @@ export default function Skills() {
                     {hoveredSkill.level} • {hoveredSkill.projects}
                   </span>
                 </div>
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'rgba(90,90,130,0.8)', textTransform: 'uppercase', marginBottom: 12 }}>
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: '#748CAB', textTransform: 'uppercase', marginBottom: 12 }}>
                   Category: {hoveredSkill.category}
                 </div>
-                <p style={{ fontFamily: 'var(--font-body)', fontSize: 13, color: 'rgba(220,220,238,0.7)', margin: 0, lineHeight: 1.6 }}>
+                <p style={{ fontFamily: 'var(--font-body)', fontSize: 13, color: 'rgba(240,235,216,0.75)', margin: 0, lineHeight: 1.6 }}>
                   {hoveredSkill.desc}
                 </p>
               </div>
             ) : (
-              <div style={{ display: 'flex', alignItems: 'center', gap: 12, height: '100%', color: 'rgba(90,90,130,0.8)', fontFamily: 'var(--font-mono)', fontSize: 12 }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 12, height: '100%', color: '#748CAB', fontFamily: 'var(--font-mono)', fontSize: 12 }}>
                 <span>🎯</span>
                 <span>Tap or hover over any node on the right to inspect technical capability...</span>
               </div>
@@ -380,13 +380,12 @@ export default function Skills() {
                 width: 84,
                 height: 84,
                 borderRadius: '50%',
-                background: 'radial-gradient(circle, rgba(124,111,247,0.4) 0%, rgba(124,111,247,0.05) 70%)',
-                border: '1.5px solid rgba(124,111,247,0.6)',
+                background: 'radial-gradient(circle, rgba(116,140,171,0.2) 0%, rgba(116,140,171,0.02) 70%)',
+                border: '1.5px solid rgba(116,140,171,0.4)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 zIndex: 5,
-                animation: 'pulse-glow 3s ease-in-out infinite',
               }}
             >
               <div
@@ -394,8 +393,8 @@ export default function Skills() {
                   width: 32,
                   height: 32,
                   borderRadius: '50%',
-                  background: '#7c6ff7',
-                  boxShadow: '0 0 20px rgba(124,111,247,0.9)',
+                  background: '#748CAB',
+                  boxShadow: '0 0 20px rgba(116,140,171,0.5)',
                 }}
               />
             </div>
@@ -410,7 +409,7 @@ export default function Skills() {
                 fontFamily: 'var(--font-mono)',
                 fontSize: 10,
                 letterSpacing: '0.12em',
-                color: '#a78bfa',
+                color: '#748CAB',
                 textTransform: 'uppercase',
                 whiteSpace: 'nowrap',
                 zIndex: 5,

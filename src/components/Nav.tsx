@@ -9,6 +9,7 @@ const links = [
   { name: 'Experience', id: 'experience' },
   { name: 'Projects', id: 'projects' },
   { name: 'Skills', id: 'skills' },
+  { name: 'Reviews', id: 'reviews' },
   { name: 'GitHub', id: 'github' },
   { name: 'Contact', id: 'contact' },
 ]
@@ -55,18 +56,18 @@ export default function Nav() {
             inset: 0,
             backdropFilter: 'blur(20px)',
             background:
-              'linear-gradient(to bottom, rgba(4,4,8,0.95) 0%, rgba(4,4,8,0.4) 100%)',
-            borderBottom: '1px solid rgba(21,21,42,0.8)',
+              'linear-gradient(to bottom, rgba(13,19,33,0.95) 0%, rgba(13,19,33,0.5) 100%)',
+            borderBottom: '1px solid rgba(116,140,171,0.12)',
           }}
         />
 
         {/* Logo */}
-        <div className="relative z-10 flex items-center gap-3 pr-4 md:pr-6 md:border-r md:border-[rgba(21,21,42,0.9)]">
+        <div className="relative z-10 flex items-center gap-3 pr-4 md:pr-6 md:border-r md:border-[rgba(116,140,171,0.15)]">
           <div
             style={{
               width: 26,
               height: 26,
-              border: '1px solid rgba(124,111,247,0.6)',
+              border: '1px solid rgba(116,140,171,0.5)',
               display: 'grid',
               placeItems: 'center',
               transform: 'rotate(45deg)',
@@ -76,7 +77,7 @@ export default function Nav() {
               style={{
                 width: 7,
                 height: 7,
-                background: '#7c6ff7',
+                background: '#748CAB',
                 transform: 'rotate(-45deg)',
               }}
             />
@@ -86,7 +87,7 @@ export default function Nav() {
               fontFamily: 'var(--font-mono)',
               fontSize: 13,
               fontWeight: 800,
-              color: '#fff',
+              color: '#F0EBD8',
               letterSpacing: '0.15em',
             }}
           >
@@ -112,8 +113,8 @@ export default function Nav() {
                 whiteSpace: 'nowrap',
                 color:
                   activeSection === link.id
-                    ? '#a78bfa'
-                    : 'rgba(220,220,238,0.5)',
+                    ? '#748CAB'
+                    : 'rgba(240,235,216,0.6)',
                 transition: 'color 0.3s ease',
                 padding: '4px 2px',
                 position: 'relative',
@@ -129,7 +130,7 @@ export default function Nav() {
                     left: 0,
                     right: 0,
                     height: 1,
-                    background: '#a78bfa',
+                    background: '#748CAB',
                   }}
                 />
               )}
@@ -139,11 +140,11 @@ export default function Nav() {
 
         {/* Desktop Status badge */}
         <div
-          className="relative z-10 hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-full border border-[rgba(74,222,128,0.2)] bg-[rgba(74,222,128,0.05)]"
+          className="relative z-10 hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-full border border-[rgba(116,140,171,0.25)] bg-[rgba(29,45,68,0.4)]"
           style={{
             fontFamily: 'var(--font-mono)',
             fontSize: 9,
-            color: '#4ade80',
+            color: '#F0EBD8',
             letterSpacing: '0.08em',
             whiteSpace: 'nowrap',
           }}
@@ -152,11 +153,9 @@ export default function Nav() {
             style={{
               width: 6,
               height: 6,
-              background: '#4ade80',
+              background: '#748CAB',
               borderRadius: '50%',
               display: 'inline-block',
-              animation: 'pulse-glow 2s ease-in-out infinite',
-              boxShadow: '0 0 8px #4ade80',
             }}
           />
           AVAILABLE FOR FULL-TIME • REMOTE
@@ -165,7 +164,7 @@ export default function Nav() {
         {/* Mobile Hamburger Toggle Button */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="relative z-10 flex md:hidden p-2 text-[#a78bfa] focus:outline-none"
+          className="relative z-10 flex md:hidden p-2 text-[#748CAB] focus:outline-none"
           aria-label="Toggle mobile navigation menu"
         >
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -186,21 +185,21 @@ export default function Nav() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-[8999] bg-[#040408]/95 backdrop-blur-xl flex flex-col justify-center px-8 py-20 md:hidden"
+            className="fixed inset-0 z-[8999] bg-[#0D1321]/95 backdrop-blur-xl flex flex-col justify-center px-8 py-20 md:hidden"
           >
             <div className="flex flex-col gap-6">
               {links.map((link) => (
                 <button
                   key={link.id}
                   onClick={() => scrollTo(link.id)}
-                  className="text-left font-mono text-xl uppercase tracking-widest text-white/80 hover:text-[#a78bfa] py-2 border-b border-white/5"
+                  className="text-left font-mono text-xl uppercase tracking-widest text-[#F0EBD8]/80 hover:text-[#748CAB] py-2 border-b border-white/5"
                 >
                   {link.name}
                 </button>
               ))}
 
-              <div className="mt-6 pt-4 flex items-center gap-2 font-mono text-xs text-[#4ade80]">
-                <span className="w-2 h-2 rounded-full bg-[#4ade80] animate-pulse" />
+              <div className="mt-6 pt-4 flex items-center gap-2 font-mono text-xs text-[#F0EBD8]">
+                <span className="w-2 h-2 rounded-full bg-[#748CAB]" />
                 AVAILABLE FOR FULL-TIME • REMOTE
               </div>
             </div>

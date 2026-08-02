@@ -41,8 +41,8 @@ function MagneticCTA({ children, href }: { children: React.ReactNode; href: stri
         alignItems: 'center',
         gap: 14,
         padding: '18px 48px',
-        background: 'linear-gradient(135deg, #7c6ff7, #a78bfa)',
-        color: '#fff',
+        background: '#748CAB',
+        color: '#0D1321',
         fontFamily: 'var(--font-mono)',
         fontSize: 13,
         letterSpacing: '0.12em',
@@ -51,14 +51,14 @@ function MagneticCTA({ children, href }: { children: React.ReactNode; href: stri
         position: 'relative',
         overflow: 'hidden',
         borderRadius: 6,
-        fontWeight: 600,
+        fontWeight: 700,
       }}
-      whileHover={{ scale: 1.03, filter: 'brightness(1.15)' }}
+      whileHover={{ scale: 1.03 }}
       whileTap={{ scale: 0.98 }}
     >
       {children}
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-        <path d="M1 8h14M9 2l6 6-6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
       </svg>
     </motion.a>
   )
@@ -66,23 +66,21 @@ function MagneticCTA({ children, href }: { children: React.ReactNode; href: stri
 
 export default function Contact() {
   const ref = useRef<HTMLElement>(null)
-  const inView = useInView(ref, { once: true, amount: 0.2 })
+  const inView = useInView(ref, { once: true, amount: 0.25 })
   const [copied, setCopied] = useState(false)
-
   const primaryEmail = 'ahsan.khan@nextrevolutiontech.tech'
-  const phone = '+92 344 2013217'
 
-  const copyEmail = async () => {
-    await navigator.clipboard.writeText(primaryEmail)
+  const copyEmail = () => {
+    navigator.clipboard.writeText(primaryEmail)
     setCopied(true)
-    setTimeout(() => setCopied(false), 2000)
+    setTimeout(() => setCopied(false), 2500)
   }
 
   return (
     <section
       id="contact"
       ref={ref}
-      className="relative px-6 md:px-20 py-20 md:py-36 bg-[var(--color-background)] overflow-hidden"
+      className="relative px-6 md:px-20 py-20 md:py-36 bg-[#0D1321] overflow-hidden"
     >
       {/* Background ambient glow */}
       <div
@@ -94,7 +92,7 @@ export default function Contact() {
           width: 700,
           height: 700,
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(124,111,247,0.06) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(116,140,171,0.05) 0%, transparent 70%)',
           pointerEvents: 'none',
         }}
       />
@@ -112,12 +110,12 @@ export default function Contact() {
             fontSize: 11,
             letterSpacing: '0.25em',
             textTransform: 'uppercase',
-            color: '#a78bfa',
+            color: '#748CAB',
           }}
         >
-          07 — Direct Contact & Collaboration
+          10 — Direct Contact & Collaboration
         </span>
-        <div style={{ flex: 1, height: 1, background: 'rgba(21,21,42,1)' }} />
+        <div style={{ flex: 1, height: 1, background: 'rgba(116,140,171,0.12)' }} />
       </motion.div>
       <div style={{ maxWidth: 800, marginBottom: 48 }}>
         <motion.h2
@@ -133,19 +131,19 @@ export default function Contact() {
             margin: '0 0 28px',
           }}
         >
-          <span style={{ color: 'var(--color-foreground)' }}>Let's build</span>
+          <span style={{ color: '#F0EBD8' }}>Let's build</span>
           <br />
           <em
             style={{
               fontStyle: 'italic',
               color: 'transparent',
-              WebkitTextStroke: '1.5px rgba(124,111,247,0.7)',
+              WebkitTextStroke: '1.5px #748CAB',
             }}
           >
             transformative
           </em>
           <br />
-          <span style={{ color: 'var(--color-foreground)' }}>enterprise software.</span>
+          <span style={{ color: '#F0EBD8' }}>enterprise software.</span>
         </motion.h2>
 
         <motion.p
@@ -156,7 +154,7 @@ export default function Contact() {
             fontFamily: 'var(--font-body)',
             fontSize: 16,
             lineHeight: 1.7,
-            color: 'rgba(220,220,238,0.55)',
+            color: 'rgba(240,235,216,0.7)',
             maxWidth: 580,
             marginBottom: 44,
           }}
@@ -176,13 +174,13 @@ export default function Contact() {
             marginBottom: 40,
             fontFamily: 'var(--font-mono)',
             fontSize: 12,
-            color: '#a78bfa',
+            color: '#748CAB',
             flexWrap: 'wrap',
           }}
         >
-          <div>📞 Direct Phone: <strong style={{ color: '#fff' }}>+92 344 2013217</strong></div>
-          <div>📍 Location: <strong style={{ color: '#fff' }}>Pakistan (Remote / Global)</strong></div>
-          <div>✉ Alt Email: <strong style={{ color: '#fff' }}>ahsankh079@gmail.com</strong></div>
+          <div>📞 Direct Phone: <strong style={{ color: '#F0EBD8' }}>+92 344 2013217</strong></div>
+          <div>📍 Location: <strong style={{ color: '#F0EBD8' }}>Pakistan (Remote / Global)</strong></div>
+          <div>✉ Alt Email: <strong style={{ color: '#F0EBD8' }}>ahsankh079@gmail.com</strong></div>
         </motion.div>
 
         {/* Action buttons */}
@@ -199,8 +197,8 @@ export default function Contact() {
             data-cursor-hover
             onClick={copyEmail}
             style={{
-              background: 'none',
-              border: '1px solid rgba(124,111,247,0.25)',
+              background: '#1D2D44',
+              border: '1px solid rgba(116,140,171,0.25)',
               padding: '18px 32px',
               borderRadius: 6,
               display: 'flex',
@@ -209,7 +207,7 @@ export default function Contact() {
               fontFamily: 'var(--font-mono)',
               fontSize: 12,
               letterSpacing: '0.1em',
-              color: copied ? '#4ade80' : 'rgba(220,220,238,0.6)',
+              color: copied ? '#748CAB' : '#F0EBD8',
               cursor: 'pointer',
               transition: 'color 0.3s, border-color 0.3s',
             }}
@@ -217,7 +215,7 @@ export default function Contact() {
             {copied ? (
               <>
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                  <path d="M2 6l3 3 5-5" stroke="#4ade80" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M2 6l3 3 5-5" stroke="#748CAB" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
                 Copied to Clipboard!
               </>
@@ -235,7 +233,7 @@ export default function Contact() {
       </div>
 
       {/* Socials & Footer bar */}
-      <div className="pt-12 mt-12 border-t border-[rgba(21,21,42,1)] flex flex-col md:flex-row items-center justify-between gap-6">
+      <div className="pt-12 mt-12 border-t border-[rgba(116,140,171,0.12)] flex flex-col md:flex-row items-center justify-between gap-6">
         <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap' }}>
           {socials.map((s) => (
             <a
@@ -257,7 +255,7 @@ export default function Contact() {
                   fontSize: 9,
                   letterSpacing: '0.2em',
                   textTransform: 'uppercase',
-                  color: 'rgba(90,90,130,0.6)',
+                  color: '#748CAB',
                 }}
               >
                 {s.label}
@@ -266,7 +264,7 @@ export default function Contact() {
                 style={{
                   fontFamily: 'var(--font-mono)',
                   fontSize: 11,
-                  color: 'rgba(220,220,238,0.5)',
+                  color: 'rgba(240,235,216,0.7)',
                   transition: 'color 0.3s',
                 }}
               >
@@ -280,7 +278,7 @@ export default function Contact() {
           style={{
             fontFamily: 'var(--font-mono)',
             fontSize: 11,
-            color: 'rgba(90,90,130,0.5)',
+            color: 'rgba(240,235,216,0.5)',
             letterSpacing: '0.08em',
           }}
         >
