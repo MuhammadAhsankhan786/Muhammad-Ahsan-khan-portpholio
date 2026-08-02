@@ -1,6 +1,19 @@
-# Allow all Search Engines & AI Crawlers (Googlebot, Bingbot, ChatGPT, Perplexity)
 User-agent: *
 Allow: /
 
-# Sitemap Location
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Mobile
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Mediapartners-Google
+Allow: /
+
+User-agent: AdsBot-Google
+Allow: /
+
 Sitemap: https://ahsan.nextrevolutiontech.tech/sitemap.xml
