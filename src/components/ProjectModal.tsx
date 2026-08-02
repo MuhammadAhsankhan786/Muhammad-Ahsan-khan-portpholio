@@ -34,6 +34,7 @@ export default function ProjectModal({
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         onClick={onClose}
+        onWheel={(e) => e.stopPropagation()}
         style={{
           position: 'fixed',
           inset: 0,
@@ -52,6 +53,7 @@ export default function ProjectModal({
           exit={{ opacity: 0, scale: 0.95, y: 30 }}
           transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
           onClick={(e) => e.stopPropagation()}
+          onWheel={(e) => e.stopPropagation()}
           style={{
             background: '#1D2D44',
             border: '1px solid rgba(116,140,171,0.25)',
@@ -124,12 +126,14 @@ export default function ProjectModal({
 
           {/* Body Content */}
           <div
+            data-lenis-prevent
             style={{
               padding: 32,
               overflowY: 'auto',
               display: 'flex',
               flexDirection: 'column',
               gap: 28,
+              overscrollBehavior: 'contain',
             }}
           >
             {/* Tagline */}

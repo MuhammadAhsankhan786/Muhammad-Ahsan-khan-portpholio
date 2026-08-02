@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # Sitemap Location
-Sitemap: https://www.nextrevolutiontech.tech/sitemap.xml
+Sitemap: https://ahsan.nextrevolutiontech.tech/sitemap.xml

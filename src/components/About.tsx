@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform, useInView } from 'framer-motion'
+import profileImg from '../assets/profile.jpg'
 
 const traits = [
   {
@@ -235,7 +236,7 @@ export default function About() {
             {/* Image */}
             <div style={{ position: 'relative', width: '100%', aspectRatio: '4/5', overflow: 'hidden' }}>
               <img
-                src="/profile.jpg"
+                src={profileImg}
                 alt="Muhammad Ahsan Khan - Founder & Full Stack Developer"
                 style={{
                   width: '100%',
