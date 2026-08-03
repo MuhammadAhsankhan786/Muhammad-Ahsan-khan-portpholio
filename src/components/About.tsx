@@ -234,23 +234,35 @@ export default function About() {
             }}
           >
             {/* Image */}
-            <div style={{ position: 'relative', width: '100%', aspectRatio: '4/5', overflow: 'hidden' }}>
+            <div style={{ position: 'relative', width: '100%', aspectRatio: '4/5', overflow: 'hidden', background: '#1D2D44' }}>
               <img
                 src={profileImg}
+                onError={(e) => {
+                  const target = e.currentTarget as HTMLImageElement
+                  if (!target.dataset.fallback) {
+                    target.dataset.fallback = 'true'
+                    target.src = '/profile.jpg'
+                  }
+                }}
                 alt="Muhammad Ahsan Khan - Founder & Full Stack Developer"
                 style={{
                   width: '100%',
                   height: '100%',
                   objectFit: 'cover',
                   objectPosition: 'center 20%',
+                  display: 'block',
                   transition: 'transform 0.5s ease',
                 }}
               />
               <div
                 style={{
                   position: 'absolute',
-                  inset: 0,
-                  background: 'linear-gradient(to top, #0D1321 0%, rgba(13,19,33,0.3) 50%, transparent 100%)',
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                  height: '45%',
+                  background: 'linear-gradient(to top, #0D1321 0%, rgba(13,19,33,0.4) 60%, transparent 100%)',
+                  pointerEvents: 'none',
                 }}
               />
 
