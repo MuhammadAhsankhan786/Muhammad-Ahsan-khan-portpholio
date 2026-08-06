@@ -5,23 +5,32 @@ import Preloader from './components/Preloader'
 import ScrollProgress from './components/ScrollProgress'
 import Nav from './components/Nav'
 import Hero from './components/Hero'
+import TrustStrip from './components/TrustStrip'
+import Projects from './components/Projects'
+import BusinessMetrics from './components/BusinessMetrics'
+import Services from './components/Services'
+import ArchitectureExplorer from './components/ArchitectureExplorer'
+import EngineeringProcess from './components/EngineeringProcess'
 import About from './components/About'
 import AiFocusSection from './components/AiFocusSection'
-import Services from './components/Services'
 import Certifications from './components/Certifications'
 import Experience from './components/Experience'
-import Projects from './components/Projects'
 import Skills from './components/Skills'
 import GitHubShowcase from './components/GitHubShowcase'
 import Testimonials from './components/Testimonials'
 import Contact from './components/Contact'
 import ProjectModal, { ProjectDetail } from './components/ProjectModal'
 import ResumeModal from './components/ResumeModal'
+import CommandPalette from './components/CommandPalette'
+import AskAhsanModal from './components/AskAhsanModal'
 
 export default function App() {
   const [loading, setLoading] = useState(true)
   const [isResumeOpen, setIsResumeOpen] = useState(false)
+  const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false)
+  const [isAskAhsanOpen, setIsAskAhsanOpen] = useState(false)
   const [selectedProject, setSelectedProject] = useState<ProjectDetail | null>(null)
+  const [viewMode, setViewMode] = useState<'standard' | 'recruiter' | 'cto'>('standard')
 
   useEffect(() => {
     const lenis = new Lenis({
@@ -61,49 +70,113 @@ export default function App() {
       {/* Custom Mouse Follower */}
       <Cursor />
 
-      {/* Header Navigation */}
-      <Nav />
+      {/* Header Navigation with Mode Switcher */}
+      <Nav
+        viewMode={viewMode}
+        onSetViewMode={(mode) => setViewMode(mode)}
+        onOpenCommandPalette={() => setIsCommandPaletteOpen(true)}
+      />
 
       {/* Hero Section */}
-      <Hero onOpenResume={() => setIsResumeOpen(true)} />
+      <Hero
+        onOpenResume={() => setIsResumeOpen(true)}
+        onOpenAskAhsan={() => setIsAskAhsanOpen(true)}
+      />
 
-      {/* About & Credentials Section */}
-      <About />
+      {/* 01. Client Trust & Credential Strip */}
+      <TrustStrip />
 
-      {/* Agentic AI & Current Focus Section */}
-      <AiFocusSection />
-
-      {/* Enterprise Solutions & Services Section */}
-      <Services />
-
-      {/* Verified Certifications Section */}
-      <Certifications />
-
-      {/* Work Experience Section */}
-      <Experience />
-
-      {/* Filterable Projects Section */}
+      {/* 02. Featured Flagship Case Studies (PROOF FIRST) */}
       <Projects onSelectProject={(project) => setSelectedProject(project)} />
 
-      {/* Orbital Technical Skills Section */}
+      {/* 03. Business Metrics & Results Before Technologies */}
+      <BusinessMetrics />
+
+      {/* 04. Services & Enterprise Solutions */}
+      <Services />
+
+      {/* 05. Interactive System Architecture Explorer */}
+      <ArchitectureExplorer />
+
+      {/* 06. Enterprise Engineering Process Pipeline */}
+      <EngineeringProcess />
+
+      {/* Recruiter View / Standard Mode conditional sections */}
+      {viewMode !== 'recruiter' && (
+        <>
+          {/* About & Personal Journey */}
+          <About />
+
+          {/* Agentic AI Focus */}
+          <AiFocusSection />
+        </>
+      )}
+
+      {/* Experience Timeline */}
+      <Experience />
+
+      {/* Certifications */}
+      <Certifications />
+
+      {/* Orbital Skills */}
       <Skills />
 
-      {/* GitHub Showcase & Open Source Section */}
+      {/* GitHub Showcase */}
       <GitHubShowcase />
 
-      {/* Verified Client Testimonials Section */}
+      {/* Client Testimonials */}
       <Testimonials />
 
-      {/* Direct Contact Section */}
+      {/* Direct Contact */}
       <Contact />
 
-      {/* Project Case Study Drawer / Modal */}
+      {/* Floating Ask Ahsan Widget */}
+      <button
+        onClick={() => setIsAskAhsanOpen(true)}
+        data-cursor-hover
+        style={{
+          position: 'fixed',
+          bottom: 24,
+          right: 24,
+          zIndex: 9000,
+          padding: '12px 20px',
+          background: '#748CAB',
+          color: '#0D1321',
+          border: 'none',
+          borderRadius: 30,
+          fontFamily: 'var(--font-mono)',
+          fontSize: 12,
+          fontWeight: 700,
+          boxShadow: '0 10px 30px rgba(0,0,0,0.5)',
+          cursor: 'pointer',
+          display: 'flex',
+          alignItems: 'center',
+          gap: 8,
+        }}
+      >
+        🤖 Ask Ahsan
+      </button>
+
+      {/* Modals */}
+      <CommandPalette
+        isOpen={isCommandPaletteOpen}
+        onClose={() => setIsCommandPaletteOpen(false)}
+        onOpenAskAhsan={() => setIsAskAhsanOpen(true)}
+        onOpenResume={() => setIsResumeOpen(true)}
+        onSetViewMode={(mode) => setViewMode(mode)}
+      />
+
+      <AskAhsanModal
+        isOpen={isAskAhsanOpen}
+        onClose={() => setIsAskAhsanOpen(false)}
+        onOpenResume={() => setIsResumeOpen(true)}
+      />
+
       <ProjectModal
         project={selectedProject}
         onClose={() => setSelectedProject(null)}
       />
 
-      {/* Downloadable ATS Resume Modal */}
       <ResumeModal
         isOpen={isResumeOpen}
         onClose={() => setIsResumeOpen(false)}

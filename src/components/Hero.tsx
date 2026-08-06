@@ -1,26 +1,24 @@
 import { useEffect, useRef, lazy, Suspense } from 'react'
 import { motion } from 'framer-motion'
+import AvailabilityBanner from './AvailabilityBanner'
 
 const NetworkScene = lazy(() => import('./NetworkScene'))
 
-const roles = ['Full Stack Developer', 'Founder @ NRT', 'Agentic AI Specialist', 'ERP Architect']
-
-export default function Hero({ onOpenResume }: { onOpenResume?: () => void }) {
+export default function Hero({
+  onOpenResume,
+  onOpenAskAhsan,
+}: {
+  onOpenResume?: () => void
+  onOpenAskAhsan?: () => void
+}) {
   const titleRef = useRef<HTMLHeadingElement>(null)
-  const scrollRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const title = titleRef.current
-    if (!title) return
-  }, [])
-
-  const words = ['ENTERPRISE', 'AI & ERP', 'SOLUTIONS']
 
   return (
     <section
-      className="relative min-h-screen grid grid-cols-1 md:grid-cols-2 overflow-hidden bg-[var(--color-background)] pt-20 md:pt-0"
+      id="hero"
+      className="relative min-h-screen grid grid-cols-1 md:grid-cols-2 overflow-hidden bg-[var(--color-background)] pt-24 md:pt-0"
     >
-      {/* Radial ambient slate bloom */}
+      {/* Ambient background bloom */}
       <div
         style={{
           position: 'absolute',
@@ -31,11 +29,14 @@ export default function Hero({ onOpenResume }: { onOpenResume?: () => void }) {
         }}
       />
 
-      {/* Left: Personal Identity & Editorial Typography */}
-      <div
-        className="flex flex-col justify-center px-6 md:px-20 py-12 md:py-0 relative z-10"
-      >
-        {/* Pre-title label */}
+      {/* Left Column: Personal Identity & Positioning */}
+      <div className="flex flex-col justify-center px-6 md:px-20 py-12 md:py-0 relative z-10">
+        {/* Availability Banner */}
+        <div style={{ marginBottom: 24 }}>
+          <AvailabilityBanner />
+        </div>
+
+        {/* Founder Credential Label */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -44,16 +45,10 @@ export default function Hero({ onOpenResume }: { onOpenResume?: () => void }) {
             display: 'flex',
             alignItems: 'center',
             gap: 12,
-            marginBottom: 28,
+            marginBottom: 20,
           }}
         >
-          <div
-            style={{
-              width: 40,
-              height: 1,
-              background: '#748CAB',
-            }}
-          />
+          <div style={{ width: 40, height: 1, background: '#748CAB' }} />
           <span
             style={{
               fontFamily: 'var(--font-mono)',
@@ -68,7 +63,7 @@ export default function Hero({ onOpenResume }: { onOpenResume?: () => void }) {
           </span>
         </motion.div>
 
-        {/* Primary Visual Focus: MUHAMMAD AHSAN KHAN */}
+        {/* Primary Name Headline */}
         <h1
           ref={titleRef}
           style={{
@@ -102,12 +97,12 @@ export default function Hero({ onOpenResume }: { onOpenResume?: () => void }) {
           ))}
         </h1>
 
-        {/* Professional Positioning & Tagline */}
+        {/* Tagline & Elevator Pitch */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.6 }}
-          style={{ marginBottom: 32 }}
+          style={{ marginBottom: 28 }}
         >
           <div
             style={{
@@ -120,7 +115,7 @@ export default function Hero({ onOpenResume }: { onOpenResume?: () => void }) {
               textTransform: 'uppercase',
             }}
           >
-            Full Stack Software Engineer • Founder, Next Revolution Tech
+            Senior Full Stack Software Engineer • Enterprise Architect
           </div>
           <p
             style={{
@@ -132,16 +127,16 @@ export default function Hero({ onOpenResume }: { onOpenResume?: () => void }) {
               margin: 0,
             }}
           >
-            Handcrafting enterprise-grade software, ERP systems, SaaS platforms, and Agentic AI automation. Delivering timeless digital products across complete SDLC architecture.
+            I engineer enterprise software applications, scalable ERP platforms, SaaS systems, and Agentic AI automation with clean, production-grade architecture.
           </p>
         </motion.div>
 
-        {/* Role tags */}
+        {/* Skill Pills */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginBottom: 40 }}
+          style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 32 }}
         >
           {['Full Stack Engineer', 'Founder @ NRT', 'Agentic AI Specialist', 'ERP Architect'].map((role) => (
             <span
@@ -150,7 +145,7 @@ export default function Hero({ onOpenResume }: { onOpenResume?: () => void }) {
                 fontFamily: 'var(--font-mono)',
                 fontSize: 10,
                 letterSpacing: '0.1em',
-                padding: '6px 12px',
+                padding: '5px 12px',
                 border: '1px solid rgba(116,140,171,0.25)',
                 color: '#F0EBD8',
                 textTransform: 'uppercase',
@@ -164,12 +159,12 @@ export default function Hero({ onOpenResume }: { onOpenResume?: () => void }) {
           ))}
         </motion.div>
 
-        {/* CTAs - Solid Colors No Gradients */}
+        {/* Action Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.0 }}
-          className="flex flex-wrap md:flex-nowrap gap-3 items-center"
+          className="flex flex-wrap items-center gap-3"
         >
           <a
             href="#projects"
@@ -193,14 +188,39 @@ export default function Hero({ onOpenResume }: { onOpenResume?: () => void }) {
               borderRadius: 6,
               fontWeight: 700,
               whiteSpace: 'nowrap',
-              transition: 'background-color 0.3s ease',
             }}
           >
-            View Work
+            Explore Projects
             <svg width="12" height="12" viewBox="0 0 14 14" fill="none">
               <path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </a>
+
+          {/* Ask Ahsan AI Assistant Button */}
+          {onOpenAskAhsan && (
+            <button
+              onClick={onOpenAskAhsan}
+              data-cursor-hover
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: 6,
+                padding: '12px 20px',
+                background: '#1D2D44',
+                border: '1px solid rgba(116,140,171,0.3)',
+                color: '#F0EBD8',
+                fontFamily: 'var(--font-mono)',
+                fontSize: 11,
+                letterSpacing: '0.08em',
+                textTransform: 'uppercase',
+                borderRadius: 6,
+                cursor: 'pointer',
+                fontWeight: 600,
+              }}
+            >
+              🤖 Ask Ahsan AI
+            </button>
+          )}
 
           {/* Download ATS Resume Button */}
           {onOpenResume && (
@@ -211,8 +231,8 @@ export default function Hero({ onOpenResume }: { onOpenResume?: () => void }) {
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: 6,
-                padding: '12px 20px',
-                background: '#1D2D44',
+                padding: '12px 18px',
+                background: '#0D1321',
                 border: '1px solid rgba(116,140,171,0.25)',
                 color: '#F0EBD8',
                 fontFamily: 'var(--font-mono)',
@@ -222,87 +242,16 @@ export default function Hero({ onOpenResume }: { onOpenResume?: () => void }) {
                 borderRadius: 6,
                 cursor: 'pointer',
                 fontWeight: 600,
-                whiteSpace: 'nowrap',
               }}
             >
               📄 ATS Resume
             </button>
           )}
-
-          <a
-            href="#contact"
-            data-cursor-hover
-            onClick={(e) => {
-              e.preventDefault()
-              document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
-            }}
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 8,
-              padding: '12px 20px',
-              background: '#1D2D44',
-              border: '1px solid rgba(116,140,171,0.25)',
-              color: '#F0EBD8',
-              fontFamily: 'var(--font-mono)',
-              fontSize: 11,
-              letterSpacing: '0.08em',
-              textTransform: 'uppercase',
-              textDecoration: 'none',
-              borderRadius: 6,
-              whiteSpace: 'nowrap',
-            }}
-          >
-            Get In Touch
-          </a>
-        </motion.div>
-
-        {/* Metrics */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.3 }}
-          className="grid grid-cols-2 sm:grid-cols-3 gap-6 mt-10 pt-6 border-t border-[rgba(116,140,171,0.12)]"
-        >
-          {[
-            { value: '10+', label: 'Production Apps' },
-            { value: 'Founder', label: 'Next Revolution Tech' },
-            { value: 'Agentic AI', label: 'Systems & LLMs' },
-          ].map((m) => (
-            <div key={m.label}>
-              <div
-                style={{
-                  fontFamily: 'var(--font-display)',
-                  fontSize: 'clamp(20px, 2.2vw, 28px)',
-                  fontWeight: 800,
-                  color: '#748CAB',
-                  lineHeight: 1,
-                  marginBottom: 4,
-                  whiteSpace: 'nowrap',
-                }}
-              >
-                {m.value}
-              </div>
-              <div
-                style={{
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: 10,
-                  color: 'rgba(240,235,216,0.6)',
-                  letterSpacing: '0.1em',
-                  textTransform: 'uppercase',
-                  whiteSpace: 'nowrap',
-                }}
-              >
-                {m.label}
-              </div>
-            </div>
-          ))}
         </motion.div>
       </div>
 
-      {/* Right: 3D Scene */}
+      {/* Right Column: 3D Scene */}
       <div className="relative z-10 flex items-center h-[320px] md:h-full">
-        {/* Scene label */}
         <div
           style={{
             position: 'absolute',
@@ -318,53 +267,13 @@ export default function Hero({ onOpenResume }: { onOpenResume?: () => void }) {
             zIndex: 3,
           }}
         >
-          AI & Enterprise Architecture Mesh
+          Enterprise System Architecture Mesh
         </div>
 
         <Suspense fallback={null}>
           <NetworkScene />
         </Suspense>
       </div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        ref={scrollRef}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2, duration: 1 }}
-        style={{
-          position: 'absolute',
-          bottom: 32,
-          left: '50%',
-          transform: 'translateX(-50%)',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          gap: 8,
-          zIndex: 5,
-        }}
-      >
-        <span
-          style={{
-            fontFamily: 'var(--font-mono)',
-            fontSize: 10,
-            letterSpacing: '0.2em',
-            color: 'rgba(90,90,130,0.5)',
-            textTransform: 'uppercase',
-          }}
-        >
-          Scroll
-        </span>
-        <div
-          style={{
-            width: 1,
-            height: 40,
-            background:
-              'linear-gradient(to bottom, rgba(124,111,247,0.5), transparent)',
-            animation: 'float 2s ease-in-out infinite',
-          }}
-        />
-      </motion.div>
     </section>
   )
 }

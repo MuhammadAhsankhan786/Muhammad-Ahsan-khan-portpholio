@@ -76,6 +76,7 @@ export default function ProjectModal({
               alignItems: 'center',
               justifyContent: 'space-between',
               background: '#0D1321',
+              flexShrink: 0,
             }}
           >
             <div>
@@ -129,11 +130,15 @@ export default function ProjectModal({
             data-lenis-prevent
             style={{
               padding: 32,
+              flex: 1,
+              minHeight: 0,
               overflowY: 'auto',
               display: 'flex',
               flexDirection: 'column',
               gap: 28,
               overscrollBehavior: 'contain',
+              scrollbarWidth: 'thin',
+              scrollbarColor: '#748CAB #0D1321',
             }}
           >
             {/* Tagline */}

@@ -2,19 +2,25 @@ import { useEffect, useState } from 'react'
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 
 const links = [
-  { name: 'About', id: 'about' },
-  { name: 'AI Focus', id: 'ai-focus' },
-  { name: 'Services', id: 'services' },
-  { name: 'Certs', id: 'certifications' },
-  { name: 'Experience', id: 'experience' },
   { name: 'Projects', id: 'projects' },
+  { name: 'Architecture', id: 'architecture' },
+  { name: 'Process', id: 'process' },
+  { name: 'Services', id: 'services' },
+  { name: 'Experience', id: 'experience' },
   { name: 'Skills', id: 'skills' },
-  { name: 'Reviews', id: 'reviews' },
   { name: 'GitHub', id: 'github' },
   { name: 'Contact', id: 'contact' },
 ]
 
-export default function Nav() {
+export default function Nav({
+  viewMode,
+  onSetViewMode,
+  onOpenCommandPalette,
+}: {
+  viewMode: 'standard' | 'recruiter' | 'cto'
+  onSetViewMode: (mode: 'standard' | 'recruiter' | 'cto') => void
+  onOpenCommandPalette: () => void
+}) {
   const [activeSection, setActiveSection] = useState('')
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const { scrollY } = useScroll()
@@ -46,7 +52,7 @@ export default function Nav() {
     <>
       <motion.nav
         style={{ opacity }}
-        className="fixed top-0 left-0 right-0 z-[9000] flex items-center justify-between px-4 md:px-8 py-4"
+        className="fixed top-0 left-0 right-0 z-[9000] flex items-center justify-between px-4 md:px-8 py-3.5"
       >
         {/* Background blur layer */}
         <motion.div
@@ -56,17 +62,20 @@ export default function Nav() {
             inset: 0,
             backdropFilter: 'blur(20px)',
             background:
-              'linear-gradient(to bottom, rgba(13,19,33,0.95) 0%, rgba(13,19,33,0.5) 100%)',
+              'linear-gradient(to bottom, rgba(13,19,33,0.95) 0%, rgba(13,19,33,0.7) 100%)',
             borderBottom: '1px solid rgba(116,140,171,0.12)',
           }}
         />
 
         {/* Logo */}
-        <div className="relative z-10 flex items-center gap-3 pr-4 md:pr-6 md:border-r md:border-[rgba(116,140,171,0.15)]">
+        <div
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className="relative z-10 flex items-center gap-3 cursor-pointer"
+        >
           <div
             style={{
-              width: 26,
-              height: 26,
+              width: 24,
+              height: 24,
               border: '1px solid rgba(116,140,171,0.5)',
               display: 'grid',
               placeItems: 'center',
@@ -75,8 +84,8 @@ export default function Nav() {
           >
             <div
               style={{
-                width: 7,
-                height: 7,
+                width: 6,
+                height: 6,
                 background: '#748CAB',
                 transform: 'rotate(-45deg)',
               }}
@@ -95,8 +104,54 @@ export default function Nav() {
           </span>
         </div>
 
+        {/* View Mode Switcher Pills */}
+        <div className="relative z-10 flex items-center gap-1 bg-[#0D1321] border border-[rgba(116,140,171,0.2)] p-1 rounded-full text-[10px] font-mono">
+          <button
+            onClick={() => onSetViewMode('standard')}
+            style={{
+              padding: '4px 10px',
+              borderRadius: 20,
+              background: viewMode === 'standard' ? '#748CAB' : 'transparent',
+              color: viewMode === 'standard' ? '#0D1321' : '#F0EBD8',
+              fontWeight: viewMode === 'standard' ? 700 : 400,
+              border: 'none',
+              cursor: 'pointer',
+            }}
+          >
+            Standard
+          </button>
+          <button
+            onClick={() => onSetViewMode('recruiter')}
+            style={{
+              padding: '4px 10px',
+              borderRadius: 20,
+              background: viewMode === 'recruiter' ? '#748CAB' : 'transparent',
+              color: viewMode === 'recruiter' ? '#0D1321' : '#F0EBD8',
+              fontWeight: viewMode === 'recruiter' ? 700 : 400,
+              border: 'none',
+              cursor: 'pointer',
+            }}
+          >
+            💼 Recruiter
+          </button>
+          <button
+            onClick={() => onSetViewMode('cto')}
+            style={{
+              padding: '4px 10px',
+              borderRadius: 20,
+              background: viewMode === 'cto' ? '#748CAB' : 'transparent',
+              color: viewMode === 'cto' ? '#0D1321' : '#F0EBD8',
+              fontWeight: viewMode === 'cto' ? 700 : 400,
+              border: 'none',
+              cursor: 'pointer',
+            }}
+          >
+            🛠️ CTO Mode
+          </button>
+        </div>
+
         {/* Desktop Nav links */}
-        <div className="relative z-10 hidden md:flex items-center gap-4 px-4">
+        <div className="relative z-10 hidden xl:flex items-center gap-4 px-2">
           {links.map((link) => (
             <button
               key={link.id}
@@ -111,70 +166,57 @@ export default function Nav() {
                 letterSpacing: '0.08em',
                 textTransform: 'uppercase',
                 whiteSpace: 'nowrap',
-                color:
-                  activeSection === link.id
-                    ? '#748CAB'
-                    : 'rgba(240,235,216,0.6)',
+                color: activeSection === link.id ? '#748CAB' : 'rgba(240,235,216,0.6)',
                 transition: 'color 0.3s ease',
                 padding: '4px 2px',
                 position: 'relative',
               }}
             >
               {link.name}
-              {activeSection === link.id && (
-                <motion.div
-                  layoutId="nav-active"
-                  style={{
-                    position: 'absolute',
-                    bottom: -2,
-                    left: 0,
-                    right: 0,
-                    height: 1,
-                    background: '#748CAB',
-                  }}
-                />
-              )}
             </button>
           ))}
         </div>
 
-        {/* Desktop Status badge */}
-        <div
-          className="relative z-10 hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-full border border-[rgba(116,140,171,0.25)] bg-[rgba(29,45,68,0.4)]"
-          style={{
-            fontFamily: 'var(--font-mono)',
-            fontSize: 9,
-            color: '#F0EBD8',
-            letterSpacing: '0.08em',
-            whiteSpace: 'nowrap',
-          }}
-        >
-          <span
+        {/* Ctrl+K Command Palette Button */}
+        <div className="relative z-10 flex items-center gap-3">
+          <button
+            onClick={onOpenCommandPalette}
+            data-cursor-hover
             style={{
-              width: 6,
-              height: 6,
-              background: '#748CAB',
-              borderRadius: '50%',
-              display: 'inline-block',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 6,
+              padding: '6px 12px',
+              background: '#1D2D44',
+              border: '1px solid rgba(116,140,171,0.25)',
+              borderRadius: 6,
+              color: '#F0EBD8',
+              fontFamily: 'var(--font-mono)',
+              fontSize: 10,
+              cursor: 'pointer',
             }}
-          />
-          AVAILABLE FOR FULL-TIME • REMOTE
-        </div>
+          >
+            🔍 <span className="hidden sm:inline">Search</span>
+            <kbd style={{ background: '#0D1321', padding: '2px 5px', borderRadius: 4, color: '#748CAB', fontSize: 9 }}>
+              Ctrl+K
+            </kbd>
+          </button>
 
-        {/* Mobile Hamburger Toggle Button */}
-        <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="relative z-10 flex md:hidden p-2 text-[#748CAB] focus:outline-none"
-          aria-label="Toggle mobile navigation menu"
-        >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            {mobileMenuOpen ? (
-              <path d="M6 18L18 6M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-            ) : (
-              <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-            )}
-          </svg>
-        </button>
+          {/* Mobile Hamburger Toggle Button */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="flex xl:hidden p-2 text-[#748CAB] focus:outline-none"
+            aria-label="Toggle mobile navigation menu"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              {mobileMenuOpen ? (
+                <path d="M6 18L18 6M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+              ) : (
+                <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+              )}
+            </svg>
+          </button>
+        </div>
       </motion.nav>
 
       {/* Mobile Drawer Overlay */}
@@ -185,22 +227,38 @@ export default function Nav() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-[8999] bg-[#0D1321]/95 backdrop-blur-xl flex flex-col justify-center px-8 py-20 md:hidden"
+            className="fixed inset-0 z-[8999] bg-[#0D1321]/95 backdrop-blur-xl flex flex-col justify-center px-8 py-20 xl:hidden"
           >
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-5">
               {links.map((link) => (
                 <button
                   key={link.id}
                   onClick={() => scrollTo(link.id)}
-                  className="text-left font-mono text-xl uppercase tracking-widest text-[#F0EBD8]/80 hover:text-[#748CAB] py-2 border-b border-white/5"
+                  className="text-left font-mono text-lg uppercase tracking-widest text-[#F0EBD8]/80 hover:text-[#748CAB] py-2 border-b border-white/5"
                 >
                   {link.name}
                 </button>
               ))}
 
-              <div className="mt-6 pt-4 flex items-center gap-2 font-mono text-xs text-[#F0EBD8]">
-                <span className="w-2 h-2 rounded-full bg-[#748CAB]" />
-                AVAILABLE FOR FULL-TIME • REMOTE
+              <div className="mt-4 flex flex-col gap-2 font-mono text-xs">
+                <button
+                  onClick={() => {
+                    onSetViewMode('recruiter')
+                    setMobileMenuOpen(false)
+                  }}
+                  className="text-left py-2 px-3 bg-[#1D2D44] text-[#F0EBD8] rounded"
+                >
+                  💼 Switch to Recruiter View
+                </button>
+                <button
+                  onClick={() => {
+                    onSetViewMode('cto')
+                    setMobileMenuOpen(false)
+                  }}
+                  className="text-left py-2 px-3 bg-[#1D2D44] text-[#F0EBD8] rounded"
+                >
+                  🛠️ Switch to CTO Mode
+                </button>
               </div>
             </div>
           </motion.div>

@@ -4,7 +4,7 @@ import { ProjectDetail } from './ProjectModal'
 
 const categories = ['All', 'ERP', 'AI', 'Healthcare', 'Education', 'Enterprise', 'SaaS', 'eCommerce']
 
-const projectsData: ProjectDetail[] = [
+export const flagshipProjects: ProjectDetail[] = [
   {
     id: 'nrt-ai-ops',
     name: 'NRT AI Operations Manager',
@@ -32,60 +32,8 @@ const projectsData: ProjectDetail[] = [
     year: '2025',
   },
   {
-    id: 'workspace-ai-agent',
-    name: 'Personal Workspace AI Agent',
-    category: 'AI',
-    tagline: 'Agentic AI Productivity & Workflow Assistant (In Progress)',
-    description:
-      'Building an Agentic AI-powered personal productivity assistant capable of intelligent task management, workflow automation, document interaction, conversational AI, and natural language task execution using modern LLMs.',
-    overview:
-      'An autonomous agentic assistant designed to streamline personal workflows, summarize long documents, query knowledge repositories via RAG, and execute multi-step API scripts.',
-    problem:
-      'Standard LLM chat interfaces lack persistent long-term memory, stateful task execution capabilities, and direct integration with local developer tools.',
-    solution:
-      'Designing a multi-agent orchestration architecture with Vector memory (chromadb/pgvector), tool execution loops, and natural language command parsing.',
-    architecture:
-      'Node.js & Python agent runtime with LLM API orchestrator. Uses vector embeddings for semantic document search, memory persistence layers, and task state machines.',
-    stack: ['Agentic AI', 'LLMs', 'Python', 'TypeScript', 'Node.js', 'Vector DB', 'Prompt Eng.'],
-    metrics: [
-      { v: 'Agentic', l: 'Autonomous Execution' },
-      { v: 'RAG', l: 'Vector Memory' },
-      { v: 'Active', l: 'R&D Phase' },
-    ],
-    accentColor: '#748CAB',
-    link: 'https://github.com/MuhammadAhsankhan786',
-    github: 'https://github.com/MuhammadAhsankhan786',
-    year: '2026',
-  },
-  {
-    id: 'pulse-portal',
-    name: 'Pulse Portal Healthcare',
-    category: 'Healthcare',
-    tagline: 'Comprehensive Healthcare Management System',
-    description:
-      'Multi-portal healthcare ecosystem supporting Admin, Reception, Provider, and Patient portals with secure role-based access control, appointment booking, and patient records.',
-    overview:
-      'Pulse Portal streamlines clinic operations by providing designated portals for doctors, receptionists, admins, and patients under one unified secure cloud infrastructure.',
-    problem:
-      'Medical facilities relied on paper records and disconnected software, creating patient check-in bottlenecks and privacy compliance risks.',
-    solution:
-      'Built a multi-tenant healthcare web platform with strict RBAC permission matrices, automated schedule management, and real-time appointment status updates.',
-    architecture:
-      'React & Next.js frontend with Node.js API services. Database protected with encrypted data layers, role-specific JWT sessions, and responsive UI components.',
-    stack: ['React.js', 'Next.js', 'TypeScript', 'Node.js', 'PostgreSQL', 'RBAC', 'Vercel'],
-    metrics: [
-      { v: '4 Portals', l: 'Role-Based Portals' },
-      { v: '100%', l: 'HIPAA & RBAC Compliant' },
-      { v: 'Live', l: 'Production Ready' },
-    ],
-    accentColor: '#748CAB',
-    link: 'https://pulse-portal.com/login',
-    github: 'https://github.com/MuhammadAhsankhan786',
-    year: '2025',
-  },
-  {
     id: 'hk-fabric-erp',
-    name: 'HK Fabric ERP System',
+    name: 'NRT Trade & HK Fabric ERP System',
     category: 'ERP',
     tagline: 'Enterprise Order Processing & Courier Management',
     description:
@@ -108,6 +56,62 @@ const projectsData: ProjectDetail[] = [
     link: 'https://hk-fabric-powered-by-parcel-ls3eigbee.vercel.app',
     github: 'https://github.com/nextrevolutiontech-maker',
     year: '2025',
+  },
+  {
+    id: 'pulse-portal',
+    name: 'Pulse Portal Healthcare System',
+    category: 'Healthcare',
+    tagline: 'Comprehensive Healthcare & Multi-Portal Management System',
+    description:
+      'Multi-portal healthcare ecosystem supporting Admin, Reception, Provider, and Patient portals with secure role-based access control, appointment booking, and patient records.',
+    overview:
+      'Pulse Portal streamlines clinic operations by providing designated portals for doctors, receptionists, admins, and patients under one unified secure cloud infrastructure.',
+    problem:
+      'Medical facilities relied on paper records and disconnected software, creating patient check-in bottlenecks and privacy compliance risks.',
+    solution:
+      'Built a multi-tenant healthcare web platform with strict RBAC permission matrices, automated schedule management, and real-time appointment status updates.',
+    architecture:
+      'React & Next.js frontend with Node.js API services. Database protected with encrypted data layers, role-specific JWT sessions, and responsive UI components.',
+    stack: ['React.js', 'Next.js', 'TypeScript', 'Node.js', 'PostgreSQL', 'RBAC', 'Vercel'],
+    metrics: [
+      { v: '4 Portals', l: 'Role-Based Portals' },
+      { v: '100%', l: 'HIPAA & RBAC Compliant' },
+      { v: 'Live', l: 'Production Ready' },
+    ],
+    accentColor: '#748CAB',
+    link: 'https://pulse-portal.com/login',
+    github: 'https://github.com/MuhammadAhsankhan786',
+    year: '2025',
+  },
+]
+
+export const allProjectsData: ProjectDetail[] = [
+  ...flagshipProjects,
+  {
+    id: 'workspace-ai-agent',
+    name: 'Personal Workspace AI Agent',
+    category: 'AI',
+    tagline: 'Agentic AI Productivity & Workflow Assistant',
+    description:
+      'Building an Agentic AI-powered personal productivity assistant capable of intelligent task management, workflow automation, document interaction, and LLM orchestration.',
+    overview:
+      'An autonomous agentic assistant designed to streamline personal workflows, summarize long documents, query knowledge repositories via RAG, and execute multi-step API scripts.',
+    problem:
+      'Standard LLM chat interfaces lack persistent long-term memory, stateful task execution capabilities, and direct integration with local developer tools.',
+    solution:
+      'Designing a multi-agent orchestration architecture with Vector memory (chromadb/pgvector), tool execution loops, and natural language command parsing.',
+    architecture:
+      'Node.js & Python agent runtime with LLM API orchestrator. Uses vector embeddings for semantic document search, memory persistence layers, and task state machines.',
+    stack: ['Agentic AI', 'LLMs', 'Python', 'TypeScript', 'Node.js', 'Vector DB', 'Prompt Eng.'],
+    metrics: [
+      { v: 'Agentic', l: 'Autonomous Execution' },
+      { v: 'RAG', l: 'Vector Memory' },
+      { v: 'Active', l: 'R&D Phase' },
+    ],
+    accentColor: '#748CAB',
+    link: 'https://github.com/MuhammadAhsankhan786',
+    github: 'https://github.com/MuhammadAhsankhan786',
+    year: '2026',
   },
   {
     id: 'wakissha-exam-portal',
@@ -137,7 +141,7 @@ const projectsData: ProjectDetail[] = [
   },
   {
     id: 'next-revolution-tech',
-    name: 'Next Revolution Tech',
+    name: 'Next Revolution Tech Hub',
     category: 'Enterprise',
     tagline: 'Official Enterprise Software Startup Website',
     description:
@@ -162,32 +166,6 @@ const projectsData: ProjectDetail[] = [
     year: '2025',
   },
   {
-    id: 'saba-jojo-salon',
-    name: 'Saba Jojo Salon',
-    category: 'SaaS',
-    tagline: 'Salon Management & Appointment Booking Platform',
-    description:
-      'Modern salon management system featuring online appointment scheduling, service catalogs, staff availability calendars, and customer booking portals.',
-    overview:
-      'Built to streamline client appointment scheduling, service time-slot booking, staff allocation, and automated booking notifications.',
-    problem:
-      'Salon managers struggled with phone booking overlaps, client double-booking, and lack of digitized service menus.',
-    solution:
-      'Developed an intuitive online booking interface with real-time calendar slot reservation and service pricing.',
-    architecture:
-      'React frontend hosted on Vercel with responsive mobile-first Tailwind styling and automated booking state management.',
-    stack: ['React.js', 'JavaScript', 'Tailwind CSS', 'Vercel', 'Booking API'],
-    metrics: [
-      { v: '24/7', l: 'Online Booking' },
-      { v: 'Mobile', l: 'First UX' },
-      { v: 'Live', l: 'Production Active' },
-    ],
-    accentColor: '#748CAB',
-    link: 'https://saba-jojo-saloon.vercel.app',
-    github: 'https://github.com/MuhammadAhsankhan786',
-    year: '2024',
-  },
-  {
     id: 'satellite-offline',
     name: 'Satellite Offline Platform',
     category: 'Enterprise',
@@ -210,84 +188,6 @@ const projectsData: ProjectDetail[] = [
     ],
     accentColor: '#748CAB',
     link: 'https://satellite-offline-platform.vercel.app',
-    github: 'https://github.com/MuhammadAhsankhan786',
-    year: '2024',
-  },
-  {
-    id: 'full-ecom',
-    name: 'Full E-Commerce Platform',
-    category: 'eCommerce',
-    tagline: 'Modern High-Performance Online Shopping Experience',
-    description:
-      'Full-featured eCommerce web application with dynamic product catalogs, filtering, cart management, checkout workflows, and responsive UI.',
-    overview:
-      'A comprehensive digital storefront engineered for fast product search, category browsing, and seamless shopping cart checkout.',
-    problem:
-      'Legacy shopping carts were slow on mobile devices, causing high bounce rates and checkout abandonment.',
-    solution:
-      'Architected a lightning-fast React frontend with optimized state management and instant product filtering.',
-    architecture:
-      'React frontend with modular component architecture, Context API state management, and optimized asset delivery on Vercel.',
-    stack: ['React.js', 'JavaScript', 'CSS3', 'REST API', 'Vercel'],
-    metrics: [
-      { v: '<1s', l: 'Catalog Load' },
-      { v: '100%', l: 'Responsive' },
-      { v: 'Live', l: 'Production Active' },
-    ],
-    accentColor: '#748CAB',
-    link: 'https://full-ecom-front-end.vercel.app/home',
-    github: 'https://github.com/MuhammadAhsankhan786',
-    year: '2024',
-  },
-  {
-    id: 'social-firebase',
-    name: 'Social Firebase Application',
-    category: 'SaaS',
-    tagline: 'Real-Time Social Networking & Community Platform',
-    description:
-      'Real-time social networking application featuring user authentication, live feeds, instant messaging, media uploads, and post interactions.',
-    overview:
-      'A community social platform built to demonstrate real-time data sync, post feed updates, and user profile management.',
-    problem:
-      'Building real-time social interactions requires complex WebSocket infrastructure and scalable database listeners.',
-    solution:
-      'Leveraged Firebase Realtime Database and Firestore for zero-latency post sync and instant user status broadcasts.',
-    architecture:
-      'React frontend paired with Firebase Authentication, Firestore NoSQL DB, and Cloud Storage for media assets.',
-    stack: ['React.js', 'Firebase', 'Firestore', 'Auth', 'Tailwind CSS', 'Vercel'],
-    metrics: [
-      { v: 'Real-Time', l: 'Database Sync' },
-      { v: 'Instant', l: 'Live Feeds' },
-      { v: 'Live', l: 'Production Active' },
-    ],
-    accentColor: '#748CAB',
-    link: 'https://social-firebase-app.vercel.app',
-    github: 'https://github.com/MuhammadAhsankhan786',
-    year: '2024',
-  },
-  {
-    id: 'event-management',
-    name: 'Event Management System',
-    category: 'SaaS',
-    tagline: 'Online Event Planning & Participant Management',
-    description:
-      'Online platform for event organizers to create, publish, schedule, and track participant registrations and ticketing.',
-    overview:
-      'Simplifies conference and seminar management by providing digital registration forms, participant tracking, and schedule publication.',
-    problem:
-      'Manual attendee tracking spreadsheet leads to entry errors and duplicate guest passes.',
-    solution:
-      'Built a centralized digital dashboard with unique registration IDs, capacity limits, and instant ticket confirmations.',
-    architecture:
-      'React single page application integrated with backend REST API and Vercel hosting.',
-    stack: ['React.js', 'JavaScript', 'HTML5/CSS3', 'REST API', 'Vercel'],
-    metrics: [
-      { v: 'Digital', l: 'Ticketing' },
-      { v: 'Live', l: 'Registration Hub' },
-      { v: 'Live', l: 'Production Active' },
-    ],
-    accentColor: '#748CAB',
-    link: 'https://event-management-system-ten-ashy.vercel.app',
     github: 'https://github.com/MuhammadAhsankhan786',
     year: '2024',
   },
@@ -323,10 +223,7 @@ function BrowserMockup({
       onMouseLeave={handleLeave}
       onClick={onOpenModal}
       data-cursor-hover
-      style={{
-        perspective: 900,
-        cursor: 'pointer',
-      }}
+      style={{ perspective: 900, cursor: 'pointer' }}
     >
       <motion.div
         style={{
@@ -343,7 +240,7 @@ function BrowserMockup({
           position: 'relative',
         }}
       >
-        {/* Browser chrome */}
+        {/* Browser Header */}
         <div
           style={{
             height: 36,
@@ -378,7 +275,7 @@ function BrowserMockup({
           </div>
         </div>
 
-        {/* Inner Content Display */}
+        {/* Content Preview */}
         <div style={{ padding: 20, height: 'calc(100% - 36px)', display: 'flex', flexDirection: 'column', gap: 12 }}>
           <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
             <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#748CAB' }} />
@@ -396,9 +293,9 @@ function BrowserMockup({
             ))}
           </div>
 
-          <div style={{ flex: 1, background: '#0D1321', borderRadius: 6, padding: 12, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: 8, border: '1px solid rgba(116,140,171,0.12)' }}>
+          <div style={{ flex: 1, background: '#0D1321', borderRadius: 6, padding: 12, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: 6, border: '1px solid rgba(116,140,171,0.12)' }}>
             <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: '#748CAB', fontWeight: 600 }}>
-              Click to Explore Case Study →
+              Explore Deep Case Study →
             </span>
           </div>
         </div>
@@ -409,11 +306,9 @@ function BrowserMockup({
 
 function ProjectPanel({
   project,
-  index,
   onOpenModal,
 }: {
   project: ProjectDetail
-  index: number
   onOpenModal: (p: ProjectDetail) => void
 }) {
   const ref = useRef<HTMLDivElement>(null)
@@ -422,78 +317,55 @@ function ProjectPanel({
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 60 }}
+      initial={{ opacity: 0, y: 50 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-      className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center pb-16 mb-16 border-b border-[rgba(116,140,171,0.12)]"
+      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center pb-16 mb-16 border-b border-[rgba(116,140,171,0.12)]"
     >
-      {/* Text side */}
+      {/* Detail Scanning Column */}
       <div>
-        <div
-          style={{
-            fontFamily: 'var(--font-mono)',
-            fontSize: 11,
-            letterSpacing: '0.2em',
-            textTransform: 'uppercase',
-            color: '#748CAB',
-            marginBottom: 16,
-            fontWeight: 600,
-          }}
-        >
-          {project.category} • {project.year}
+        <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#748CAB', marginBottom: 12, fontWeight: 600 }}>
+          FLAGSHIP CASE STUDY • {project.category} ({project.year})
         </div>
 
-        <h3
-          style={{
-            fontFamily: 'var(--font-display)',
-            fontSize: 'clamp(28px, 4vw, 56px)',
-            fontWeight: 800,
-            letterSpacing: '-0.02em',
-            lineHeight: 1.05,
-            color: '#F0EBD8',
-            marginBottom: 12,
-          }}
-        >
+        <h3 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(26px, 3.5vw, 44px)', fontWeight: 800, letterSpacing: '-0.02em', lineHeight: 1.1, color: '#F0EBD8', marginBottom: 10 }}>
           {project.name}
         </h3>
 
-        <div
-          style={{
-            fontFamily: 'var(--font-body)',
-            fontSize: 14,
-            color: '#748CAB',
-            fontStyle: 'italic',
-            marginBottom: 20,
-          }}
-        >
-          {project.tagline}
+        <div style={{ fontFamily: 'var(--font-body)', fontSize: 14, color: '#748CAB', fontStyle: 'italic', marginBottom: 20 }}>
+          "{project.tagline}"
         </div>
 
-        <p
-          style={{
-            fontFamily: 'var(--font-body)',
-            fontSize: 14,
-            lineHeight: 1.7,
-            color: 'rgba(240,235,216,0.75)',
-            marginBottom: 28,
-            maxWidth: 440,
-          }}
-        >
-          {project.description}
-        </p>
+        {/* Quick Scan Structure: Problem -> Architecture -> Impact */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 24, background: '#1D2D44', padding: 16, borderRadius: 10, border: '1px solid rgba(116,140,171,0.15)' }}>
+          <div>
+            <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: '#748CAB', textTransform: 'uppercase', fontWeight: 700 }}>
+              Problem:
+            </span>{' '}
+            <span style={{ fontFamily: 'var(--font-body)', fontSize: 13, color: 'rgba(240,235,216,0.85)' }}>
+              {project.problem}
+            </span>
+          </div>
+          <div>
+            <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: '#748CAB', textTransform: 'uppercase', fontWeight: 700 }}>
+              Architecture:
+            </span>{' '}
+            <span style={{ fontFamily: 'var(--font-body)', fontSize: 13, color: 'rgba(240,235,216,0.85)' }}>
+              {project.architecture}
+            </span>
+          </div>
+        </div>
 
         {/* Stack tags */}
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 32 }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 24 }}>
           {project.stack.map((s) => (
             <span
               key={s}
               style={{
                 fontFamily: 'var(--font-mono)',
                 fontSize: 10,
-                letterSpacing: '0.08em',
-                textTransform: 'uppercase',
                 padding: '4px 10px',
-                background: '#1D2D44',
+                background: '#0D1321',
                 border: '1px solid rgba(116,140,171,0.2)',
                 color: '#F0EBD8',
                 borderRadius: 4,
@@ -504,15 +376,12 @@ function ProjectPanel({
           ))}
         </div>
 
-        {/* Buttons - Solid Colors No Gradients */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 16, flexWrap: 'wrap' }}>
+        {/* Buttons */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
           <button
             onClick={() => onOpenModal(project)}
             data-cursor-hover
             style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 8,
               padding: '10px 22px',
               background: '#748CAB',
               color: '#0D1321',
@@ -526,7 +395,7 @@ function ProjectPanel({
               fontWeight: 700,
             }}
           >
-            Explore Case Study
+            Full Case Study
           </button>
 
           <a
@@ -535,9 +404,6 @@ function ProjectPanel({
             target="_blank"
             rel="noopener noreferrer"
             style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 6,
               padding: '10px 18px',
               background: '#1D2D44',
               border: '1px solid rgba(116,140,171,0.25)',
@@ -555,7 +421,7 @@ function ProjectPanel({
         </div>
       </div>
 
-      {/* Mockup side */}
+      {/* Mockup */}
       <div>
         <BrowserMockup project={project} onOpenModal={() => onOpenModal(project)} />
       </div>
@@ -572,13 +438,13 @@ export default function Projects({
 
   const filteredProjects =
     activeCategory === 'All'
-      ? projectsData
-      : projectsData.filter((p) => p.category === activeCategory)
+      ? allProjectsData
+      : allProjectsData.filter((p) => p.category === activeCategory)
 
   return (
     <section
       id="projects"
-      className="relative px-6 md:px-20 py-20 md:py-36 bg-[#0D1321] overflow-hidden"
+      className="relative px-6 md:px-20 py-20 md:py-32 bg-[#0D1321] overflow-hidden"
     >
       {/* Section label */}
       <motion.div
@@ -586,12 +452,7 @@ export default function Projects({
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: 16,
-          marginBottom: 60,
-        }}
+        style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 40 }}
       >
         <span
           style={{
@@ -602,13 +463,35 @@ export default function Projects({
             color: '#748CAB',
           }}
         >
-          06 — Selected Enterprise Work
+          01 — Featured Flagship Case Studies
         </span>
         <div style={{ flex: 1, height: 1, background: 'rgba(116,140,171,0.12)' }} />
       </motion.div>
 
-      {/* Category Filter Pills - Solid Colors No Gradients */}
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, marginBottom: 80 }}>
+      {/* Headline */}
+      <div style={{ maxWidth: 720, marginBottom: 48 }}>
+        <h2
+          style={{
+            fontFamily: 'var(--font-display)',
+            fontSize: 'clamp(28px, 3.5vw, 52px)',
+            fontWeight: 800,
+            color: '#F0EBD8',
+            lineHeight: 1.1,
+            marginBottom: 16,
+          }}
+        >
+          Production Systems & <br />
+          <em style={{ fontStyle: 'italic', color: '#748CAB' }}>
+            Enterprise Flagship Software.
+          </em>
+        </h2>
+        <p style={{ fontFamily: 'var(--font-body)', fontSize: 15, color: 'rgba(240,235,216,0.7)', margin: 0, lineHeight: 1.6 }}>
+          Explore real-world software applications engineered for scalable operations, inventory management, healthcare portals, and AI workflows.
+        </p>
+      </div>
+
+      {/* Category Filter Pills */}
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 56 }}>
         {categories.map((cat) => (
           <button
             key={cat}
@@ -618,7 +501,7 @@ export default function Projects({
               background: activeCategory === cat ? '#748CAB' : '#1D2D44',
               border: activeCategory === cat ? 'none' : '1px solid rgba(116,140,171,0.15)',
               color: activeCategory === cat ? '#0D1321' : '#F0EBD8',
-              padding: '8px 18px',
+              padding: '8px 16px',
               borderRadius: 6,
               fontFamily: 'var(--font-mono)',
               fontSize: 11,
@@ -635,8 +518,8 @@ export default function Projects({
       </div>
 
       {/* Project Panels */}
-      {filteredProjects.map((p, i) => (
-        <ProjectPanel key={p.id} project={p} index={i} onOpenModal={onSelectProject} />
+      {filteredProjects.map((p) => (
+        <ProjectPanel key={p.id} project={p} onOpenModal={onSelectProject} />
       ))}
     </section>
   )
