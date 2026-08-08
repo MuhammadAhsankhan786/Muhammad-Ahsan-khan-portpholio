@@ -15,7 +15,7 @@ const links = [
 
 const THEMES: { id: Theme; label: string; description: string; dot: string }[] = [
   { id: 'dark', label: 'Dark Obsidian', description: 'Deep Navy & Cream', dot: '#748CAB' },
-  { id: '01',   label: 'Haus Teal', description: 'Teal & Dusty Rose', dot: '#DA7B93' },
+  { id: '01',   label: 'Haus Teal', description: 'Electric Cyan & Deep Navy', dot: '#64FFDA' },
   { id: '02',   label: 'GED Mint', description: 'Mint & Cream Light', dot: '#9FEDD7' },
   { id: '03',   label: 'Michelle Rose', description: 'Blush Rose Light', dot: '#DD8EA4' },
   { id: '04',   label: 'Loket Flame', description: 'Sunset Flame Light', dot: '#E43D12' },

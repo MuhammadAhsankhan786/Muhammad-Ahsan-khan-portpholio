@@ -140,106 +140,106 @@
   --cursor-ring-fill:   rgba(116, 140, 171, 0.12);
 }
 
-/* ── THEME 01 — HAUS ──────────────────────────────────────────────
-   Exact palette: #2F4454 · #2E151B · #DA7B93 · #376E6F · #1C3334
-   Dark teal/burgundy/dusty-pink. Bold, organic, artistic.          */
+/* ── THEME 01 — HAUS TEAL ──────────────────────────────────────────
+   Exact palette: #0A192F · #112240 · #64FFDA · #48CAE4 · #CCD6F6
+   Electric Cyan Teal & Deep Navy. High-tech, futuristic, vibrant.   */
 [data-theme="01"] {
-  --p1: #2F4454;
-  --p2: #2E151B;
-  --p3: #DA7B93;
-  --p4: #376E6F;
-  --p5: #1C3334;
+  --p1: #0A192F;
+  --p2: #112240;
+  --p3: #64FFDA;
+  --p4: #48CAE4;
+  --p5: #CCD6F6;
 
-  --bg:             #2F4454;
-  --bg-rgb:         47, 68, 84;
-  --surface:        #2E151B;
-  --surface-rgb:    46, 21, 27;
-  --surface-2:      #1C3334;
-  --surface-3:      #376E6F;
-  --fg:             #F0EBD8;
-  --fg-rgb:         240, 235, 216;
-  --fg-muted:       #DA7B93;
-  --fg-muted-rgb:   218, 123, 147;
-  --fg-dim:         rgba(240, 235, 216, 0.55);
+  --bg:             #0A192F;
+  --bg-rgb:         10, 25, 47;
+  --surface:        #112240;
+  --surface-rgb:    17, 34, 64;
+  --surface-2:      #1D3557;
+  --surface-3:      #2A4365;
+  --fg:             #CCD6F6;
+  --fg-rgb:         204, 214, 246;
+  --fg-muted:       #64FFDA;
+  --fg-muted-rgb:   100, 255, 218;
+  --fg-dim:         rgba(204, 214, 246, 0.55);
 
-  --accent:         #DA7B93;
-  --accent-rgb:     218, 123, 147;
-  --accent-fg:      #2E151B;
-  --accent-2:       #376E6F;
-  --accent-2-rgb:   55, 110, 111;
-  --accent-3:       #2F4454;
-  --accent-4:       #F0EBD8;
-  --decorative:     rgba(218, 123, 147, 0.15);
+  --accent:         #64FFDA;
+  --accent-rgb:     100, 255, 218;
+  --accent-fg:      #0A192F;
+  --accent-2:       #48CAE4;
+  --accent-2-rgb:   72, 202, 228;
+  --accent-3:       #112240;
+  --accent-4:       #CCD6F6;
+  --decorative:     rgba(100, 255, 218, 0.12);
 
-  --border:         rgba(218, 123, 147, 0.22);
-  --border-bright:  rgba(218, 123, 147, 0.40);
-  --border-hover:   #DA7B93;
+  --border:         rgba(100, 255, 218, 0.20);
+  --border-bright:  rgba(100, 255, 218, 0.40);
+  --border-hover:   #64FFDA;
 
-  --btn-primary-bg:     #DA7B93;
-  --btn-primary-fg:     #2E151B;
-  --btn-secondary-bg:   #2E151B;
-  --btn-secondary-fg:   #F0EBD8;
-  --btn-tertiary-bg:    #1C3334;
-  --btn-tertiary-fg:    #F0EBD8;
-  --btn-border:         rgba(218, 123, 147, 0.35);
-  --btn-radius:         4px;
+  --btn-primary-bg:     #64FFDA;
+  --btn-primary-fg:     #0A192F;
+  --btn-secondary-bg:   #112240;
+  --btn-secondary-fg:   #CCD6F6;
+  --btn-tertiary-bg:    #1D3557;
+  --btn-tertiary-fg:    #64FFDA;
+  --btn-border:         rgba(100, 255, 218, 0.35);
+  --btn-radius:         6px;
 
-  --card-bg:        #2E151B;
-  --card-surface:   #1C3334;
-  --card-border:    rgba(218, 123, 147, 0.25);
-  --card-radius:    12px;
-  --card-shadow:    0 6px 24px rgba(0, 0, 0, 0.4);
-  --card-shadow-hover: 0 16px 48px rgba(218, 123, 147, 0.25);
+  --card-bg:        #112240;
+  --card-surface:   #1D3557;
+  --card-border:    rgba(100, 255, 218, 0.20);
+  --card-radius:    14px;
+  --card-shadow:    0 6px 24px rgba(0, 0, 0, 0.5);
+  --card-shadow-hover: 0 16px 48px rgba(100, 255, 218, 0.22);
 
-  --section-a:      #2F4454;
-  --section-b:      #2E151B;
+  --section-a:      #0A192F;
+  --section-b:      #112240;
 
-  --hero-bloom:     rgba(218, 123, 147, 0.15);
+  --hero-bloom:     rgba(100, 255, 218, 0.15);
 
-  --node-color:     #DA7B93;
-  --node-core:      #F0EBD8;
-  --node-emissive:  #376E6F;
-  --node-glow:      #DA7B93;
-  --particle:       #DA7B93;
-  --grid-a:         #376E6F;
-  --grid-b:         #2F4454;
-  --line-a:         #F0EBD8;
-  --line-b:         #DA7B93;
+  --node-color:     #64FFDA;
+  --node-core:      #CCD6F6;
+  --node-emissive:  #48CAE4;
+  --node-glow:      #64FFDA;
+  --particle:       #64FFDA;
+  --grid-a:         #48CAE4;
+  --grid-b:         #112240;
+  --line-a:         #CCD6F6;
+  --line-b:         #64FFDA;
 
-  --nav-bg-start:   rgba(47, 68, 84, 0.97);
-  --nav-bg-end:     rgba(47, 68, 84, 0.85);
-  --nav-border:     rgba(218, 123, 147, 0.20);
+  --nav-bg-start:   rgba(10, 25, 47, 0.97);
+  --nav-bg-end:     rgba(10, 25, 47, 0.85);
+  --nav-border:     rgba(100, 255, 218, 0.20);
 
-  --grain-opacity:  0.30;
+  --grain-opacity:  0.20;
   --grain-blend:    overlay;
 
-  --heading-style:  italic;
-  --heading-weight: 900;
+  --heading-style:  normal;
+  --heading-weight: 800;
   --label-tracking: 0.15em;
   --body-size:      15px;
 
   --shadow-sm:      0 2px 8px rgba(0, 0, 0, 0.5);
   --shadow-md:      0 8px 24px rgba(0, 0, 0, 0.6);
   --shadow-lg:      0 20px 50px rgba(0, 0, 0, 0.7);
-  --glow:           0 0 20px rgba(218, 123, 147, 0.35);
+  --glow:           0 0 20px rgba(100, 255, 218, 0.40);
 
-  --tag-bg:         #2F4454;
-  --tag-border:     rgba(218, 123, 147, 0.25);
-  --tag-fg:         #DA7B93;
+  --tag-bg:         #112240;
+  --tag-border:     rgba(100, 255, 218, 0.25);
+  --tag-fg:         #64FFDA;
 
-  --sb-bg:          #1C3334;
-  --sb-thumb:       rgba(218, 123, 147, 0.5);
-  --sb-hover:       #DA7B93;
+  --sb-bg:          #0A192F;
+  --sb-thumb:       rgba(100, 255, 218, 0.5);
+  --sb-hover:       #64FFDA;
 
-  --progress:       #DA7B93;
+  --progress:       #64FFDA;
 
-  --selection-bg:   rgba(218, 123, 147, 0.3);
-  --selection-fg:   #F0EBD8;
+  --selection-bg:   rgba(100, 255, 218, 0.3);
+  --selection-fg:   #0A192F;
 
-  --cursor-dot:     #DA7B93;
-  --cursor-ring:    rgba(218, 123, 147, 0.4);
-  --cursor-ring-active: #DA7B93;
-  --cursor-ring-fill:   rgba(218, 123, 147, 0.12);
+  --cursor-dot:     #64FFDA;
+  --cursor-ring:    rgba(100, 255, 218, 0.4);
+  --cursor-ring-active: #64FFDA;
+  --cursor-ring-fill:   rgba(100, 255, 218, 0.15);
 }
 
 /* ── THEME 02 — GED GROUP ─────────────────────────────────────────
