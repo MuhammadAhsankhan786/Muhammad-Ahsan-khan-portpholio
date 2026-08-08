@@ -88,10 +88,10 @@ export const flagshipProjects: ProjectDetail[] = [
   },
   {
     id: 'hk-fabric-erp',
-    name: 'NRT Trade & HK Fabric ERP System',
+    name: 'HK Fabric Courier System & NRT ERP',
     category: 'ERP',
     tagline: 'Enterprise Order Processing & Courier Management',
-    image: '/projects/nrt-ai-ops.png',
+    image: '/projects/hk-fabric-erp.png',
     description:
       'Textile & retail ERP system with Cash-On-Delivery (COD) tracking, inventory management, customer database, parcel tracking API, and automated business metrics.',
     overview:
@@ -145,6 +145,33 @@ export const allProjectsData: ProjectDetail[] = [
     year: '2024',
   },
   {
+    id: 'satellite-offline',
+    name: 'Satellite Map Platform',
+    category: 'Enterprise',
+    tagline: 'Satellite Orbit & 3D Interactive Tracking Platform',
+    image: '/projects/satellite-offline.png',
+    description:
+      'Interactive 3D orbital space satellite tracking platform with orbital inclination filters, real-time constellation displays, and offline capability.',
+    overview:
+      'Enables enterprise and scientific users to explore 3D Earth satellites, inclination levels, constellations (Starlink), and orbital trajectory paths.',
+    problem:
+      'Visualizing dense satellite constellation trajectories in real-time requires performant 3D WebGL rendering.',
+    solution:
+      'Implemented WebGL 3D Earth rendering, real-time TLE orbit calculations, and interactive constellation controls.',
+    architecture:
+      'React WebGL frontend with 3D Canvas rendering, trajectory math algorithms, and responsive UI controls.',
+    stack: ['React.js', 'WebGL', '3D Canvas', 'Orbit Math', 'PWA', 'Vercel'],
+    metrics: [
+      { v: '3D Orbit', l: 'Real-Time Tracking' },
+      { v: 'Constellations', l: 'Starlink & Low-Earth' },
+      { v: 'Live', l: 'Production Active' },
+    ],
+    accentColor: '#748CAB',
+    link: 'https://satellite-offline-platform.vercel.app',
+    github: 'https://github.com/MuhammadAhsankhan786',
+    year: '2024',
+  },
+  {
     id: 'next-revolution-tech',
     name: 'Next Revolution Tech Hub',
     category: 'Enterprise',
@@ -170,58 +197,6 @@ export const allProjectsData: ProjectDetail[] = [
     link: 'https://www.nextrevolutiontech.tech',
     github: 'https://github.com/nextrevolutiontech-maker',
     year: '2025',
-  },
-  {
-    id: 'workspace-ai-agent',
-    name: 'Personal Workspace AI Agent',
-    category: 'AI',
-    tagline: 'Agentic AI Productivity & Workflow Assistant',
-    description:
-      'Building an Agentic AI-powered personal productivity assistant capable of intelligent task management, workflow automation, document interaction, and LLM orchestration.',
-    overview:
-      'An autonomous agentic assistant designed to streamline personal workflows, summarize long documents, query knowledge repositories via RAG, and execute multi-step API scripts.',
-    problem:
-      'Standard LLM chat interfaces lack persistent long-term memory, stateful task execution capabilities, and direct integration with local developer tools.',
-    solution:
-      'Designing a multi-agent orchestration architecture with Vector memory (chromadb/pgvector), tool execution loops, and natural language command parsing.',
-    architecture:
-      'Node.js & Python agent runtime with LLM API orchestrator. Uses vector embeddings for semantic document search, memory persistence layers, and task state machines.',
-    stack: ['Agentic AI', 'LLMs', 'Python', 'TypeScript', 'Node.js', 'Vector DB', 'Prompt Eng.'],
-    metrics: [
-      { v: 'Agentic', l: 'Autonomous Execution' },
-      { v: 'RAG', l: 'Vector Memory' },
-      { v: 'Active', l: 'R&D Phase' },
-    ],
-    accentColor: '#748CAB',
-    link: 'https://github.com/MuhammadAhsankhan786',
-    github: 'https://github.com/MuhammadAhsankhan786',
-    year: '2026',
-  },
-  {
-    id: 'satellite-offline',
-    name: 'Satellite Offline Platform',
-    category: 'Enterprise',
-    tagline: 'Offline-Capable Enterprise Application & Data Sync Platform',
-    description:
-      'Offline-first business application designed for uninterrupted usage in disconnected field environments with automatic background data synchronization upon reconnection.',
-    overview:
-      'Enables enterprise field personnel to continue business operations, record transactions, and edit records even with zero internet connectivity.',
-    problem:
-      'Remote field operators lost data and encountered app crashes whenever network signals dropped in unserved geographic zones.',
-    solution:
-      'Implemented progressive web storage, IndexedDB local caching, and background sync reconciliation algorithms.',
-    architecture:
-      'Progressive Web App (PWA) built with React, Service Workers, IndexedDB, and background conflict resolution handlers.',
-    stack: ['React.js', 'Service Workers', 'IndexedDB', 'PWA', 'Offline Sync', 'Vercel'],
-    metrics: [
-      { v: 'Offline', l: 'First Architecture' },
-      { v: '0% Data Loss', l: 'Local Sync' },
-      { v: 'Live', l: 'Production Active' },
-    ],
-    accentColor: '#748CAB',
-    link: 'https://satellite-offline-platform.vercel.app',
-    github: 'https://github.com/MuhammadAhsankhan786',
-    year: '2024',
   },
 ]
 
