@@ -10,6 +10,7 @@ export const flagshipProjects: ProjectDetail[] = [
     name: 'NRT AI Operations Manager',
     category: 'ERP',
     tagline: 'AI-powered Enterprise Operations & ERP Platform',
+    image: '/projects/nrt-ai-ops.png',
     description:
       'Comprehensive enterprise platform featuring workflow automation, inventory management, procurement, finance dashboards, analytics, authentication, RBAC, business intelligence, and enterprise reporting.',
     overview:
@@ -32,36 +33,11 @@ export const flagshipProjects: ProjectDetail[] = [
     year: '2025',
   },
   {
-    id: 'hk-fabric-erp',
-    name: 'NRT Trade & HK Fabric ERP System',
-    category: 'ERP',
-    tagline: 'Enterprise Order Processing & Courier Management',
-    description:
-      'Textile & retail ERP system with Cash-On-Delivery (COD) tracking, inventory management, customer database, parcel tracking API, and automated business metrics.',
-    overview:
-      'Designed to manage high-volume ecommerce and retail order fulfillment, parcel dispatching, courier API synchronization, and inventory reconciliation.',
-    problem:
-      'Retail parcel dispatches suffered from manual tracking entry, lost COD payouts, and stock mismatch across physical warehouses.',
-    solution:
-      'Integrated courier API tracking hooks, automated parcel status updates, live COD reconciliation dashboards, and barcode inventory logging.',
-    architecture:
-      'Next.js web app with Node.js backend services and PostgreSQL database. Automated cron jobs poll courier endpoints for parcel delivery updates.',
-    stack: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Node.js', 'PostgreSQL', 'Courier API'],
-    metrics: [
-      { v: 'COD', l: 'Courier Auto-Sync' },
-      { v: 'Real-time', l: 'Parcel Tracking' },
-      { v: 'Live', l: 'Production Active' },
-    ],
-    accentColor: '#748CAB',
-    link: 'https://hk-fabric-powered-by-parcel-ls3eigbee.vercel.app',
-    github: 'https://github.com/nextrevolutiontech-maker',
-    year: '2025',
-  },
-  {
     id: 'pulse-portal',
     name: 'Pulse Portal Healthcare System',
     category: 'Healthcare',
     tagline: 'Comprehensive Healthcare & Multi-Portal Management System',
+    image: '/projects/pulse-portal.png',
     description:
       'Multi-portal healthcare ecosystem supporting Admin, Reception, Provider, and Patient portals with secure role-based access control, appointment booking, and patient records.',
     overview:
@@ -83,41 +59,70 @@ export const flagshipProjects: ProjectDetail[] = [
     github: 'https://github.com/MuhammadAhsankhan786',
     year: '2025',
   },
+  {
+    id: 'full-ecom',
+    name: 'BabyBloom Store & E-Commerce Platform',
+    category: 'eCommerce',
+    tagline: 'Modern High-Performance Shopping Store Experience',
+    image: '/projects/full-ecom.png',
+    description:
+      'Full-featured eCommerce web application with dynamic product catalogs, filtering, cart management, checkout workflows, baby products store, and responsive UI.',
+    overview:
+      'A comprehensive digital storefront engineered for fast product search, category browsing, cart checkout, and mobile shopping.',
+    problem:
+      'Legacy shopping carts were slow on mobile devices, causing high bounce rates and checkout abandonment.',
+    solution:
+      'Architected a lightning-fast React frontend with optimized state management, instant product search, and payment workflows.',
+    architecture:
+      'React frontend with modular component architecture, Context API state management, and optimized asset delivery on Vercel.',
+    stack: ['React.js', 'JavaScript', 'CSS3', 'REST API', 'Vercel'],
+    metrics: [
+      { v: '<1s', l: 'Catalog Load' },
+      { v: '100%', l: 'Responsive' },
+      { v: 'Live', l: 'Production Active' },
+    ],
+    accentColor: '#748CAB',
+    link: 'https://full-ecom-front-end.vercel.app/home',
+    github: 'https://github.com/MuhammadAhsankhan786',
+    year: '2024',
+  },
+  {
+    id: 'hk-fabric-erp',
+    name: 'NRT Trade & HK Fabric ERP System',
+    category: 'ERP',
+    tagline: 'Enterprise Order Processing & Courier Management',
+    image: '/projects/nrt-ai-ops.png',
+    description:
+      'Textile & retail ERP system with Cash-On-Delivery (COD) tracking, inventory management, customer database, parcel tracking API, and automated business metrics.',
+    overview:
+      'Designed to manage high-volume ecommerce and retail order fulfillment, parcel dispatching, courier API synchronization, and inventory reconciliation.',
+    problem:
+      'Retail parcel dispatches suffered from manual tracking entry, lost COD payouts, and stock mismatch across physical warehouses.',
+    solution:
+      'Integrated courier API tracking hooks, automated parcel status updates, live COD reconciliation dashboards, and barcode inventory logging.',
+    architecture:
+      'Next.js web app with Node.js backend services and PostgreSQL database. Automated cron jobs poll courier endpoints for parcel delivery updates.',
+    stack: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Node.js', 'PostgreSQL', 'Courier API'],
+    metrics: [
+      { v: 'COD', l: 'Courier Auto-Sync' },
+      { v: 'Real-time', l: 'Parcel Tracking' },
+      { v: 'Live', l: 'Production Active' },
+    ],
+    accentColor: '#748CAB',
+    link: 'https://hk-fabric-powered-by-parcel-ls3eigbee.vercel.app',
+    github: 'https://github.com/nextrevolutiontech-maker',
+    year: '2025',
+  },
 ]
 
 export const allProjectsData: ProjectDetail[] = [
   ...flagshipProjects,
   {
-    id: 'workspace-ai-agent',
-    name: 'Personal Workspace AI Agent',
-    category: 'AI',
-    tagline: 'Agentic AI Productivity & Workflow Assistant',
-    description:
-      'Building an Agentic AI-powered personal productivity assistant capable of intelligent task management, workflow automation, document interaction, and LLM orchestration.',
-    overview:
-      'An autonomous agentic assistant designed to streamline personal workflows, summarize long documents, query knowledge repositories via RAG, and execute multi-step API scripts.',
-    problem:
-      'Standard LLM chat interfaces lack persistent long-term memory, stateful task execution capabilities, and direct integration with local developer tools.',
-    solution:
-      'Designing a multi-agent orchestration architecture with Vector memory (chromadb/pgvector), tool execution loops, and natural language command parsing.',
-    architecture:
-      'Node.js & Python agent runtime with LLM API orchestrator. Uses vector embeddings for semantic document search, memory persistence layers, and task state machines.',
-    stack: ['Agentic AI', 'LLMs', 'Python', 'TypeScript', 'Node.js', 'Vector DB', 'Prompt Eng.'],
-    metrics: [
-      { v: 'Agentic', l: 'Autonomous Execution' },
-      { v: 'RAG', l: 'Vector Memory' },
-      { v: 'Active', l: 'R&D Phase' },
-    ],
-    accentColor: '#748CAB',
-    link: 'https://github.com/MuhammadAhsankhan786',
-    github: 'https://github.com/MuhammadAhsankhan786',
-    year: '2026',
-  },
-  {
     id: 'wakissha-exam-portal',
     name: 'WAKISSHA Mock Exam Portal',
     category: 'Education',
     tagline: 'School & Student Management Platform',
+    image: '/projects/wakissha-exam-portal.png',
     description:
       'Educational management platform featuring School Registration, Student Management, Online Fee Payments, Timetables, Automated Report Cards, and Role-Based Access.',
     overview:
@@ -144,6 +149,7 @@ export const allProjectsData: ProjectDetail[] = [
     name: 'Next Revolution Tech Hub',
     category: 'Enterprise',
     tagline: 'Official Enterprise Software Startup Website',
+    image: '/projects/next-revolution-tech.png',
     description:
       'Official company platform for Next Revolution Tech showcasing enterprise digital solutions, ERP products, SaaS consulting, and AI automation services.',
     overview:
@@ -164,6 +170,32 @@ export const allProjectsData: ProjectDetail[] = [
     link: 'https://www.nextrevolutiontech.tech',
     github: 'https://github.com/nextrevolutiontech-maker',
     year: '2025',
+  },
+  {
+    id: 'workspace-ai-agent',
+    name: 'Personal Workspace AI Agent',
+    category: 'AI',
+    tagline: 'Agentic AI Productivity & Workflow Assistant',
+    description:
+      'Building an Agentic AI-powered personal productivity assistant capable of intelligent task management, workflow automation, document interaction, and LLM orchestration.',
+    overview:
+      'An autonomous agentic assistant designed to streamline personal workflows, summarize long documents, query knowledge repositories via RAG, and execute multi-step API scripts.',
+    problem:
+      'Standard LLM chat interfaces lack persistent long-term memory, stateful task execution capabilities, and direct integration with local developer tools.',
+    solution:
+      'Designing a multi-agent orchestration architecture with Vector memory (chromadb/pgvector), tool execution loops, and natural language command parsing.',
+    architecture:
+      'Node.js & Python agent runtime with LLM API orchestrator. Uses vector embeddings for semantic document search, memory persistence layers, and task state machines.',
+    stack: ['Agentic AI', 'LLMs', 'Python', 'TypeScript', 'Node.js', 'Vector DB', 'Prompt Eng.'],
+    metrics: [
+      { v: 'Agentic', l: 'Autonomous Execution' },
+      { v: 'RAG', l: 'Vector Memory' },
+      { v: 'Active', l: 'R&D Phase' },
+    ],
+    accentColor: '#748CAB',
+    link: 'https://github.com/MuhammadAhsankhan786',
+    github: 'https://github.com/MuhammadAhsankhan786',
+    year: '2026',
   },
   {
     id: 'satellite-offline',
@@ -233,14 +265,14 @@ function BrowserMockup({
           borderRadius: 12,
           overflow: 'hidden',
           boxShadow: '0 20px 50px rgba(0,0,0,0.5)',
-          border: '1px solid rgba(116,140,171,0.2)',
+          border: '1px solid rgba(116,140,171,0.25)',
           background: '#1D2D44',
           width: '100%',
           aspectRatio: '16/10',
           position: 'relative',
         }}
       >
-        {/* Browser Header */}
+        {/* Browser Header Bar */}
         <div
           style={{
             height: 36,
@@ -250,6 +282,8 @@ function BrowserMockup({
             alignItems: 'center',
             padding: '0 14px',
             gap: 8,
+            zIndex: 10,
+            position: 'relative',
           }}
         >
           {['#ff5f57', '#ffbd2e', '#28c841'].map((c) => (
@@ -269,36 +303,71 @@ function BrowserMockup({
             }}
           >
             <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#748CAB', opacity: 0.9 }} />
-            <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'rgba(240,235,216,0.5)' }}>
+            <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'rgba(240,235,216,0.6)' }}>
               {project.link.replace('https://', '')}
             </span>
           </div>
         </div>
 
-        {/* Content Preview */}
-        <div style={{ padding: 20, height: 'calc(100% - 36px)', display: 'flex', flexDirection: 'column', gap: 12 }}>
-          <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
-            <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#748CAB' }} />
-            <span style={{ fontFamily: 'var(--font-display)', fontSize: 16, fontWeight: 700, color: '#F0EBD8' }}>
-              {project.name}
-            </span>
+        {/* Real Original Screenshot Display */}
+        {project.image ? (
+          <div style={{ height: 'calc(100% - 36px)', width: '100%', position: 'relative', overflow: 'hidden' }}>
+            <img
+              src={project.image}
+              alt={project.name}
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                objectPosition: 'top left',
+                transition: 'transform 0.4s ease',
+              }}
+            />
+            {/* Subtle Overlay Badge */}
+            <div
+              style={{
+                position: 'absolute',
+                inset: 0,
+                background: 'linear-gradient(to top, rgba(13,19,33,0.92) 0%, transparent 60%)',
+                display: 'flex',
+                alignItems: 'flex-end',
+                justifyContent: 'space-between',
+                padding: 16,
+              }}
+            >
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: '#748CAB', fontWeight: 700 }}>
+                Explore Case Study →
+              </span>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: '#F0EBD8', background: '#1D2D44', padding: '3px 8px', borderRadius: 4 }}>
+                {project.category}
+              </span>
+            </div>
           </div>
+        ) : (
+          <div style={{ padding: 20, height: 'calc(100% - 36px)', display: 'flex', flexDirection: 'column', gap: 12 }}>
+            <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
+              <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#748CAB' }} />
+              <span style={{ fontFamily: 'var(--font-display)', fontSize: 16, fontWeight: 700, color: '#F0EBD8' }}>
+                {project.name}
+              </span>
+            </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8 }}>
-            {project.metrics.map((m, i) => (
-              <div key={i} style={{ background: '#0D1321', padding: 8, borderRadius: 6, border: '1px solid rgba(116,140,171,0.15)' }}>
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: 12, fontWeight: 700, color: '#748CAB' }}>{m.v}</div>
-                <div style={{ fontSize: 9, color: 'rgba(240,235,216,0.6)', fontFamily: 'var(--font-mono)' }}>{m.l}</div>
-              </div>
-            ))}
-          </div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8 }}>
+              {project.metrics.map((m, i) => (
+                <div key={i} style={{ background: '#0D1321', padding: 8, borderRadius: 6, border: '1px solid rgba(116,140,171,0.15)' }}>
+                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: 12, fontWeight: 700, color: '#748CAB' }}>{m.v}</div>
+                  <div style={{ fontSize: 9, color: 'rgba(240,235,216,0.6)', fontFamily: 'var(--font-mono)' }}>{m.l}</div>
+                </div>
+              ))}
+            </div>
 
-          <div style={{ flex: 1, background: '#0D1321', borderRadius: 6, padding: 12, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: 6, border: '1px solid rgba(116,140,171,0.12)' }}>
-            <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: '#748CAB', fontWeight: 600 }}>
-              Explore Deep Case Study →
-            </span>
+            <div style={{ flex: 1, background: '#0D1321', borderRadius: 6, padding: 12, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: 6, border: '1px solid rgba(116,140,171,0.12)' }}>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: '#748CAB', fontWeight: 600 }}>
+                Explore Deep Case Study →
+              </span>
+            </div>
           </div>
-        </div>
+        )}
       </motion.div>
     </motion.div>
   )

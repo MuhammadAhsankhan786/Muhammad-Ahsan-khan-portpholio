@@ -16,6 +16,7 @@ export type ProjectDetail = {
   link: string
   github?: string
   year: string
+  image?: string
 }
 
 export default function ProjectModal({
@@ -141,6 +142,30 @@ export default function ProjectModal({
               scrollbarColor: '#748CAB #0D1321',
             }}
           >
+            {/* Real Project Screenshot Banner */}
+            {project.image && (
+              <div
+                style={{
+                  borderRadius: 10,
+                  overflow: 'hidden',
+                  border: '1px solid rgba(116,140,171,0.2)',
+                  maxHeight: 320,
+                  background: '#0D1321',
+                }}
+              >
+                <img
+                  src={project.image}
+                  alt={project.name}
+                  style={{
+                    width: '100%',
+                    maxHeight: 320,
+                    objectFit: 'cover',
+                    objectPosition: 'top left',
+                  }}
+                />
+              </div>
+            )}
+
             {/* Tagline */}
             <div
               style={{
