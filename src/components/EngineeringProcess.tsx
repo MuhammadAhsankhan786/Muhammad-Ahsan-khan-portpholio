@@ -53,7 +53,8 @@ export default function EngineeringProcess() {
   return (
     <section
       ref={sectionRef}
-      className="relative px-6 md:px-20 py-20 md:py-32 bg-[#0D1321] border-b border-[rgba(116,140,171,0.12)] overflow-hidden"
+      className="relative px-6 md:px-20 py-20 md:py-32 overflow-hidden"
+      style={{ background: 'var(--section-a)', borderBottom: '1px solid var(--border)' }}
     >
       {/* Label */}
       <motion.div
@@ -68,12 +69,12 @@ export default function EngineeringProcess() {
             fontSize: 11,
             letterSpacing: '0.25em',
             textTransform: 'uppercase',
-            color: '#748CAB',
+            color: 'var(--accent)',
           }}
         >
           06 — My Enterprise Engineering Process
         </span>
-        <div style={{ flex: 1, height: 1, background: 'rgba(116,140,171,0.12)' }} />
+        <div style={{ flex: 1, height: 1, background: 'var(--border)' }} />
       </motion.div>
 
       {/* Heading */}
@@ -83,17 +84,17 @@ export default function EngineeringProcess() {
             fontFamily: 'var(--font-display)',
             fontSize: 'clamp(28px, 3.5vw, 52px)',
             fontWeight: 800,
-            color: '#F0EBD8',
+            color: 'var(--fg)',
             lineHeight: 1.1,
             marginBottom: 16,
           }}
         >
           End-to-End Delivery Pipeline <br />
-          <em style={{ fontStyle: 'italic', color: '#748CAB' }}>
+          <em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>
             Built for Enterprise Predictability.
           </em>
         </h2>
-        <p style={{ fontFamily: 'var(--font-body)', fontSize: 15, color: 'rgba(240,235,216,0.7)', margin: 0, lineHeight: 1.6 }}>
+        <p style={{ fontFamily: 'var(--font-body)', fontSize: 15, color: 'rgba(var(--fg-rgb), 0.7)', margin: 0, lineHeight: 1.6 }}>
           How I take complex software concepts from discovery to robust production deployment and continuous feature growth.
         </p>
       </div>
@@ -107,9 +108,9 @@ export default function EngineeringProcess() {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: idx * 0.08 }}
             style={{
-              background: '#1D2D44',
-              border: '1px solid rgba(116,140,171,0.18)',
-              borderRadius: 14,
+              background: 'var(--card-bg)',
+              border: '1px solid var(--card-border)',
+              borderRadius: 'var(--card-radius)',
               padding: 24,
               display: 'flex',
               flexDirection: 'column',
@@ -123,7 +124,7 @@ export default function EngineeringProcess() {
                   fontFamily: 'var(--font-display)',
                   fontSize: 28,
                   fontWeight: 800,
-                  color: '#748CAB',
+                  color: 'var(--accent)',
                   marginBottom: 12,
                 }}
               >
@@ -135,7 +136,7 @@ export default function EngineeringProcess() {
                   fontFamily: 'var(--font-display)',
                   fontSize: 18,
                   fontWeight: 700,
-                  color: '#F0EBD8',
+                  color: 'var(--fg)',
                   marginBottom: 8,
                 }}
               >
@@ -146,7 +147,7 @@ export default function EngineeringProcess() {
                 style={{
                   fontFamily: 'var(--font-body)',
                   fontSize: 13,
-                  color: 'rgba(240,235,216,0.65)',
+                  color: 'rgba(var(--fg-rgb), 0.65)',
                   lineHeight: 1.6,
                   marginBottom: 20,
                 }}
@@ -157,15 +158,15 @@ export default function EngineeringProcess() {
 
             <div
               style={{
-                borderTop: '1px solid rgba(116,140,171,0.15)',
+                borderTop: '1px solid var(--border)',
                 paddingTop: 12,
                 fontFamily: 'var(--font-mono)',
                 fontSize: 10,
-                color: '#748CAB',
+                color: 'var(--accent)',
                 textTransform: 'uppercase',
               }}
             >
-              Output: <span style={{ color: '#F0EBD8' }}>{step.deliverable}</span>
+              Output: <span style={{ color: 'var(--fg)' }}>{step.deliverable}</span>
             </div>
           </motion.div>
         ))}

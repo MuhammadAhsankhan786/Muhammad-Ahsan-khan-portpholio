@@ -45,6 +45,7 @@ export default function AskAhsanModal({
   onOpenResume: () => void
 }) {
   const [activeQA, setActiveQA] = useState<QAItem | null>(null)
+  const [copied, setCopied] = useState(false)
 
   if (!isOpen) return null
 
@@ -59,7 +60,7 @@ export default function AskAhsanModal({
           position: 'fixed',
           inset: 0,
           zIndex: 999999,
-          background: 'rgba(4,4,8,0.85)',
+          background: 'rgba(0,0,0,0.75)',
           backdropFilter: 'blur(20px)',
           display: 'flex',
           alignItems: 'center',
@@ -75,24 +76,24 @@ export default function AskAhsanModal({
           onClick={(e) => e.stopPropagation()}
           onWheel={(e) => e.stopPropagation()}
           style={{
-            background: '#1D2D44',
-            border: '1px solid rgba(116,140,171,0.3)',
-            borderRadius: 16,
+            background: 'var(--card-bg)',
+            border: '1px solid var(--border-bright)',
+            borderRadius: 'var(--card-radius)',
             maxWidth: 680,
             width: '100%',
             maxHeight: '85vh',
             display: 'flex',
             flexDirection: 'column',
             overflow: 'hidden',
-            boxShadow: '0 30px 90px rgba(0,0,0,0.9)',
+            boxShadow: 'var(--shadow-lg)',
           }}
         >
           {/* Header */}
           <div
             style={{
               padding: '20px 24px',
-              background: '#0D1321',
-              borderBottom: '1px solid rgba(116,140,171,0.15)',
+              background: 'var(--surface)',
+              borderBottom: '1px solid var(--border)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
@@ -102,10 +103,10 @@ export default function AskAhsanModal({
             <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
               <span style={{ fontSize: 24 }}>🤖</span>
               <div>
-                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: 18, fontWeight: 800, color: '#F0EBD8', margin: 0 }}>
+                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: 18, fontWeight: 800, color: 'var(--fg)', margin: 0 }}>
                   Ask Ahsan — Engineering Assistant
                 </h3>
-                <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: '#748CAB' }}>
+                <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--accent)' }}>
                   Instant Answers about Ahsan's Experience, Architecture & Systems
                 </span>
               </div>
@@ -114,9 +115,9 @@ export default function AskAhsanModal({
             <button
               onClick={onClose}
               style={{
-                background: '#1D2D44',
-                border: '1px solid rgba(116,140,171,0.25)',
-                color: '#F0EBD8',
+                background: 'var(--card-surface)',
+                border: '1px solid var(--border-bright)',
+                color: 'var(--fg)',
                 width: 32,
                 height: 32,
                 borderRadius: '50%',
@@ -140,10 +141,10 @@ export default function AskAhsanModal({
               flexDirection: 'column',
               gap: 20,
               scrollbarWidth: 'thin',
-              scrollbarColor: '#748CAB #0D1321',
+              scrollbarColor: 'var(--sb-thumb) var(--sb-bg)',
             }}
           >
-            <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: '#748CAB', textTransform: 'uppercase' }}>
+            <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--accent)', textTransform: 'uppercase' }}>
               Select a Question to Query Ahsan's Knowledge Base:
             </div>
 
@@ -156,10 +157,10 @@ export default function AskAhsanModal({
                   style={{
                     textAlign: 'left',
                     padding: '12px 16px',
-                    background: activeQA?.q === item.q ? '#0D1321' : '#0B101D',
-                    border: activeQA?.q === item.q ? '1px solid #748CAB' : '1px solid rgba(116,140,171,0.15)',
+                    background: activeQA?.q === item.q ? 'var(--surface)' : 'var(--card-surface)',
+                    border: activeQA?.q === item.q ? '1px solid var(--accent)' : '1px solid var(--border)',
                     borderRadius: 8,
-                    color: '#F0EBD8',
+                    color: 'var(--fg)',
                     fontFamily: 'var(--font-mono)',
                     fontSize: 12,
                     cursor: 'pointer',
@@ -177,17 +178,39 @@ export default function AskAhsanModal({
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 style={{
-                  background: '#0D1321',
-                  border: '1px solid rgba(116,140,171,0.25)',
+                  background: 'var(--surface)',
+                  border: '1px solid var(--border-bright)',
                   borderRadius: 10,
                   padding: 20,
-                  borderLeft: '4px solid #748CAB',
+                  borderLeft: '4px solid var(--accent)',
                 }}
               >
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: '#748CAB', textTransform: 'uppercase', marginBottom: 8 }}>
-                  Ahsan's AI Response:
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
+                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--accent)', textTransform: 'uppercase', display: 'flex', alignItems: 'center', gap: 6 }}>
+                    <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#10B981', display: 'inline-block' }} />
+                    Ahsan's AI Response:
+                  </div>
+                  <button
+                    onClick={() => {
+                      navigator.clipboard.writeText(activeQA.a)
+                      setCopied(true)
+                      setTimeout(() => setCopied(false), 2000)
+                    }}
+                    style={{
+                      background: 'var(--surface-2)',
+                      border: '1px solid var(--border)',
+                      color: 'var(--fg)',
+                      fontFamily: 'var(--font-mono)',
+                      fontSize: 10,
+                      padding: '3px 8px',
+                      borderRadius: 4,
+                      cursor: 'pointer',
+                    }}
+                  >
+                    {copied ? '✓ Copied!' : '📋 Copy'}
+                  </button>
                 </div>
-                <p style={{ fontFamily: 'var(--font-body)', fontSize: 14, color: '#F0EBD8', lineHeight: 1.6, margin: '0 0 16px' }}>
+                <p style={{ fontFamily: 'var(--font-body)', fontSize: 14, color: 'var(--fg)', lineHeight: 1.6, margin: '0 0 16px' }}>
                   {activeQA.a}
                 </p>
 
@@ -198,11 +221,11 @@ export default function AskAhsanModal({
                       document.getElementById(activeQA.actionTarget!)?.scrollIntoView({ behavior: 'smooth' })
                     }}
                     style={{
-                      background: '#748CAB',
-                      color: '#0D1321',
+                      background: 'var(--btn-primary-bg)',
+                      color: 'var(--btn-primary-fg)',
                       border: 'none',
                       padding: '8px 16px',
-                      borderRadius: 6,
+                      borderRadius: 'var(--btn-radius)',
                       fontFamily: 'var(--font-mono)',
                       fontSize: 11,
                       fontWeight: 700,
@@ -216,7 +239,7 @@ export default function AskAhsanModal({
             )}
 
             {/* Extra Actions */}
-            <div style={{ borderTop: '1px solid rgba(116,140,171,0.15)', paddingTop: 16, display: 'flex', gap: 12 }}>
+            <div style={{ borderTop: '1px solid var(--border)', paddingTop: 16, display: 'flex', gap: 12 }}>
               <button
                 onClick={() => {
                   onClose()
@@ -225,12 +248,12 @@ export default function AskAhsanModal({
                 style={{
                   flex: 1,
                   padding: '10px',
-                  background: '#0D1321',
-                  border: '1px solid rgba(116,140,171,0.2)',
-                  color: '#F0EBD8',
+                  background: 'var(--btn-secondary-bg)',
+                  border: '1px solid var(--btn-border)',
+                  color: 'var(--btn-secondary-fg)',
                   fontFamily: 'var(--font-mono)',
                   fontSize: 11,
-                  borderRadius: 6,
+                  borderRadius: 'var(--btn-radius)',
                   cursor: 'pointer',
                 }}
               >
@@ -244,13 +267,13 @@ export default function AskAhsanModal({
                 style={{
                   flex: 1,
                   padding: '10px',
-                  background: '#748CAB',
+                  background: 'var(--btn-primary-bg)',
                   border: 'none',
-                  color: '#0D1321',
+                  color: 'var(--btn-primary-fg)',
                   fontFamily: 'var(--font-mono)',
                   fontSize: 11,
                   fontWeight: 700,
-                  borderRadius: 6,
+                  borderRadius: 'var(--btn-radius)',
                   cursor: 'pointer',
                 }}
               >

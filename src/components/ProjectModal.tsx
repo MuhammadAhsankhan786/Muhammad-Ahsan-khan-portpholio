@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 export type ProjectDetail = {
@@ -26,6 +27,8 @@ export default function ProjectModal({
   project: ProjectDetail | null
   onClose: () => void
 }) {
+  const [activeTab, setActiveTab] = useState<'overview' | 'solution' | 'metrics' | 'stack'>('overview')
+
   if (!project) return null
 
   return (
@@ -40,7 +43,7 @@ export default function ProjectModal({
           position: 'fixed',
           inset: 0,
           zIndex: 99999,
-          background: 'rgba(4,4,8,0.85)',
+          background: 'rgba(0,0,0,0.75)',
           backdropFilter: 'blur(20px)',
           display: 'flex',
           alignItems: 'center',
@@ -56,27 +59,27 @@ export default function ProjectModal({
           onClick={(e) => e.stopPropagation()}
           onWheel={(e) => e.stopPropagation()}
           style={{
-            background: '#1D2D44',
-            border: '1px solid rgba(116,140,171,0.25)',
-            borderRadius: 20,
+            background: 'var(--card-bg)',
+            border: '1px solid var(--border-bright)',
+            borderRadius: 'var(--card-radius)',
             maxWidth: 920,
             width: '100%',
             maxHeight: '88vh',
             display: 'flex',
             flexDirection: 'column',
             overflow: 'hidden',
-            boxShadow: '0 40px 100px rgba(0,0,0,0.9)',
+            boxShadow: 'var(--shadow-lg)',
           }}
         >
           {/* Header Bar */}
           <div
             style={{
               padding: '24px 32px',
-              borderBottom: '1px solid rgba(116,140,171,0.12)',
+              borderBottom: '1px solid var(--border)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
-              background: '#0D1321',
+              background: 'var(--surface)',
               flexShrink: 0,
             }}
           >
@@ -85,9 +88,9 @@ export default function ProjectModal({
                 style={{
                   fontFamily: 'var(--font-mono)',
                   fontSize: 11,
-                  letterSpacing: '0.2em',
+                  letterSpacing: 'var(--label-tracking)',
                   textTransform: 'uppercase',
-                  color: '#748CAB',
+                  color: 'var(--accent)',
                   marginBottom: 4,
                 }}
               >
@@ -98,7 +101,7 @@ export default function ProjectModal({
                   fontFamily: 'var(--font-display)',
                   fontSize: 32,
                   fontWeight: 800,
-                  color: '#F0EBD8',
+                  color: 'var(--fg)',
                   margin: 0,
                   lineHeight: 1,
                 }}
@@ -111,9 +114,9 @@ export default function ProjectModal({
               onClick={onClose}
               data-cursor-hover
               style={{
-                background: '#1D2D44',
-                border: '1px solid rgba(116,140,171,0.25)',
-                color: '#F0EBD8',
+                background: 'var(--card-surface)',
+                border: '1px solid var(--border-bright)',
+                color: 'var(--fg)',
                 width: 36,
                 height: 36,
                 borderRadius: '50%',
@@ -139,7 +142,7 @@ export default function ProjectModal({
               gap: 28,
               overscrollBehavior: 'contain',
               scrollbarWidth: 'thin',
-              scrollbarColor: '#748CAB #0D1321',
+              scrollbarColor: 'var(--sb-thumb) var(--sb-bg)',
             }}
           >
             {/* Real Project Screenshot Banner */}
@@ -148,9 +151,9 @@ export default function ProjectModal({
                 style={{
                   borderRadius: 10,
                   overflow: 'hidden',
-                  border: '1px solid rgba(116,140,171,0.2)',
+                  border: '1px solid var(--border)',
                   maxHeight: 320,
-                  background: '#0D1321',
+                  background: 'var(--surface)',
                 }}
               >
                 <img
@@ -170,95 +173,147 @@ export default function ProjectModal({
             <div
               style={{
                 fontSize: 18,
-                color: 'rgba(240,235,216,0.75)',
+                color: 'rgba(var(--fg-rgb), 0.85)',
                 fontStyle: 'italic',
-                borderLeft: '3px solid #748CAB',
+                borderLeft: '3px solid var(--accent)',
                 paddingLeft: 16,
               }}
             >
               "{project.tagline}"
             </div>
 
-            {/* Metrics */}
+            {/* Tabs */}
             <div
               style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(3, 1fr)',
-                gap: 16,
-                background: '#0D1321',
-                padding: 20,
-                borderRadius: 12,
-                border: '1px solid rgba(116,140,171,0.15)',
+                display: 'flex',
+                gap: 8,
+                borderBottom: '1px solid var(--border)',
+                paddingBottom: 12,
               }}
             >
-              {project.metrics.map((m, i) => (
-                <div key={i}>
-                  <div
+              {[
+                { id: 'overview', label: '01. Overview & Problem' },
+                { id: 'solution', label: '02. Solution & Architecture' },
+                { id: 'metrics', label: '03. Impact & Metrics' },
+                { id: 'stack', label: '04. Tech Stack' },
+              ].map((tab) => {
+                const isActive = activeTab === tab.id
+                return (
+                  <button
+                    key={tab.id}
+                    onClick={() => setActiveTab(tab.id as any)}
                     style={{
-                      fontFamily: 'var(--font-display)',
-                      fontSize: 28,
-                      fontWeight: 800,
-                      color: '#748CAB',
-                    }}
-                  >
-                    {m.v}
-                  </div>
-                  <div
-                    style={{
+                      padding: '6px 14px',
+                      borderRadius: 6,
+                      background: isActive ? 'var(--accent)' : 'var(--surface-2)',
+                      color: isActive ? 'var(--accent-fg)' : 'var(--fg-muted)',
                       fontFamily: 'var(--font-mono)',
                       fontSize: 11,
-                      color: 'rgba(240,235,216,0.6)',
-                      textTransform: 'uppercase',
+                      fontWeight: isActive ? 700 : 500,
+                      border: '1px solid var(--border)',
+                      cursor: 'pointer',
+                      transition: 'all 0.2s ease',
                     }}
                   >
-                    {m.l}
-                  </div>
-                </div>
-              ))}
+                    {tab.label}
+                  </button>
+                )
+              })}
             </div>
 
-            {/* Sections */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
-              <div>
-                <h3 style={{ fontFamily: 'var(--font-mono)', fontSize: 12, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#748CAB', marginBottom: 8 }}>
-                  01. Overview
-                </h3>
-                <p style={{ fontFamily: 'var(--font-body)', fontSize: 14, lineHeight: 1.7, color: 'rgba(240,235,216,0.75)', margin: 0 }}>
-                  {project.overview}
-                </p>
-              </div>
+            {/* Tab Contents */}
+            {activeTab === 'overview' && (
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+                <div>
+                  <h3 style={{ fontFamily: 'var(--font-mono)', fontSize: 12, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: 8 }}>
+                    01. Project Overview
+                  </h3>
+                  <p style={{ fontFamily: 'var(--font-body)', fontSize: 14, lineHeight: 1.7, color: 'rgba(var(--fg-rgb), 0.75)', margin: 0 }}>
+                    {project.overview}
+                  </p>
+                </div>
 
-              <div>
-                <h3 style={{ fontFamily: 'var(--font-mono)', fontSize: 12, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#748CAB', marginBottom: 8 }}>
-                  02. Industry Problem
-                </h3>
-                <p style={{ fontFamily: 'var(--font-body)', fontSize: 14, lineHeight: 1.7, color: 'rgba(240,235,216,0.75)', margin: 0 }}>
-                  {project.problem}
-                </p>
+                <div>
+                  <h3 style={{ fontFamily: 'var(--font-mono)', fontSize: 12, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: 8 }}>
+                    02. Industry Problem
+                  </h3>
+                  <p style={{ fontFamily: 'var(--font-body)', fontSize: 14, lineHeight: 1.7, color: 'rgba(var(--fg-rgb), 0.75)', margin: 0 }}>
+                    {project.problem}
+                  </p>
+                </div>
               </div>
+            )}
 
-              <div>
-                <h3 style={{ fontFamily: 'var(--font-mono)', fontSize: 12, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#748CAB', marginBottom: 8 }}>
-                  03. Enterprise Solution
-                </h3>
-                <p style={{ fontFamily: 'var(--font-body)', fontSize: 14, lineHeight: 1.7, color: 'rgba(240,235,216,0.75)', margin: 0 }}>
-                  {project.solution}
-                </p>
+            {activeTab === 'solution' && (
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+                <div>
+                  <h3 style={{ fontFamily: 'var(--font-mono)', fontSize: 12, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: 8 }}>
+                    01. Enterprise Solution
+                  </h3>
+                  <p style={{ fontFamily: 'var(--font-body)', fontSize: 14, lineHeight: 1.7, color: 'rgba(var(--fg-rgb), 0.75)', margin: 0 }}>
+                    {project.solution}
+                  </p>
+                </div>
+
+                <div>
+                  <h3 style={{ fontFamily: 'var(--font-mono)', fontSize: 12, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: 8 }}>
+                    02. System Architecture Design
+                  </h3>
+                  <p style={{ fontFamily: 'var(--font-body)', fontSize: 14, lineHeight: 1.7, color: 'rgba(var(--fg-rgb), 0.75)', margin: 0 }}>
+                    {project.architecture}
+                  </p>
+                </div>
               </div>
+            )}
 
-              <div>
-                <h3 style={{ fontFamily: 'var(--font-mono)', fontSize: 12, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#748CAB', marginBottom: 8 }}>
-                  04. System Architecture
+            {activeTab === 'metrics' && (
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+                <h3 style={{ fontFamily: 'var(--font-mono)', fontSize: 12, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: 8 }}>
+                  Quantified Production Metrics & Results
                 </h3>
-                <p style={{ fontFamily: 'var(--font-body)', fontSize: 14, lineHeight: 1.7, color: 'rgba(240,235,216,0.75)', margin: 0 }}>
-                  {project.architecture}
-                </p>
+                <div
+                  style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(3, 1fr)',
+                    gap: 16,
+                    background: 'var(--surface)',
+                    padding: 20,
+                    borderRadius: 12,
+                    border: '1px solid var(--border)',
+                  }}
+                >
+                  {project.metrics.map((m, i) => (
+                    <div key={i}>
+                      <div
+                        style={{
+                          fontFamily: 'var(--font-display)',
+                          fontSize: 28,
+                          fontWeight: 800,
+                          color: 'var(--accent)',
+                        }}
+                      >
+                        {m.v}
+                      </div>
+                      <div
+                        style={{
+                          fontFamily: 'var(--font-mono)',
+                          fontSize: 11,
+                          color: 'rgba(var(--fg-rgb), 0.6)',
+                          textTransform: 'uppercase',
+                        }}
+                      >
+                        {m.l}
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
+            )}
 
-              {/* Tech Stack */}
+            {activeTab === 'stack' && (
               <div>
-                <h3 style={{ fontFamily: 'var(--font-mono)', fontSize: 12, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#748CAB', marginBottom: 12 }}>
-                  Tech Stack & Tooling
+                <h3 style={{ fontFamily: 'var(--font-mono)', fontSize: 12, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: 12 }}>
+                  Tech Stack & Engineering Tooling
                 </h3>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
                   {project.stack.map((s) => (
@@ -269,9 +324,9 @@ export default function ProjectModal({
                         fontSize: 11,
                         letterSpacing: '0.08em',
                         padding: '6px 14px',
-                        background: '#0D1321',
-                        border: '1px solid rgba(116,140,171,0.2)',
-                        color: '#F0EBD8',
+                        background: 'var(--tag-bg)',
+                        border: '1px solid var(--tag-border)',
+                        color: 'var(--tag-fg)',
                         borderRadius: 4,
                       }}
                     >
@@ -280,7 +335,7 @@ export default function ProjectModal({
                   ))}
                 </div>
               </div>
-            </div>
+            )}
 
             {/* Action buttons */}
             <div
@@ -289,7 +344,7 @@ export default function ProjectModal({
                 alignItems: 'center',
                 gap: 16,
                 paddingTop: 16,
-                borderTop: '1px solid rgba(116,140,171,0.12)',
+                borderTop: '1px solid var(--border)',
               }}
             >
               {project.link && (
@@ -303,14 +358,14 @@ export default function ProjectModal({
                     alignItems: 'center',
                     gap: 10,
                     padding: '14px 28px',
-                    background: '#748CAB',
-                    color: '#0D1321',
+                    background: 'var(--btn-primary-bg)',
+                    color: 'var(--btn-primary-fg)',
                     fontFamily: 'var(--font-mono)',
                     fontSize: 12,
                     letterSpacing: '0.1em',
                     textTransform: 'uppercase',
                     textDecoration: 'none',
-                    borderRadius: 6,
+                    borderRadius: 'var(--btn-radius)',
                     fontWeight: 700,
                   }}
                 >
@@ -332,15 +387,15 @@ export default function ProjectModal({
                     alignItems: 'center',
                     gap: 10,
                     padding: '14px 28px',
-                    background: '#0D1321',
-                    border: '1px solid rgba(116,140,171,0.25)',
-                    color: '#F0EBD8',
+                    background: 'var(--btn-secondary-bg)',
+                    border: '1px solid var(--btn-border)',
+                    color: 'var(--btn-secondary-fg)',
                     fontFamily: 'var(--font-mono)',
                     fontSize: 12,
                     letterSpacing: '0.1em',
                     textTransform: 'uppercase',
                     textDecoration: 'none',
-                    borderRadius: 6,
+                    borderRadius: 'var(--btn-radius)',
                   }}
                 >
                   GitHub Repository

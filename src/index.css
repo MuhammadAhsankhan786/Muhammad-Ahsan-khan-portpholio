@@ -7,20 +7,652 @@
   --font-display: 'Fraunces', Georgia, serif;
   --font-body: 'Inter', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
-
   --color-background: #0D1321;
   --color-surface: #1D2D44;
-  --color-card: #1D2D44;
   --color-foreground: #F0EBD8;
   --color-muted: #748CAB;
-  --color-primary: #748CAB;
-  --color-accent: #3E5C76;
-  --color-teal: #748CAB;
-  --color-highlight: #748CAB;
-  --color-cyan: #748CAB;
+  --color-accent: #748CAB;
   --color-border: rgba(116, 140, 171, 0.12);
-  --color-border-bright: rgba(116, 140, 171, 0.25);
 }
+
+/* ================================================================
+   MASTER THEME TOKEN SYSTEM
+   All themes share the same variable names. Only values differ.
+   Switch = document.documentElement.setAttribute('data-theme','X')
+   ================================================================ */
+
+/* ── DARK — existing production design, untouched ─────────────── */
+:root,
+[data-theme="dark"] {
+  /* Core palette */
+  --p1: #0D1321;   /* deepest background */
+  --p2: #1D2D44;   /* primary surface */
+  --p3: #748CAB;   /* accent / muted */
+  --p4: #3E5C76;   /* secondary accent */
+  --p5: #F0EBD8;   /* foreground / text */
+
+  /* Semantic layout tokens */
+  --bg:             #0D1321;
+  --bg-rgb:         13, 19, 33;
+  --surface:        #1D2D44;
+  --surface-rgb:    29, 45, 68;
+  --surface-2:      #0D1321;
+  --surface-3:      #243447;
+  --fg:             #F0EBD8;
+  --fg-rgb:         240, 235, 216;
+  --fg-muted:       #748CAB;
+  --fg-muted-rgb:   116, 140, 171;
+  --fg-dim:         rgba(240, 235, 216, 0.45);
+
+  /* Accent system */
+  --accent:         #748CAB;
+  --accent-rgb:     116, 140, 171;
+  --accent-fg:      #0D1321;
+  --accent-2:       #3E5C76;
+  --accent-2-rgb:   62, 92, 118;
+  --accent-3:       #748CAB;
+  --accent-4:       #F0EBD8;
+  --decorative:     rgba(116, 140, 171, 0.08);
+
+  /* Borders */
+  --border:         rgba(116, 140, 171, 0.12);
+  --border-bright:  rgba(116, 140, 171, 0.25);
+  --border-hover:   #748CAB;
+
+  /* Buttons */
+  --btn-primary-bg:     #748CAB;
+  --btn-primary-fg:     #0D1321;
+  --btn-secondary-bg:   #1D2D44;
+  --btn-secondary-fg:   #F0EBD8;
+  --btn-tertiary-bg:    #0D1321;
+  --btn-tertiary-fg:    #F0EBD8;
+  --btn-border:         rgba(116, 140, 171, 0.25);
+  --btn-radius:         6px;
+
+  /* Cards */
+  --card-bg:        #0D1321;
+  --card-surface:   #1D2D44;
+  --card-border:    rgba(116, 140, 171, 0.15);
+  --card-radius:    16px;
+  --card-shadow:    0 4px 20px rgba(0, 0, 0, 0.4);
+  --card-shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.6);
+
+  /* Section backgrounds (alternating) */
+  --section-a:      #0D1321;
+  --section-b:      #1D2D44;
+
+  /* Hero */
+  --hero-bloom:     rgba(116, 140, 171, 0.06);
+
+  /* Network / 3D scene */
+  --node-color:     #748CAB;
+  --node-core:      #F0EBD8;
+  --node-emissive:  #3E5C76;
+  --node-glow:      #748CAB;
+  --particle:       #748CAB;
+  --grid-a:         #3E5C76;
+  --grid-b:         #1D2D44;
+  --line-a:         #F0EBD8;
+  --line-b:         #748CAB;
+
+  /* Navigation */
+  --nav-bg-start:   rgba(13, 19, 33, 0.95);
+  --nav-bg-end:     rgba(13, 19, 33, 0.70);
+  --nav-border:     rgba(116, 140, 171, 0.12);
+
+  /* Grain / noise overlay */
+  --grain-opacity:  0.25;
+  --grain-blend:    overlay;
+
+  /* Typography style */
+  --heading-style:  normal;
+  --heading-weight: 800;
+  --label-tracking: 0.2em;
+  --body-size:      15px;
+
+  /* Shadows */
+  --shadow-sm:      0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-md:      0 8px 24px rgba(0, 0, 0, 0.5);
+  --shadow-lg:      0 20px 50px rgba(0, 0, 0, 0.6);
+  --glow:           0 0 20px rgba(116, 140, 171, 0.3);
+
+  /* Pill / tag */
+  --tag-bg:         #1D2D44;
+  --tag-border:     rgba(116, 140, 171, 0.2);
+  --tag-fg:         #F0EBD8;
+
+  /* Scrollbar */
+  --sb-bg:          #0D1321;
+  --sb-thumb:       rgba(116, 140, 171, 0.5);
+  --sb-hover:       #748CAB;
+
+  /* Progress */
+  --progress:       #748CAB;
+
+  /* Selection */
+  --selection-bg:   rgba(116, 140, 171, 0.3);
+  --selection-fg:   #F0EBD8;
+
+  /* Cursor */
+  --cursor-dot:     #F0EBD8;
+  --cursor-ring:    rgba(116, 140, 171, 0.4);
+  --cursor-ring-active: #748CAB;
+  --cursor-ring-fill:   rgba(116, 140, 171, 0.12);
+}
+
+/* ── THEME 01 — HAUS ──────────────────────────────────────────────
+   Exact palette: #2F4454 · #2E151B · #DA7B93 · #376E6F · #1C3334
+   Dark teal/burgundy/dusty-pink. Bold, organic, artistic.          */
+[data-theme="01"] {
+  --p1: #2F4454;
+  --p2: #2E151B;
+  --p3: #DA7B93;
+  --p4: #376E6F;
+  --p5: #1C3334;
+
+  --bg:             #2F4454;
+  --bg-rgb:         47, 68, 84;
+  --surface:        #2E151B;
+  --surface-rgb:    46, 21, 27;
+  --surface-2:      #1C3334;
+  --surface-3:      #376E6F;
+  --fg:             #F0EBD8;
+  --fg-rgb:         240, 235, 216;
+  --fg-muted:       #DA7B93;
+  --fg-muted-rgb:   218, 123, 147;
+  --fg-dim:         rgba(240, 235, 216, 0.55);
+
+  --accent:         #DA7B93;
+  --accent-rgb:     218, 123, 147;
+  --accent-fg:      #2E151B;
+  --accent-2:       #376E6F;
+  --accent-2-rgb:   55, 110, 111;
+  --accent-3:       #2F4454;
+  --accent-4:       #F0EBD8;
+  --decorative:     rgba(218, 123, 147, 0.15);
+
+  --border:         rgba(218, 123, 147, 0.22);
+  --border-bright:  rgba(218, 123, 147, 0.40);
+  --border-hover:   #DA7B93;
+
+  --btn-primary-bg:     #DA7B93;
+  --btn-primary-fg:     #2E151B;
+  --btn-secondary-bg:   #2E151B;
+  --btn-secondary-fg:   #F0EBD8;
+  --btn-tertiary-bg:    #1C3334;
+  --btn-tertiary-fg:    #F0EBD8;
+  --btn-border:         rgba(218, 123, 147, 0.35);
+  --btn-radius:         4px;
+
+  --card-bg:        #2E151B;
+  --card-surface:   #1C3334;
+  --card-border:    rgba(218, 123, 147, 0.25);
+  --card-radius:    12px;
+  --card-shadow:    0 6px 24px rgba(0, 0, 0, 0.4);
+  --card-shadow-hover: 0 16px 48px rgba(218, 123, 147, 0.25);
+
+  --section-a:      #2F4454;
+  --section-b:      #2E151B;
+
+  --hero-bloom:     rgba(218, 123, 147, 0.15);
+
+  --node-color:     #DA7B93;
+  --node-core:      #F0EBD8;
+  --node-emissive:  #376E6F;
+  --node-glow:      #DA7B93;
+  --particle:       #DA7B93;
+  --grid-a:         #376E6F;
+  --grid-b:         #2F4454;
+  --line-a:         #F0EBD8;
+  --line-b:         #DA7B93;
+
+  --nav-bg-start:   rgba(47, 68, 84, 0.97);
+  --nav-bg-end:     rgba(47, 68, 84, 0.85);
+  --nav-border:     rgba(218, 123, 147, 0.20);
+
+  --grain-opacity:  0.30;
+  --grain-blend:    overlay;
+
+  --heading-style:  italic;
+  --heading-weight: 900;
+  --label-tracking: 0.15em;
+  --body-size:      15px;
+
+  --shadow-sm:      0 2px 8px rgba(0, 0, 0, 0.5);
+  --shadow-md:      0 8px 24px rgba(0, 0, 0, 0.6);
+  --shadow-lg:      0 20px 50px rgba(0, 0, 0, 0.7);
+  --glow:           0 0 20px rgba(218, 123, 147, 0.35);
+
+  --tag-bg:         #2F4454;
+  --tag-border:     rgba(218, 123, 147, 0.25);
+  --tag-fg:         #DA7B93;
+
+  --sb-bg:          #1C3334;
+  --sb-thumb:       rgba(218, 123, 147, 0.5);
+  --sb-hover:       #DA7B93;
+
+  --progress:       #DA7B93;
+
+  --selection-bg:   rgba(218, 123, 147, 0.3);
+  --selection-fg:   #F0EBD8;
+
+  --cursor-dot:     #DA7B93;
+  --cursor-ring:    rgba(218, 123, 147, 0.4);
+  --cursor-ring-active: #DA7B93;
+  --cursor-ring-fill:   rgba(218, 123, 147, 0.12);
+}
+
+/* ── THEME 02 — GED GROUP ─────────────────────────────────────────
+   Exact palette: #026670 · #9FEDD7 · #FEF9C7 · #FCE181 · #EDEAE5
+   Light editorial. Teal/mint/cream. Clean, modern, generous space.  */
+[data-theme="02"] {
+  --p1: #EDEAE5;
+  --p2: #FEF9C7;
+  --p3: #026670;
+  --p4: #9FEDD7;
+  --p5: #FCE181;
+
+  --bg:             #EDEAE5;
+  --bg-rgb:         237, 234, 229;
+  --surface:        #FFFFFF;
+  --surface-rgb:    255, 255, 255;
+  --surface-2:      #FEF9C7;
+  --surface-3:      #FCE181;
+  --fg:             #026670;
+  --fg-rgb:         2, 102, 112;
+  --fg-muted:       #026670;
+  --fg-muted-rgb:   2, 102, 112;
+  --fg-dim:         rgba(2, 102, 112, 0.5);
+
+  --accent:         #026670;
+  --accent-rgb:     2, 102, 112;
+  --accent-fg:      #FFFFFF;
+  --accent-2:       #9FEDD7;
+  --accent-2-rgb:   159, 237, 215;
+  --accent-3:       #FCE181;
+  --accent-4:       #FEF9C7;
+  --decorative:     rgba(159, 237, 215, 0.35);
+
+  --border:         rgba(2, 102, 112, 0.12);
+  --border-bright:  rgba(2, 102, 112, 0.25);
+  --border-hover:   #026670;
+
+  --btn-primary-bg:     #026670;
+  --btn-primary-fg:     #FFFFFF;
+  --btn-secondary-bg:   #FEF9C7;
+  --btn-secondary-fg:   #026670;
+  --btn-tertiary-bg:    #EDEAE5;
+  --btn-tertiary-fg:    #026670;
+  --btn-border:         rgba(2, 102, 112, 0.25);
+  --btn-radius:         8px;
+
+  --card-bg:        #FFFFFF;
+  --card-surface:   #FEF9C7;
+  --card-border:    rgba(2, 102, 112, 0.12);
+  --card-radius:    20px;
+  --card-shadow:    0 2px 16px rgba(2, 102, 112, 0.08);
+  --card-shadow-hover: 0 10px 40px rgba(2, 102, 112, 0.15);
+
+  --section-a:      #EDEAE5;
+  --section-b:      #FFFFFF;
+
+  --hero-bloom:     rgba(159, 237, 215, 0.20);
+
+  --node-color:     #026670;
+  --node-core:      #026670;
+  --node-emissive:  #026670;
+  --node-glow:      #026670;
+  --particle:       #026670;
+  --grid-a:         #026670;
+  --grid-b:         #026670;
+  --line-a:         #026670;
+  --line-b:         #026670;
+
+  --nav-bg-start:   rgba(237, 234, 229, 0.97);
+  --nav-bg-end:     rgba(237, 234, 229, 0.90);
+  --nav-border:     rgba(2, 102, 112, 0.12);
+
+  --grain-opacity:  0.03;
+  --grain-blend:    multiply;
+
+  --heading-style:  normal;
+  --heading-weight: 700;
+  --label-tracking: 0.18em;
+  --body-size:      15px;
+
+  --shadow-sm:      0 2px 8px rgba(2, 102, 112, 0.08);
+  --shadow-md:      0 8px 24px rgba(2, 102, 112, 0.12);
+  --shadow-lg:      0 20px 50px rgba(2, 102, 112, 0.15);
+  --glow:           0 0 20px rgba(159, 237, 215, 0.40);
+
+  --tag-bg:         #FEF9C7;
+  --tag-border:     rgba(2, 102, 112, 0.2);
+  --tag-fg:         #026670;
+
+  --sb-bg:          #EDEAE5;
+  --sb-thumb:       rgba(2, 102, 112, 0.35);
+  --sb-hover:       #026670;
+
+  --progress:       #026670;
+
+  --selection-bg:   rgba(2, 102, 112, 0.2);
+  --selection-fg:   #026670;
+
+  --cursor-dot:     #026670;
+  --cursor-ring:    rgba(2, 102, 112, 0.35);
+  --cursor-ring-active: #026670;
+  --cursor-ring-fill:   rgba(2, 102, 112, 0.08);
+}
+
+/* ── THEME 03 — MICHELLE EATS ─────────────────────────────────────
+   Exact palette: #F2E9EB · #DD8EA4 · #FEDD89 · #31383F
+   Soft blush/rose/warm-yellow/charcoal. Elegant, minimal, human.   */
+[data-theme="03"] {
+  --p1: #F2E9EB;
+  --p2: #FFFFFF;
+  --p3: #DD8EA4;
+  --p4: #C25975;
+  --p5: #31383F;
+
+  --bg:             #F2E9EB;
+  --bg-rgb:         242, 233, 235;
+  --surface:        #FFFFFF;
+  --surface-rgb:    255, 255, 255;
+  --surface-2:      #F7E4E8;
+  --surface-3:      #DD8EA4;
+  --fg:             #31383F;
+  --fg-rgb:         49, 56, 63;
+  --fg-muted:       #C25975;
+  --fg-muted-rgb:   194, 89, 117;
+  --fg-dim:         rgba(49, 56, 63, 0.45);
+
+  --accent:         #C25975;
+  --accent-rgb:     194, 89, 117;
+  --accent-fg:      #FFFFFF;
+  --accent-2:       #DD8EA4;
+  --accent-2-rgb:   221, 142, 164;
+  --accent-3:       #31383F;
+  --accent-4:       #F7E4E8;
+  --decorative:     rgba(194, 89, 117, 0.15);
+
+  --border:         rgba(194, 89, 117, 0.18);
+  --border-bright:  rgba(194, 89, 117, 0.35);
+  --border-hover:   #C25975;
+
+  --btn-primary-bg:     #C25975;
+  --btn-primary-fg:     #FFFFFF;
+  --btn-secondary-bg:   #FFFFFF;
+  --btn-secondary-fg:   #31383F;
+  --btn-tertiary-bg:    #F7E4E8;
+  --btn-tertiary-fg:    #31383F;
+  --btn-border:         rgba(194, 89, 117, 0.35);
+  --btn-radius:         12px;
+
+  --card-bg:        #FFFFFF;
+  --card-surface:   #F7E4E8;
+  --card-border:    rgba(194, 89, 117, 0.18);
+  --card-radius:    18px;
+  --card-shadow:    0 2px 16px rgba(194, 89, 117, 0.08);
+  --card-shadow-hover: 0 12px 40px rgba(194, 89, 117, 0.18);
+
+  --section-a:      #F2E9EB;
+  --section-b:      #FFFFFF;
+
+  --hero-bloom:     rgba(221, 142, 164, 0.12);
+
+  --node-color:     #C25975;
+  --node-core:      #31383F;
+  --node-emissive:  #DD8EA4;
+  --node-glow:      #DD8EA4;
+  --particle:       #C25975;
+  --grid-a:         #C25975;
+  --grid-b:         #DD8EA4;
+  --line-a:         #C25975;
+  --line-b:         #DD8EA4;
+
+  --nav-bg-start:   rgba(242, 233, 235, 0.97);
+  --nav-bg-end:     rgba(242, 233, 235, 0.90);
+  --nav-border:     rgba(221, 142, 164, 0.18);
+
+  --grain-opacity:  0.03;
+  --grain-blend:    multiply;
+
+  --heading-style:  normal;
+  --heading-weight: 700;
+  --label-tracking: 0.12em;
+  --body-size:      15.5px;
+
+  --shadow-sm:      0 2px 8px rgba(221, 142, 164, 0.10);
+  --shadow-md:      0 8px 24px rgba(221, 142, 164, 0.15);
+  --shadow-lg:      0 20px 50px rgba(221, 142, 164, 0.18);
+  --glow:           0 0 20px rgba(221, 142, 164, 0.30);
+
+  --tag-bg:         #F2E9EB;
+  --tag-border:     rgba(221, 142, 164, 0.25);
+  --tag-fg:         #31383F;
+
+  --sb-bg:          #F2E9EB;
+  --sb-thumb:       rgba(221, 142, 164, 0.5);
+  --sb-hover:       #DD8EA4;
+
+  --progress:       #DD8EA4;
+
+  --selection-bg:   rgba(221, 142, 164, 0.25);
+  --selection-fg:   #31383F;
+
+  --cursor-dot:     #DD8EA4;
+  --cursor-ring:    rgba(221, 142, 164, 0.4);
+  --cursor-ring-active: #DD8EA4;
+  --cursor-ring-fill:   rgba(221, 142, 164, 0.10);
+}
+
+/* ── THEME 04 — LOKET DESIGN ──────────────────────────────────────
+   Exact palette: #E43D12 · #D6536D · #EFB11D · #F5E6D3 · #EBE9E1
+   Bold orange-red/warm gold/cream. High contrast, graphic, editorial.   */
+[data-theme="04"] {
+  --p1: #EBE9E1;
+  --p2: #FFFFFF;
+  --p3: #E43D12;
+  --p4: #EFB11D;
+  --p5: #D6536D;
+
+  --bg:             #EBE9E1;
+  --bg-rgb:         235, 233, 225;
+  --surface:        #FFFFFF;
+  --surface-rgb:    255, 255, 255;
+  --surface-2:      #F5E6D3;
+  --surface-3:      #EFB11D;
+  --fg:             #1A1A1A;
+  --fg-rgb:         26, 26, 26;
+  --fg-muted:       #E43D12;
+  --fg-muted-rgb:   228, 61, 18;
+  --fg-dim:         rgba(26, 26, 26, 0.45);
+
+  --accent:         #E43D12;
+  --accent-rgb:     228, 61, 18;
+  --accent-fg:      #FFFFFF;
+  --accent-2:       #EFB11D;
+  --accent-2-rgb:   239, 177, 29;
+  --accent-3:       #D6536D;
+  --accent-4:       #EFB11D;
+  --decorative:     rgba(239, 177, 29, 0.35);
+
+  --border:         rgba(228, 61, 18, 0.15);
+  --border-bright:  rgba(228, 61, 18, 0.30);
+  --border-hover:   #E43D12;
+
+  --btn-primary-bg:     #E43D12;
+  --btn-primary-fg:     #FFFFFF;
+  --btn-secondary-bg:   #FFFFFF;
+  --btn-secondary-fg:   #1A1A1A;
+  --btn-tertiary-bg:    #EFB11D;
+  --btn-tertiary-fg:    #1A1A1A;
+  --btn-border:         rgba(228, 61, 18, 0.25);
+  --btn-radius:         6px;
+
+  --card-bg:        #FFFFFF;
+  --card-surface:   #F5E6D3;
+  --card-border:    rgba(228, 61, 18, 0.15);
+  --card-radius:    12px;
+  --card-shadow:    0 2px 12px rgba(228, 61, 18, 0.08);
+  --card-shadow-hover: 0 8px 32px rgba(228, 61, 18, 0.18);
+
+  --section-a:      #EBE9E1;
+  --section-b:      #FFFFFF;
+
+  --hero-bloom:     rgba(228, 61, 18, 0.06);
+
+  --node-color:     #E43D12;
+  --node-core:      #EFB11D;
+  --node-emissive:  #D6536D;
+  --node-glow:      #E43D12;
+  --particle:       #E43D12;
+  --grid-a:         #EFB11D;
+  --grid-b:         #E43D12;
+  --line-a:         #EFB11D;
+  --line-b:         #E43D12;
+
+  --nav-bg-start:   rgba(235, 233, 225, 0.97);
+  --nav-bg-end:     rgba(235, 233, 225, 0.90);
+  --nav-border:     rgba(228, 61, 18, 0.15);
+
+  --grain-opacity:  0.03;
+  --grain-blend:    multiply;
+
+  --heading-style:  normal;
+  --heading-weight: 900;
+  --label-tracking: 0.08em;
+  --body-size:      15px;
+
+  --shadow-sm:      0 2px 8px rgba(228, 61, 18, 0.08);
+  --shadow-md:      0 8px 24px rgba(228, 61, 18, 0.12);
+  --shadow-lg:      0 20px 50px rgba(228, 61, 18, 0.15);
+  --glow:           0 0 20px rgba(228, 61, 18, 0.30);
+
+  --tag-bg:         #EBE9E1;
+  --tag-border:     rgba(228, 61, 18, 0.20);
+  --tag-fg:         #E43D12;
+
+  --sb-bg:          #EBE9E1;
+  --sb-thumb:       rgba(228, 61, 18, 0.4);
+  --sb-hover:       #E43D12;
+
+  --progress:       #E43D12;
+
+  --selection-bg:   rgba(228, 61, 18, 0.20);
+  --selection-fg:   #FFFFFF;
+
+  --cursor-dot:     #E43D12;
+  --cursor-ring:    rgba(228, 61, 18, 0.35);
+  --cursor-ring-active: #E43D12;
+  --cursor-ring-fill:   rgba(228, 61, 18, 0.08);
+}
+
+/* ── THEME 05 — CENTRALWEST SAGE ──────────────────────────────────
+   Exact palette: #F4F8F5 · #E2ECE9 · #2D6A4F · #52B788 · #F5A846
+   Clean Sage Green & Soft Amber. Modern, natural, executive.        */
+[data-theme="05"] {
+  --p1: #F4F8F5;
+  --p2: #FFFFFF;
+  --p3: #2D6A4F;
+  --p4: #52B788;
+  --p5: #F5A846;
+
+  --bg:             #F4F8F5;
+  --bg-rgb:         244, 248, 245;
+  --surface:        #FFFFFF;
+  --surface-rgb:    255, 255, 255;
+  --surface-2:      #E2ECE9;
+  --surface-3:      #F5A846;
+  --fg:             #1F3A2E;
+  --fg-rgb:         31, 58, 46;
+  --fg-muted:       #2D6A4F;
+  --fg-muted-rgb:   45, 106, 79;
+  --fg-dim:         rgba(31, 58, 46, 0.50);
+
+  --accent:         #2D6A4F;
+  --accent-rgb:     45, 106, 79;
+  --accent-fg:      #FFFFFF;
+  --accent-2:       #F5A846;
+  --accent-2-rgb:   245, 168, 70;
+  --accent-3:       #52B788;
+  --accent-4:       #E2ECE9;
+  --decorative:     rgba(45, 106, 79, 0.15);
+
+  --border:         rgba(45, 106, 79, 0.18);
+  --border-bright:  rgba(45, 106, 79, 0.35);
+  --border-hover:   #2D6A4F;
+
+  --btn-primary-bg:     #2D6A4F;
+  --btn-primary-fg:     #FFFFFF;
+  --btn-secondary-bg:   #FFFFFF;
+  --btn-secondary-fg:   #1F3A2E;
+  --btn-tertiary-bg:    #F5A846;
+  --btn-tertiary-fg:    #1F3A2E;
+  --btn-border:         rgba(45, 106, 79, 0.30);
+  --btn-radius:         8px;
+
+  --card-bg:        #FFFFFF;
+  --card-surface:   #E2ECE9;
+  --card-border:    rgba(45, 106, 79, 0.16);
+  --card-radius:    14px;
+  --card-shadow:    0 2px 16px rgba(45, 106, 79, 0.08);
+  --card-shadow-hover: 0 12px 40px rgba(45, 106, 79, 0.18);
+
+  --section-a:      #F4F8F5;
+  --section-b:      #FFFFFF;
+
+  --hero-bloom:     rgba(45, 106, 79, 0.15);
+
+  --node-color:     #2D6A4F;
+  --node-core:      #F5A846;
+  --node-emissive:  #52B788;
+  --node-glow:      #2D6A4F;
+  --particle:       #52B788;
+  --grid-a:         #52B788;
+  --grid-b:         #2D6A4F;
+  --line-a:         #F5A846;
+  --line-b:         #2D6A4F;
+
+  --nav-bg-start:   rgba(244, 248, 245, 0.97);
+  --nav-bg-end:     rgba(244, 248, 245, 0.90);
+  --nav-border:     rgba(45, 106, 79, 0.18);
+
+  --grain-opacity:  0.02;
+  --grain-blend:    multiply;
+
+  --heading-style:  normal;
+  --heading-weight: 700;
+  --label-tracking: 0.15em;
+  --body-size:      15.5px;
+
+  --shadow-sm:      0 2px 8px rgba(45, 106, 79, 0.08);
+  --shadow-md:      0 8px 24px rgba(45, 106, 79, 0.12);
+  --shadow-lg:      0 20px 50px rgba(45, 106, 79, 0.15);
+  --glow:           0 0 20px rgba(45, 106, 79, 0.35);
+
+  --tag-bg:         #E2ECE9;
+  --tag-border:     rgba(45, 106, 79, 0.25);
+  --tag-fg:         #2D6A4F;
+
+  --sb-bg:          #F4F8F5;
+  --sb-thumb:       rgba(45, 106, 79, 0.40);
+  --sb-hover:       #2D6A4F;
+
+  --progress:       #2D6A4F;
+
+  --selection-bg:   rgba(45, 106, 79, 0.25);
+  --selection-fg:   #FFFFFF;
+
+  --cursor-dot:     #2D6A4F;
+  --cursor-ring:    rgba(45, 106, 79, 0.4);
+  --cursor-ring-active: #2D6A4F;
+  --cursor-ring-fill:   rgba(45, 106, 79, 0.10);
+}
+
+/* ================================================================
+   GLOBAL BASE STYLES
+   ================================================================ */
 
 *,
 *::before,
@@ -35,108 +667,99 @@ html {
 }
 
 body {
-  background-color: var(--color-background);
-  color: var(--color-foreground);
+  background-color: var(--bg);
+  color: var(--fg);
   font-family: var(--font-body);
+  font-size: var(--body-size);
   overflow-x: hidden;
   cursor: none;
 }
 
-/* Grain overlay */
+/* Grain texture overlay — adapts per theme */
 body::after {
   content: '';
   position: fixed;
   inset: 0;
   z-index: 9998;
   pointer-events: none;
-  opacity: 0.25;
+  opacity: var(--grain-opacity);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.1'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-size: 300px 300px;
-  mix-blend-mode: overlay;
+  mix-blend-mode: var(--grain-blend);
 }
 
 ::selection {
-  background: rgba(116, 140, 171, 0.3);
-  color: #F0EBD8;
+  background: var(--selection-bg);
+  color: var(--selection-fg);
 }
 
-::-webkit-scrollbar {
-  display: none;
-}
+::-webkit-scrollbar { display: none; }
+* { -ms-overflow-style: none; scrollbar-width: none; }
 
-* {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
+/* ================================================================
+   KEYFRAME ANIMATIONS
+   ================================================================ */
 
-/* Section reveal animation */
 @keyframes fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
-
 @keyframes orbit {
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
 }
-
 @keyframes orbit-reverse {
   from { transform: rotate(0deg); }
   to   { transform: rotate(-360deg); }
 }
-
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 8px rgba(116, 140, 171, 0.15); }
-  50%       { box-shadow: 0 0 20px rgba(116, 140, 171, 0.35); }
+  0%, 100% { box-shadow: 0 0 8px rgba(var(--accent-rgb), 0.15); }
+  50%       { box-shadow: 0 0 20px rgba(var(--accent-rgb), 0.35); }
 }
-
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
   50%       { transform: translateY(-8px); }
 }
-
 @keyframes data-packet {
   0%   { offset-distance: 0%; opacity: 0; }
   10%  { opacity: 1; }
   90%  { opacity: 1; }
   100% { offset-distance: 100%; opacity: 0; }
 }
-
 @keyframes line-shimmer {
   0%   { opacity: 0.15; }
   50%  { opacity: 0.4; }
   100% { opacity: 0.15; }
 }
-
-/* Modal Scrollbar Fix */
-#ats-resume-document::-webkit-scrollbar {
-  display: block !important;
-  width: 6px !important;
-}
-#ats-resume-document::-webkit-scrollbar-track {
-  background: #0D1321 !important;
-}
-#ats-resume-document::-webkit-scrollbar-thumb {
-  background: rgba(116, 140, 171, 0.5) !important;
-  border-radius: 4px !important;
-}
-#ats-resume-document::-webkit-scrollbar-thumb:hover {
-  background: #748CAB !important;
+@keyframes theme-in {
+  from { opacity: 0.85; }
+  to   { opacity: 1; }
 }
 
-/* Print CSS Override for Clean 2 to 3 Page ATS Resume PDF */
+/* Theme transition — smooth but fast */
+html {
+  animation: none;
+}
+html[data-theme] {
+  animation: theme-in 0.25s ease forwards;
+}
+
+/* ================================================================
+   MODAL SCROLLBAR
+   ================================================================ */
+
+#ats-resume-document::-webkit-scrollbar { display: block !important; width: 6px !important; }
+#ats-resume-document::-webkit-scrollbar-track { background: var(--sb-bg) !important; }
+#ats-resume-document::-webkit-scrollbar-thumb { background: var(--sb-thumb) !important; border-radius: 4px !important; }
+#ats-resume-document::-webkit-scrollbar-thumb:hover { background: var(--sb-hover) !important; }
+
+/* ================================================================
+   PRINT STYLES — always white/black regardless of theme
+   ================================================================ */
+
 @media print {
-  @page {
-    size: A4 portrait;
-    margin: 10mm 12mm 10mm 12mm;
-  }
+  @page { size: A4 portrait; margin: 10mm 12mm; }
 
   body {
     background: #ffffff !important;
@@ -144,32 +767,15 @@ body::after {
     cursor: auto !important;
     overflow: visible !important;
   }
+  body::after { display: none !important; }
 
-  /* Hide grain overlay */
-  body::after {
-    display: none !important;
-  }
-
-  /* Hide custom cursor elements */
   div[style*="zIndex: 9999999"],
-  div[style*="zIndex: 9999998"] {
-    display: none !important;
-  }
+  div[style*="zIndex: 9999998"] { display: none !important; }
 
-  /* Hide all top-level sections in App except the modal overlay container */
-  #root > div > *:not(:last-child) {
-    display: none !important;
-  }
+  #root > div > *:not(:last-child) { display: none !important; }
 
-  /* Hide non-print modal header bar, buttons, and floating widgets */
-  .no-print,
-  button,
-  nav,
-  header {
-    display: none !important;
-  }
+  .no-print, button, nav, header { display: none !important; }
 
-  /* Reset fixed backdrop overlay of modal to static transparent container */
   div[style*="position: fixed"],
   div[style*="position:fixed"] {
     position: static !important;
@@ -184,7 +790,6 @@ body::after {
     overflow: visible !important;
   }
 
-  /* Reset inner modal box */
   div[style*="max-height"],
   div[style*="maxHeight"] {
     max-height: none !important;
@@ -195,7 +800,6 @@ body::after {
     overflow: visible !important;
   }
 
-  /* Reset printable document container */
   #ats-resume-document {
     position: relative !important;
     display: block !important;
@@ -211,7 +815,6 @@ body::after {
     height: auto !important;
   }
 
-  /* Color overrides for crisp PDF rendering */
   #ats-resume-document h1,
   #ats-resume-document h2,
   #ats-resume-document h3,
@@ -219,32 +822,14 @@ body::after {
   #ats-resume-document span,
   #ats-resume-document p,
   #ats-resume-document li,
-  #ats-resume-document div {
-    color: #111827 !important;
-    text-shadow: none !important;
-  }
+  #ats-resume-document div { color: #111827 !important; text-shadow: none !important; }
 
-  /* Project and testimonial cards background for clean PDF print */
-  #ats-resume-document div[style*="background"] {
-    background: #f8fafc !important;
-    border: 1px solid #e2e8f0 !important;
-  }
+  #ats-resume-document div[style*="background"] { background: #f8fafc !important; border: 1px solid #e2e8f0 !important; }
+  #ats-resume-document a { color: #1d4ed8 !important; text-decoration: underline !important; }
 
-  #ats-resume-document a {
-    color: #1d4ed8 !important;
-    text-decoration: underline !important;
-  }
-
-  /* Section breaks avoidance */
   #ats-resume-document h1,
   #ats-resume-document h2,
-  #ats-resume-document h3 {
-    break-after: avoid;
-    page-break-after: avoid;
-  }
+  #ats-resume-document h3 { break-after: avoid; page-break-after: avoid; }
 
-  #ats-resume-document > div {
-    break-inside: avoid;
-    page-break-inside: avoid;
-  }
+  #ats-resume-document > div { break-inside: avoid; page-break-inside: avoid; }
 }

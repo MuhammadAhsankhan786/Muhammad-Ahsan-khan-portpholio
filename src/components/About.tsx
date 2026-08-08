@@ -20,6 +20,8 @@ const traits = [
 function StatCard({ value, label, detail }: { value: string; label: string; detail: string }) {
   const ref = useRef<HTMLDivElement>(null)
   const inView = useInView(ref, { once: true, amount: 0.5 })
+  const isLongValue = value.length > 4
+
   return (
     <motion.div
       ref={ref}
@@ -27,19 +29,22 @@ function StatCard({ value, label, detail }: { value: string; label: string; deta
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       style={{
-        borderLeft: '2px solid #748CAB',
-        paddingLeft: 24,
-        paddingRight: 24,
+        borderLeft: '2px solid var(--accent)',
+        paddingLeft: 18,
+        paddingRight: 12,
+        overflow: 'hidden',
       }}
     >
       <div
         style={{
           fontFamily: 'var(--font-display)',
-          fontSize: 44,
-          fontWeight: 800,
-          color: '#748CAB',
-          lineHeight: 1,
+          fontSize: isLongValue ? 'clamp(22px, 5.5vw, 34px)' : 'clamp(32px, 7vw, 44px)',
+          fontWeight: 'var(--heading-weight)' as any,
+          color: 'var(--accent)',
+          lineHeight: 1.1,
           marginBottom: 8,
+          wordBreak: 'break-word',
+          overflowWrap: 'break-word',
         }}
       >
         {value}
@@ -47,12 +52,13 @@ function StatCard({ value, label, detail }: { value: string; label: string; deta
       <div
         style={{
           fontFamily: 'var(--font-mono)',
-          fontSize: 11,
-          letterSpacing: '0.15em',
+          fontSize: 10,
+          letterSpacing: 'var(--label-tracking)',
           textTransform: 'uppercase',
-          color: '#F0EBD8',
+          color: 'var(--fg)',
           marginBottom: 6,
           fontWeight: 600,
+          wordBreak: 'break-word',
         }}
       >
         {label}
@@ -60,8 +66,8 @@ function StatCard({ value, label, detail }: { value: string; label: string; deta
       <div
         style={{
           fontFamily: 'var(--font-body)',
-          fontSize: 13,
-          color: 'rgba(240,235,216,0.65)',
+          fontSize: 12.5,
+          color: 'rgba(var(--fg-rgb), 0.65)',
           lineHeight: 1.5,
         }}
       >
@@ -83,7 +89,8 @@ export default function About() {
     <section
       id="about"
       ref={containerRef}
-      className="relative px-6 md:px-20 py-20 md:py-36 bg-[#1D2D44] overflow-hidden"
+      className="relative px-6 md:px-20 py-20 md:py-36 overflow-hidden"
+      style={{ background: 'var(--section-b)' }}
     >
       {/* Ambient background shape */}
       <motion.div
@@ -95,8 +102,7 @@ export default function About() {
           width: 600,
           height: 600,
           borderRadius: '50%',
-          background:
-            'radial-gradient(circle, rgba(116,140,171,0.05) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, var(--decorative) 0%, transparent 70%)',
           pointerEvents: 'none',
         }}
         aria-hidden="true"
@@ -108,25 +114,20 @@ export default function About() {
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: 16,
-          marginBottom: 60,
-        }}
+        style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 60 }}
       >
         <span
           style={{
             fontFamily: 'var(--font-mono)',
             fontSize: 11,
-            letterSpacing: '0.25em',
+            letterSpacing: 'var(--label-tracking)',
             textTransform: 'uppercase',
-            color: '#748CAB',
+            color: 'var(--accent)',
           }}
         >
           01 — About & Credentials
         </span>
-        <div style={{ flex: 1, height: 1, background: 'rgba(116,140,171,0.12)' }} />
+        <div style={{ flex: 1, height: 1, background: 'var(--border)' }} />
       </motion.div>
 
       {/* Main grid */}
@@ -141,17 +142,17 @@ export default function About() {
             style={{
               fontFamily: 'var(--font-display)',
               fontSize: 'clamp(32px, 4vw, 60px)',
-              fontWeight: 700,
+              fontWeight: 'var(--heading-weight)' as any,
               lineHeight: 1.05,
               letterSpacing: '-0.02em',
-              color: '#F0EBD8',
+              color: 'var(--fg)',
               margin: '0 0 24px',
             }}
           >
             I build enterprise
             <br />
             software &{' '}
-            <em style={{ fontStyle: 'italic', color: '#748CAB' }}>
+            <em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>
               AI solutions
             </em>
             <br />
@@ -160,63 +161,61 @@ export default function About() {
 
           {/* Education & Credentials */}
           <div style={{ marginTop: 40, display: 'flex', flexDirection: 'column', gap: 16 }}>
-            <div
-              style={{
-                background: '#0D1321',
-                border: '1px solid rgba(116,140,171,0.15)',
-                borderRadius: 10,
-                padding: 20,
-              }}
-            >
-              <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: '#748CAB', textTransform: 'uppercase', marginBottom: 4 }}>
-                ACADEMIC EDUCATION
+            {[
+              {
+                label: 'ACADEMIC EDUCATION',
+                title: 'ADP in Computer Science',
+                sub: 'Virtual University of Pakistan',
+              },
+              {
+                label: 'CERTIFICATIONS & AWARDS',
+                list: [
+                  '🏆 micro1 Verified Top 1% React & Node.js Developer',
+                  '🏅 TypeScript & NestJS ERP Architecture Certificate',
+                  '🤖 Next.js 14 & Agentic AI Specialist',
+                ],
+              },
+              {
+                label: 'LANGUAGES & COMMUNICATION',
+                langs: true,
+              },
+            ].map((card, ci) => (
+              <div
+                key={ci}
+                style={{
+                  background: 'var(--card-bg)',
+                  border: '1px solid var(--card-border)',
+                  borderRadius: 'var(--card-radius)',
+                  padding: 20,
+                  boxShadow: 'var(--card-shadow)',
+                }}
+              >
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--accent)', textTransform: 'uppercase', marginBottom: 6, letterSpacing: '0.12em' }}>
+                  {card.label}
+                </div>
+                {card.title && (
+                  <>
+                    <div style={{ fontFamily: 'var(--font-display)', fontSize: 16, fontWeight: 700, color: 'var(--fg)' }}>{card.title}</div>
+                    <div style={{ fontSize: 12, color: 'rgba(var(--fg-rgb), 0.7)', fontFamily: 'var(--font-mono)', marginTop: 2 }}>{card.sub}</div>
+                  </>
+                )}
+                {card.list && (
+                  <div style={{ fontSize: 12.5, color: 'var(--fg)', fontFamily: 'var(--font-mono)', display: 'flex', flexDirection: 'column', gap: 6 }}>
+                    {card.list.map((item) => <div key={item}><strong>{item}</strong></div>)}
+                  </div>
+                )}
+                {card.langs && (
+                  <div style={{ fontSize: 12, color: 'rgba(var(--fg-rgb), 0.85)', fontFamily: 'var(--font-mono)', display: 'flex', gap: 20 }}>
+                    <span>🗣️ <strong>Urdu</strong> (Native)</span>
+                    <span>🌐 <strong>English</strong> (Professional Working)</span>
+                  </div>
+                )}
               </div>
-              <div style={{ fontFamily: 'var(--font-display)', fontSize: 16, fontWeight: 700, color: '#F0EBD8' }}>
-                ADP in Computer Science
-              </div>
-              <div style={{ fontSize: 12, color: 'rgba(240,235,216,0.7)', fontFamily: 'var(--font-mono)', marginTop: 2 }}>
-                Virtual University of Pakistan
-              </div>
-            </div>
-
-            <div
-              style={{
-                background: '#0D1321',
-                border: '1px solid rgba(116,140,171,0.15)',
-                borderRadius: 10,
-                padding: 20,
-              }}
-            >
-              <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: '#748CAB', textTransform: 'uppercase', marginBottom: 6 }}>
-                CERTIFICATIONS & AWARDS
-              </div>
-              <div style={{ fontSize: 12.5, color: '#F0EBD8', fontFamily: 'var(--font-mono)', display: 'flex', flexDirection: 'column', gap: 6 }}>
-                <div>🏆 <strong>micro1 Verified Top 1% React & Node.js Developer</strong></div>
-                <div>🏅 <strong>TypeScript & NestJS ERP Architecture Certificate</strong></div>
-                <div>🤖 <strong>Next.js 14 & Agentic AI Specialist</strong></div>
-              </div>
-            </div>
-
-            <div
-              style={{
-                background: '#0D1321',
-                border: '1px solid rgba(116,140,171,0.15)',
-                borderRadius: 10,
-                padding: 20,
-              }}
-            >
-              <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: '#748CAB', textTransform: 'uppercase', marginBottom: 6 }}>
-                LANGUAGES & COMMUNICATION
-              </div>
-              <div style={{ fontSize: 12, color: 'rgba(240,235,216,0.85)', fontFamily: 'var(--font-mono)', display: 'flex', gap: 20 }}>
-                <span>🗣️ <strong>Urdu</strong> (Native)</span>
-                <span>🌐 <strong>English</strong> (Professional Working)</span>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
 
-        {/* Right: Founder Executive Portrait & traits */}
+        {/* Right: Portrait & traits */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: 36 }}>
           {/* Executive Founder Portrait Card */}
           <motion.div
@@ -226,15 +225,14 @@ export default function About() {
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
             style={{
               position: 'relative',
-              borderRadius: 20,
+              borderRadius: 'var(--card-radius)',
               overflow: 'hidden',
-              border: '1px solid rgba(116,140,171,0.25)',
-              background: '#0D1321',
-              boxShadow: '0 20px 50px rgba(0,0,0,0.5)',
+              border: '1px solid var(--border-bright)',
+              background: 'var(--card-bg)',
+              boxShadow: 'var(--shadow-lg)',
             }}
           >
-            {/* Image */}
-            <div style={{ position: 'relative', width: '100%', aspectRatio: '4/5', overflow: 'hidden', background: '#1D2D44' }}>
+            <div style={{ position: 'relative', width: '100%', aspectRatio: '4/5', overflow: 'hidden', background: 'var(--surface)' }}>
               <img
                 src={profileImg}
                 onError={(e) => {
@@ -261,11 +259,10 @@ export default function About() {
                   left: 0,
                   right: 0,
                   height: '45%',
-                  background: 'linear-gradient(to top, #0D1321 0%, rgba(13,19,33,0.4) 60%, transparent 100%)',
+                  background: 'linear-gradient(to top, var(--card-bg) 0%, transparent 100%)',
                   pointerEvents: 'none',
                 }}
               />
-
               {/* Badge overlay */}
               <div
                 style={{
@@ -273,16 +270,16 @@ export default function About() {
                   bottom: 20,
                   left: 20,
                   right: 20,
-                  background: '#0D1321',
-                  border: '1px solid rgba(116,140,171,0.25)',
+                  background: 'var(--card-bg)',
+                  border: '1px solid var(--border-bright)',
                   borderRadius: 12,
                   padding: '14px 18px',
                 }}
               >
-                <div style={{ fontFamily: 'var(--font-display)', fontSize: 18, fontWeight: 800, color: '#F0EBD8' }}>
+                <div style={{ fontFamily: 'var(--font-display)', fontSize: 18, fontWeight: 800, color: 'var(--fg)' }}>
                   Muhammad Ahsan Khan
                 </div>
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: '#748CAB', textTransform: 'uppercase', letterSpacing: '0.08em', marginTop: 2 }}>
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--accent)', textTransform: 'uppercase', letterSpacing: '0.08em', marginTop: 2 }}>
                   Founder, Next Revolution Tech
                 </div>
               </div>
@@ -301,9 +298,9 @@ export default function About() {
                 style={{
                   fontFamily: 'var(--font-mono)',
                   fontSize: 10,
-                  letterSpacing: '0.2em',
+                  letterSpacing: 'var(--label-tracking)',
                   textTransform: 'uppercase',
-                  color: '#748CAB',
+                  color: 'var(--accent)',
                   marginBottom: 10,
                 }}
               >
@@ -313,7 +310,7 @@ export default function About() {
                 style={{
                   fontFamily: 'var(--font-body)',
                   fontSize: 14.5,
-                  color: 'rgba(240,235,216,0.8)',
+                  color: 'rgba(var(--fg-rgb), 0.8)',
                   lineHeight: 1.65,
                   margin: 0,
                 }}
@@ -326,27 +323,14 @@ export default function About() {
       </div>
 
       {/* Stats row */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 pt-12 border-t border-[rgba(116,140,171,0.12)]">
-        <StatCard
-          value="10+"
-          label="Production Web Apps"
-          detail="ERP, Healthcare, Education, Retail & AI Ops deployed"
-        />
-        <StatCard
-          value="Founder"
-          label="Next Revolution Tech"
-          detail="Software startup building enterprise digital products"
-        />
-        <StatCard
-          value="Agentic AI"
-          label="Workspace AI Agent"
-          detail="Active development on personal productivity agent"
-        />
-        <StatCard
-          value="100%"
-          label="Clean Code & SDLC"
-          detail="SOLID principles, RBAC security & cloud deployment"
-        />
+      <div
+        className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 pt-12"
+        style={{ borderTop: '1px solid var(--border)' }}
+      >
+        <StatCard value="10+" label="Production Web Apps" detail="ERP, Healthcare, Education, Retail & AI Ops deployed" />
+        <StatCard value="Founder" label="Next Revolution Tech" detail="Software startup building enterprise digital products" />
+        <StatCard value="Agentic AI" label="Workspace AI Agent" detail="Active development on personal productivity agent" />
+        <StatCard value="100%" label="Clean Code & SDLC" detail="SOLID principles, RBAC security & cloud deployment" />
       </div>
     </section>
   )

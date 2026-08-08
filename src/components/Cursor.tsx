@@ -1,16 +1,15 @@
 import { useEffect, useRef, useState } from 'react'
 
 export default function Cursor() {
-  const dotRef = useRef<HTMLDivElement>(null)
+  const dotRef  = useRef<HTMLDivElement>(null)
   const ringRef = useRef<HTMLDivElement>(null)
-  const pos = useRef({ x: -100, y: -100 })
+  const pos     = useRef({ x: -100, y: -100 })
   const ringPos = useRef({ x: -100, y: -100 })
-  const hovering = useRef(false)
-  const isVisible = useRef(false)
+  const hovering   = useRef(false)
+  const isVisible  = useRef(false)
   const [isTouchDevice, setIsTouchDevice] = useState(false)
 
   useEffect(() => {
-    // Disable custom cursor on mobile touch screens
     if (window.matchMedia('(pointer: coarse)').matches || 'ontouchstart' in window) {
       setIsTouchDevice(true)
       return
@@ -21,7 +20,7 @@ export default function Cursor() {
       if (!isVisible.current) {
         isVisible.current = true
         ringPos.current = { x: e.clientX, y: e.clientY }
-        if (dotRef.current) dotRef.current.style.opacity = '1'
+        if (dotRef.current)  dotRef.current.style.opacity  = '1'
         if (ringRef.current) ringRef.current.style.opacity = '1'
       }
     }
@@ -41,7 +40,7 @@ export default function Cursor() {
 
     const onMouseLeave = () => {
       isVisible.current = false
-      if (dotRef.current) dotRef.current.style.opacity = '0'
+      if (dotRef.current)  dotRef.current.style.opacity  = '0'
       if (ringRef.current) ringRef.current.style.opacity = '0'
     }
 
@@ -51,26 +50,33 @@ export default function Cursor() {
 
     let rafId: number
     const render = () => {
-      const dot = dotRef.current
+      const dot  = dotRef.current
       const ring = ringRef.current
 
       if (dot && ring && isVisible.current) {
-        // Fast direct follow for inner dot
-        dot.style.transform = `translate3d(${pos.current.x - 4}px, ${pos.current.y - 4}px, 0)`
+        // Read current theme cursor colors from CSS vars
+        const style = getComputedStyle(document.documentElement)
+        const dotColor         = style.getPropertyValue('--cursor-dot').trim()
+        const ringColor        = style.getPropertyValue('--cursor-ring').trim()
+        const ringActiveColor  = style.getPropertyValue('--cursor-ring-active').trim()
+        const ringActiveFill   = style.getPropertyValue('--cursor-ring-fill').trim()
 
-        // Smooth spring interpolation for outer ring
+        // Inner dot
+        dot.style.transform = `translate3d(${pos.current.x - 4}px, ${pos.current.y - 4}px, 0)`
+        dot.style.background = dotColor
+
+        // Outer ring
         ringPos.current.x += (pos.current.x - ringPos.current.x) * 0.15
         ringPos.current.y += (pos.current.y - ringPos.current.y) * 0.15
-
         const scale = hovering.current ? 1.7 : 1
         ring.style.transform = `translate3d(${ringPos.current.x - 18}px, ${ringPos.current.y - 18}px, 0) scale(${scale})`
 
         if (hovering.current) {
-          ring.style.borderColor = '#748CAB'
-          ring.style.backgroundColor = 'rgba(116, 140, 171, 0.12)'
+          ring.style.borderColor       = ringActiveColor
+          ring.style.backgroundColor   = ringActiveFill
         } else {
-          ring.style.borderColor = 'rgba(116, 140, 171, 0.4)'
-          ring.style.backgroundColor = 'transparent'
+          ring.style.borderColor       = ringColor
+          ring.style.backgroundColor   = 'transparent'
         }
       }
 
@@ -100,13 +106,13 @@ export default function Cursor() {
           left: 0,
           width: 8,
           height: 8,
-          background: '#F0EBD8',
+          background: 'var(--cursor-dot)',
           borderRadius: '50%',
           pointerEvents: 'none',
           zIndex: 9999999,
           opacity: 0,
           willChange: 'transform, opacity',
-          transition: 'opacity 0.2s ease, background-color 0.2s ease',
+          transition: 'opacity 0.2s ease, background-color 0.3s ease',
         }}
       />
 
@@ -119,13 +125,13 @@ export default function Cursor() {
           left: 0,
           width: 36,
           height: 36,
-          border: '1px dashed rgba(116, 140, 171, 0.4)',
+          border: '1px dashed var(--cursor-ring)',
           borderRadius: '50%',
           pointerEvents: 'none',
           zIndex: 9999998,
           opacity: 0,
           willChange: 'transform, opacity',
-          transition: 'border-color 0.2s ease, background-color 0.2s ease, opacity 0.2s ease',
+          transition: 'border-color 0.3s ease, background-color 0.3s ease, opacity 0.2s ease',
         }}
       />
     </>

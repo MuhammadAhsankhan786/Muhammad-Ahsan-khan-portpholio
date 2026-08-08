@@ -194,7 +194,8 @@ export default function Testimonials() {
     <section
       id="reviews"
       ref={sectionRef}
-      className="relative px-6 md:px-20 py-20 md:py-36 bg-[#1D2D44] overflow-hidden"
+      className="relative px-6 md:px-20 py-20 md:py-36 overflow-hidden"
+      style={{ background: 'var(--section-b)' }}
     >
       {/* Ambient Glow */}
       <div
@@ -206,7 +207,7 @@ export default function Testimonials() {
           width: 700,
           height: 700,
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(116,140,171,0.05) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, var(--decorative) 0%, transparent 70%)',
           pointerEvents: 'none',
         }}
       />
@@ -224,12 +225,12 @@ export default function Testimonials() {
             fontSize: 11,
             letterSpacing: '0.25em',
             textTransform: 'uppercase',
-            color: '#748CAB',
+            color: 'var(--accent)',
           }}
         >
           09 — Verified Global Client Reviews (100% 5.0 ★ Rated)
         </span>
-        <div style={{ flex: 1, height: 1, background: 'rgba(116,140,171,0.12)' }} />
+        <div style={{ flex: 1, height: 1, background: 'var(--border)' }} />
       </motion.div>
 
       {/* Main Headline */}
@@ -244,13 +245,13 @@ export default function Testimonials() {
             fontWeight: 700,
             letterSpacing: '-0.02em',
             lineHeight: 1.1,
-            color: '#F0EBD8',
+            color: 'var(--fg)',
             margin: '0 0 20px',
           }}
         >
           Verified Client Reviews &
           <br />
-          <em style={{ fontStyle: 'italic', color: '#748CAB' }}>
+          <em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>
             5-Star Project Endorsements.
           </em>
         </motion.h2>
@@ -259,7 +260,7 @@ export default function Testimonials() {
             fontFamily: 'var(--font-body)',
             fontSize: 15,
             lineHeight: 1.7,
-            color: 'rgba(240,235,216,0.7)',
+            color: 'rgba(var(--fg-rgb), 0.7)',
             margin: 0,
           }}
         >
@@ -276,17 +277,17 @@ export default function Testimonials() {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: index * 0.06, ease: [0.16, 1, 0.3, 1] }}
             style={{
-              background: '#0D1321',
-              border: '1px solid rgba(116,140,171,0.15)',
-              borderRadius: 16,
+              background: 'var(--card-bg)',
+              border: '1px solid var(--card-border)',
+              borderRadius: 'var(--card-radius)',
               padding: 28,
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'space-between',
               position: 'relative',
-              boxShadow: '0 10px 30px rgba(0,0,0,0.3)',
+              boxShadow: 'var(--card-shadow)',
             }}
-            whileHover={{ y: -6, borderColor: '#748CAB' }}
+            whileHover={{ y: -6 }}
           >
             {/* Header: Avatar, Name, Flag & Country */}
             <div>
@@ -297,14 +298,14 @@ export default function Testimonials() {
                       width: 44,
                       height: 44,
                       borderRadius: 10,
-                      background: '#1D2D44',
-                      border: '1px solid rgba(116,140,171,0.25)',
+                      background: 'var(--surface)',
+                      border: '1px solid var(--border-bright)',
                       display: 'grid',
                       placeItems: 'center',
                       fontFamily: 'var(--font-display)',
                       fontSize: 18,
                       fontWeight: 800,
-                      color: '#F0EBD8',
+                      color: 'var(--fg)',
                     }}
                   >
                     {item.avatarInitial}
@@ -312,11 +313,11 @@ export default function Testimonials() {
                   <div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
                       <span style={{ fontSize: 16 }}>{item.flag}</span>
-                      <span style={{ fontFamily: 'var(--font-display)', fontSize: 16, fontWeight: 700, color: '#F0EBD8' }}>
+                      <span style={{ fontFamily: 'var(--font-display)', fontSize: 16, fontWeight: 700, color: 'var(--fg)' }}>
                         {item.clientName}
                       </span>
                     </div>
-                    <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: '#748CAB', textTransform: 'uppercase', letterSpacing: '0.05em', marginTop: 2 }}>
+                    <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--accent)', textTransform: 'uppercase', letterSpacing: '0.05em', marginTop: 2 }}>
                       📍 {item.flag} {item.country}
                     </div>
                   </div>
@@ -331,9 +332,9 @@ export default function Testimonials() {
                     gap: 4,
                     padding: '4px 10px',
                     borderRadius: 20,
-                    background: 'rgba(116,140,171,0.15)',
-                    border: '1px solid rgba(116,140,171,0.3)',
-                    color: '#F0EBD8',
+                    background: 'rgba(var(--accent-rgb), 0.15)',
+                    border: '1px solid rgba(var(--accent-rgb), 0.3)',
+                    color: 'var(--fg)',
                     fontFamily: 'var(--font-mono)',
                     fontSize: 11,
                     fontWeight: 700,
@@ -350,7 +351,7 @@ export default function Testimonials() {
                   fontFamily: 'var(--font-mono)',
                   fontSize: 12,
                   fontWeight: 700,
-                  color: '#748CAB',
+                  color: 'var(--accent)',
                   marginBottom: 12,
                   lineHeight: 1.35,
                 }}
@@ -364,7 +365,7 @@ export default function Testimonials() {
                   fontFamily: 'var(--font-body)',
                   fontSize: 13,
                   lineHeight: 1.65,
-                  color: '#F0EBD8',
+                  color: 'var(--fg)',
                   margin: '0 0 20px',
                   fontStyle: 'italic',
                 }}
@@ -374,7 +375,7 @@ export default function Testimonials() {
             </div>
 
             {/* Skill Tags Footer */}
-            <div style={{ paddingTop: 16, borderTop: '1px solid rgba(116,140,171,0.12)', display: 'flex', flexWrap: 'wrap', gap: 6 }}>
+            <div style={{ paddingTop: 16, borderTop: '1px solid var(--border)', display: 'flex', flexWrap: 'wrap', gap: 6 }}>
               {item.tags.map((t) => (
                 <span
                   key={t}
@@ -382,9 +383,9 @@ export default function Testimonials() {
                     fontFamily: 'var(--font-mono)',
                     fontSize: 10,
                     padding: '3px 8px',
-                    background: '#1D2D44',
-                    border: '1px solid rgba(116,140,171,0.15)',
-                    color: 'rgba(240,235,216,0.85)',
+                    background: 'var(--tag-bg)',
+                    border: '1px solid var(--tag-border)',
+                    color: 'var(--tag-fg)',
                     borderRadius: 4,
                   }}
                 >

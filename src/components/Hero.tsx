@@ -1,5 +1,6 @@
-import { useEffect, useRef, lazy, Suspense } from 'react'
+import { useRef } from 'react'
 import { motion } from 'framer-motion'
+import { lazy, Suspense } from 'react'
 import AvailabilityBanner from './AvailabilityBanner'
 
 const NetworkScene = lazy(() => import('./NetworkScene'))
@@ -16,7 +17,8 @@ export default function Hero({
   return (
     <section
       id="hero"
-      className="relative min-h-screen grid grid-cols-1 md:grid-cols-2 overflow-hidden bg-[var(--color-background)] pt-24 md:pt-0"
+      className="relative min-h-screen grid grid-cols-1 md:grid-cols-2 overflow-hidden pt-28 md:pt-32 pb-16"
+      style={{ background: 'var(--bg)' }}
     >
       {/* Ambient background bloom */}
       <div
@@ -24,13 +26,13 @@ export default function Hero({
           position: 'absolute',
           inset: 0,
           background:
-            'radial-gradient(ellipse 70% 60% at 65% 50%, rgba(116,140,171,0.06) 0%, transparent 70%)',
+            'radial-gradient(ellipse 70% 60% at 65% 50%, var(--hero-bloom) 0%, transparent 70%)',
           pointerEvents: 'none',
         }}
       />
 
       {/* Left Column: Personal Identity & Positioning */}
-      <div className="flex flex-col justify-center px-6 md:px-20 py-12 md:py-0 relative z-10">
+      <div className="flex flex-col justify-center px-6 md:px-20 relative z-10">
         {/* Availability Banner */}
         <div style={{ marginBottom: 24 }}>
           <AvailabilityBanner />
@@ -48,13 +50,13 @@ export default function Hero({
             marginBottom: 20,
           }}
         >
-          <div style={{ width: 40, height: 1, background: '#748CAB' }} />
+          <div style={{ width: 40, height: 1, background: 'var(--accent)' }} />
           <span
             style={{
               fontFamily: 'var(--font-mono)',
               fontSize: 11,
               letterSpacing: '0.2em',
-              color: '#748CAB',
+              color: 'var(--accent)',
               textTransform: 'uppercase',
               fontWeight: 600,
             }}
@@ -88,7 +90,7 @@ export default function Hero({
               }}
               style={{
                 display: 'block',
-                color: wi === 1 ? '#748CAB' : '#F0EBD8',
+                color: wi === 1 ? 'var(--accent)' : 'var(--fg)',
                 fontStyle: wi === 1 ? 'italic' : 'normal',
               }}
             >
@@ -109,7 +111,7 @@ export default function Hero({
               fontFamily: 'var(--font-mono)',
               fontSize: 13,
               fontWeight: 700,
-              color: '#748CAB',
+              color: 'var(--accent)',
               letterSpacing: '0.08em',
               marginBottom: 10,
               textTransform: 'uppercase',
@@ -121,13 +123,13 @@ export default function Hero({
             style={{
               fontFamily: 'var(--font-body)',
               fontSize: 15,
-              color: 'rgba(240,235,216,0.75)',
+              color: 'rgba(var(--fg-rgb), 0.75)',
               lineHeight: 1.65,
               maxWidth: 520,
               margin: 0,
             }}
           >
-            I engineer enterprise software applications, scalable ERP platforms, SaaS systems, and Agentic AI automation with clean, production-grade architecture.
+            Full Stack Engineer building web applications, ERP systems, and AI automation tools with clean, reliable architecture.
           </p>
         </motion.div>
 
@@ -146,11 +148,11 @@ export default function Hero({
                 fontSize: 10,
                 letterSpacing: '0.1em',
                 padding: '5px 12px',
-                border: '1px solid rgba(116,140,171,0.25)',
-                color: '#F0EBD8',
+                border: '1px solid var(--border-bright)',
+                color: 'var(--fg)',
                 textTransform: 'uppercase',
                 borderRadius: 4,
-                background: '#1D2D44',
+                background: 'var(--surface)',
                 whiteSpace: 'nowrap',
               }}
             >
@@ -178,8 +180,8 @@ export default function Hero({
               alignItems: 'center',
               gap: 8,
               padding: '12px 24px',
-              background: '#748CAB',
-              color: '#0D1321',
+              background: 'var(--accent)',
+              color: 'var(--accent-fg)',
               fontFamily: 'var(--font-mono)',
               fontSize: 11,
               letterSpacing: '0.08em',
@@ -206,9 +208,9 @@ export default function Hero({
                 alignItems: 'center',
                 gap: 6,
                 padding: '12px 20px',
-                background: '#1D2D44',
-                border: '1px solid rgba(116,140,171,0.3)',
-                color: '#F0EBD8',
+                background: 'var(--surface)',
+                border: '1px solid var(--border-bright)',
+                color: 'var(--fg)',
                 fontFamily: 'var(--font-mono)',
                 fontSize: 11,
                 letterSpacing: '0.08em',
@@ -232,9 +234,9 @@ export default function Hero({
                 alignItems: 'center',
                 gap: 6,
                 padding: '12px 18px',
-                background: '#0D1321',
-                border: '1px solid rgba(116,140,171,0.25)',
-                color: '#F0EBD8',
+                background: 'var(--surface-2)',
+                border: '1px solid var(--border)',
+                color: 'var(--fg)',
                 fontFamily: 'var(--font-mono)',
                 fontSize: 11,
                 letterSpacing: '0.08em',
@@ -252,25 +254,47 @@ export default function Hero({
 
       {/* Right Column: 3D Scene */}
       <div className="relative z-10 flex items-center h-[320px] md:h-full">
-        <div
-          style={{
-            position: 'absolute',
-            top: '50%',
-            left: 20,
-            transform: 'translateY(-50%) rotate(-90deg)',
-            fontFamily: 'var(--font-mono)',
-            fontSize: 10,
-            letterSpacing: '0.2em',
-            color: 'rgba(90,90,130,0.5)',
-            textTransform: 'uppercase',
-            whiteSpace: 'nowrap',
-            zIndex: 3,
-          }}
+        <Suspense
+          fallback={
+            <div className="w-full h-full flex flex-col items-center justify-center relative p-8">
+              <div
+                style={{
+                  width: 140,
+                  height: 140,
+                  borderRadius: '50%',
+                  border: '1px dashed var(--accent)',
+                  animation: 'orbit 8s linear infinite',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}
+              >
+                <div
+                  style={{
+                    width: 80,
+                    height: 80,
+                    borderRadius: '50%',
+                    border: '1px solid var(--accent)',
+                    boxShadow: '0 0 25px rgba(var(--accent-rgb), 0.3)',
+                    animation: 'pulse-glow 2s ease-in-out infinite',
+                  }}
+                />
+              </div>
+              <span
+                style={{
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: 10,
+                  color: 'var(--accent)',
+                  letterSpacing: '0.2em',
+                  marginTop: 20,
+                  textTransform: 'uppercase',
+                }}
+              >
+                Initializing 3D Mesh...
+              </span>
+            </div>
+          }
         >
-          Enterprise System Architecture Mesh
-        </div>
-
-        <Suspense fallback={null}>
           <NetworkScene />
         </Suspense>
       </div>

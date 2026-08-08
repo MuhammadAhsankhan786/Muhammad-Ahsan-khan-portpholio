@@ -13,52 +13,34 @@ export default function TrustStrip() {
   return (
     <div
       style={{
-        background: '#0B101D',
-        borderTop: '1px solid rgba(116, 140, 171, 0.12)',
-        borderBottom: '1px solid rgba(116, 140, 171, 0.12)',
+        background: 'var(--surface)',
+        borderTop: '1px solid var(--border)',
+        borderBottom: '1px solid var(--border)',
         padding: '16px 0',
         overflow: 'hidden',
         position: 'relative',
       }}
     >
+      {/* Fade edges */}
       <div
         style={{
-          position: 'absolute',
-          left: 0,
-          top: 0,
-          bottom: 0,
-          width: 80,
-          background: 'linear-gradient(to right, #0D1321, transparent)',
-          zIndex: 2,
-          pointerEvents: 'none',
+          position: 'absolute', left: 0, top: 0, bottom: 0, width: 80,
+          background: 'linear-gradient(to right, var(--bg), transparent)',
+          zIndex: 2, pointerEvents: 'none',
         }}
       />
       <div
         style={{
-          position: 'absolute',
-          right: 0,
-          top: 0,
-          bottom: 0,
-          width: 80,
-          background: 'linear-gradient(to left, #0D1321, transparent)',
-          zIndex: 2,
-          pointerEvents: 'none',
+          position: 'absolute', right: 0, top: 0, bottom: 0, width: 80,
+          background: 'linear-gradient(to left, var(--bg), transparent)',
+          zIndex: 2, pointerEvents: 'none',
         }}
       />
 
       <motion.div
         animate={{ x: ['0%', '-50%'] }}
-        transition={{
-          repeat: Infinity,
-          ease: 'linear',
-          duration: 25,
-        }}
-        style={{
-          display: 'flex',
-          gap: 32,
-          width: 'max-content',
-          whiteSpace: 'nowrap',
-        }}
+        transition={{ repeat: Infinity, ease: 'linear', duration: 25 }}
+        style={{ display: 'flex', gap: 32, width: 'max-content', whiteSpace: 'nowrap' }}
       >
         {[...trustItems, ...trustItems].map((item, idx) => (
           <div
@@ -68,9 +50,9 @@ export default function TrustStrip() {
               alignItems: 'center',
               gap: 10,
               padding: '6px 16px',
-              background: '#1D2D44/60',
-              border: '1px solid rgba(116, 140, 171, 0.18)',
+              border: '1px solid var(--border-bright)',
               borderRadius: 30,
+              background: 'rgba(var(--surface-rgb), 0.6)',
             }}
           >
             <span style={{ fontSize: 14 }}>{item.icon}</span>
@@ -79,7 +61,7 @@ export default function TrustStrip() {
                 fontFamily: 'var(--font-mono)',
                 fontSize: 11,
                 letterSpacing: '0.08em',
-                color: '#F0EBD8',
+                color: 'var(--fg)',
                 fontWeight: 600,
                 textTransform: 'uppercase',
               }}

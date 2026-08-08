@@ -56,7 +56,8 @@ export default function GitHubShowcase() {
     <section
       id="github"
       ref={sectionRef}
-      className="relative px-6 md:px-20 py-20 md:py-36 bg-[#0D1321] overflow-hidden"
+      className="relative px-6 md:px-20 py-20 md:py-36 overflow-hidden"
+      style={{ background: 'var(--section-a)' }}
     >
       {/* Section label */}
       <motion.div
@@ -69,14 +70,14 @@ export default function GitHubShowcase() {
           style={{
             fontFamily: 'var(--font-mono)',
             fontSize: 11,
-            letterSpacing: '0.25em',
+            letterSpacing: 'var(--label-tracking)',
             textTransform: 'uppercase',
-            color: '#748CAB',
+            color: 'var(--accent)',
           }}
         >
           08 — Open Source & Code Activity
         </span>
-        <div style={{ flex: 1, height: 1, background: 'rgba(116,140,171,0.12)' }} />
+        <div style={{ flex: 1, height: 1, background: 'var(--border)' }} />
       </motion.div>
 
       {/* Header */}
@@ -93,13 +94,13 @@ export default function GitHubShowcase() {
             fontWeight: 700,
             letterSpacing: '-0.02em',
             lineHeight: 1.1,
-            color: '#F0EBD8',
+            color: 'var(--fg)',
             margin: 0,
           }}
         >
           GitHub Engineering
           <br />
-          <em style={{ fontStyle: 'italic', color: '#748CAB' }}>
+          <em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>
             Ecosystem & Repositories.
           </em>
         </motion.h2>
@@ -118,12 +119,12 @@ export default function GitHubShowcase() {
               fontSize: 11,
               letterSpacing: '0.08em',
               textTransform: 'uppercase',
-              color: '#F0EBD8',
+              color: 'var(--fg)',
               textDecoration: 'none',
-              border: '1px solid rgba(116,140,171,0.25)',
+              border: '1px solid var(--border-bright)',
               padding: '10px 18px',
-              borderRadius: 6,
-              background: '#1D2D44',
+              borderRadius: 'var(--btn-radius)',
+              background: 'var(--card-surface)',
             }}
           >
             Personal GitHub (@MuhammadAhsankhan786) ↗
@@ -142,12 +143,12 @@ export default function GitHubShowcase() {
               fontSize: 11,
               letterSpacing: '0.08em',
               textTransform: 'uppercase',
-              color: '#F0EBD8',
+              color: 'var(--fg)',
               textDecoration: 'none',
-              border: '1px solid rgba(116,140,171,0.25)',
+              border: '1px solid var(--border-bright)',
               padding: '10px 18px',
-              borderRadius: 6,
-              background: '#1D2D44',
+              borderRadius: 'var(--btn-radius)',
+              background: 'var(--card-surface)',
             }}
           >
             Org GitHub (@nextrevolutiontech-maker) ↗
@@ -160,7 +161,8 @@ export default function GitHubShowcase() {
         initial={{ opacity: 0, y: 20 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="grid grid-cols-2 lg:grid-cols-4 gap-6 p-6 md:p-8 bg-[#1D2D44] border border-[rgba(116,140,171,0.15)] rounded-2xl mb-12"
+        className="grid grid-cols-2 lg:grid-cols-4 gap-6 p-6 md:p-8 rounded-2xl mb-12"
+        style={{ background: 'var(--card-surface)', border: '1px solid var(--card-border)' }}
       >
         {[
           { label: 'Public Repositories', val: '25+' },
@@ -168,11 +170,11 @@ export default function GitHubShowcase() {
           { label: 'Organizations Lead', val: 'Next Revolution Tech' },
           { label: 'Primary Language', val: 'TypeScript / React / Node' },
         ].map((stat, idx) => (
-          <div key={idx} className="border-l-0 md:border-l md:border-[rgba(116,140,171,0.12)] md:pl-6">
-            <div style={{ fontFamily: 'var(--font-display)', fontSize: 24, fontWeight: 800, color: '#F0EBD8', marginBottom: 4 }}>
+          <div key={idx} style={{ borderLeft: '1px solid var(--border)', paddingLeft: 24 }}>
+            <div style={{ fontFamily: 'var(--font-display)', fontSize: 24, fontWeight: 800, color: 'var(--fg)', marginBottom: 4 }}>
               {stat.val}
             </div>
-            <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: '#748CAB', textTransform: 'uppercase' }}>
+            <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--accent)', textTransform: 'uppercase' }}>
               {stat.label}
             </div>
           </div>
@@ -193,33 +195,33 @@ export default function GitHubShowcase() {
             data-cursor-hover
             style={{
               display: 'block',
-              background: '#1D2D44',
-              border: '1px solid rgba(116,140,171,0.15)',
-              borderRadius: 14,
+              background: 'var(--card-bg)',
+              border: '1px solid var(--card-border)',
+              borderRadius: 'var(--card-radius)',
               padding: 24,
               textDecoration: 'none',
               transition: 'border-color 0.3s ease, transform 0.3s ease',
             }}
-            whileHover={{ borderColor: '#748CAB', y: -4 }}
+            whileHover={{ y: -4 }}
           >
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
-              <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: '#748CAB', display: 'flex', alignItems: 'center', gap: 6 }}>
+              <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--accent)', display: 'flex', alignItems: 'center', gap: 6 }}>
                 <span>📦</span> public repository
               </div>
-              <div style={{ fontSize: 12, color: 'rgba(240,235,216,0.5)' }}>↗</div>
+              <div style={{ fontSize: 12, color: 'rgba(var(--fg-rgb), 0.5)' }}>↗</div>
             </div>
 
-            <h3 style={{ fontFamily: 'var(--font-display)', fontSize: 18, fontWeight: 700, color: '#F0EBD8', marginBottom: 8 }}>
+            <h3 style={{ fontFamily: 'var(--font-display)', fontSize: 18, fontWeight: 700, color: 'var(--fg)', marginBottom: 8 }}>
               {repo.name}
             </h3>
 
-            <p style={{ fontFamily: 'var(--font-body)', fontSize: 13, color: 'rgba(240,235,216,0.65)', lineHeight: 1.6, marginBottom: 20 }}>
+            <p style={{ fontFamily: 'var(--font-body)', fontSize: 13, color: 'rgba(var(--fg-rgb), 0.65)', lineHeight: 1.6, marginBottom: 20 }}>
               {repo.desc}
             </p>
 
-            <div style={{ display: 'flex', alignItems: 'center', gap: 16, fontFamily: 'var(--font-mono)', fontSize: 11, color: 'rgba(240,235,216,0.7)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 16, fontFamily: 'var(--font-mono)', fontSize: 11, color: 'rgba(var(--fg-rgb), 0.7)' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#748CAB' }} />
+                <span style={{ width: 8, height: 8, borderRadius: '50%', background: 'var(--accent)' }} />
                 {repo.lang}
               </div>
               <div>⭐ {repo.stars}</div>
@@ -230,8 +232,8 @@ export default function GitHubShowcase() {
       </div>
 
       {/* Language Distribution Bar */}
-      <div style={{ background: '#070712', border: '1px solid rgba(255,255,255,0.06)', borderRadius: 14, padding: 28 }}>
-        <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'rgba(90,90,130,0.8)', textTransform: 'uppercase', marginBottom: 16 }}>
+      <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: 'var(--card-radius)', padding: 28 }}>
+        <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--accent)', textTransform: 'uppercase', marginBottom: 16 }}>
           Language Stack Distribution
         </div>
 
@@ -243,7 +245,7 @@ export default function GitHubShowcase() {
 
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 20 }}>
           {topLanguages.map((l) => (
-            <div key={l.name} style={{ display: 'flex', alignItems: 'center', gap: 8, fontFamily: 'var(--font-mono)', fontSize: 11, color: 'rgba(220,220,238,0.6)' }}>
+            <div key={l.name} style={{ display: 'flex', alignItems: 'center', gap: 8, fontFamily: 'var(--font-mono)', fontSize: 11, color: 'rgba(var(--fg-rgb), 0.6)' }}>
               <span style={{ width: 8, height: 8, borderRadius: '50%', background: l.color }} />
               <span>{l.name} ({l.percent})</span>
             </div>

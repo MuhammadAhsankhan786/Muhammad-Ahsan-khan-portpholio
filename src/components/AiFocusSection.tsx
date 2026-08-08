@@ -32,7 +32,8 @@ export default function AiFocusSection() {
     <section
       id="ai-focus"
       ref={sectionRef}
-      className="relative px-6 md:px-20 py-20 md:py-36 bg-[#0D1321] overflow-hidden"
+      className="relative px-6 md:px-20 py-20 md:py-36 overflow-hidden"
+      style={{ background: 'var(--section-a)' }}
     >
       {/* Background ambient glow */}
       <div
@@ -43,7 +44,7 @@ export default function AiFocusSection() {
           width: 500,
           height: 500,
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(116,140,171,0.06) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, var(--decorative) 0%, transparent 70%)',
           pointerEvents: 'none',
         }}
       />
@@ -59,14 +60,14 @@ export default function AiFocusSection() {
           style={{
             fontFamily: 'var(--font-mono)',
             fontSize: 11,
-            letterSpacing: '0.25em',
+            letterSpacing: 'var(--label-tracking)',
             textTransform: 'uppercase',
-            color: '#748CAB',
+            color: 'var(--accent)',
           }}
         >
           02 — Agentic AI & AI Automation Focus
         </span>
-        <div style={{ flex: 1, height: 1, background: 'rgba(116,140,171,0.12)' }} />
+        <div style={{ flex: 1, height: 1, background: 'var(--border)' }} />
       </motion.div>
 
       {/* Main Headline */}
@@ -78,16 +79,16 @@ export default function AiFocusSection() {
           style={{
             fontFamily: 'var(--font-display)',
             fontSize: 'clamp(32px, 3.5vw, 56px)',
-            fontWeight: 700,
+            fontWeight: 'var(--heading-weight)' as any,
             letterSpacing: '-0.02em',
             lineHeight: 1.1,
-            color: '#F0EBD8',
+            color: 'var(--fg)',
             margin: '0 0 20px',
           }}
         >
           Building Intelligent
           <br />
-          <em style={{ fontStyle: 'italic', color: '#748CAB' }}>
+          <em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>
             Agentic AI & LLM Systems.
           </em>
         </motion.h2>
@@ -96,7 +97,7 @@ export default function AiFocusSection() {
             fontFamily: 'var(--font-body)',
             fontSize: 15,
             lineHeight: 1.7,
-            color: 'rgba(240,235,216,0.7)',
+            color: 'rgba(var(--fg-rgb), 0.7)',
             margin: 0,
           }}
         >
@@ -113,16 +114,17 @@ export default function AiFocusSection() {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
             style={{
-              background: '#1D2D44',
-              border: '1px solid rgba(116,140,171,0.15)',
-              borderRadius: 14,
+              background: 'var(--card-bg)',
+              border: '1px solid var(--card-border)',
+              borderRadius: 'var(--card-radius)',
               padding: 28,
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'space-between',
               transition: 'border-color 0.3s ease, transform 0.3s ease',
+              boxShadow: 'var(--card-shadow)',
             }}
-            whileHover={{ borderColor: '#748CAB', y: -4 }}
+            whileHover={{ y: -4 }}
           >
             <div>
               <div style={{ fontSize: 28, marginBottom: 16 }}>{pillar.icon}</div>
@@ -131,7 +133,7 @@ export default function AiFocusSection() {
                   fontFamily: 'var(--font-display)',
                   fontSize: 18,
                   fontWeight: 700,
-                  color: '#F0EBD8',
+                  color: 'var(--fg)',
                   marginBottom: 10,
                 }}
               >
@@ -142,7 +144,7 @@ export default function AiFocusSection() {
                   fontFamily: 'var(--font-body)',
                   fontSize: 13,
                   lineHeight: 1.6,
-                  color: 'rgba(240,235,216,0.65)',
+                  color: 'rgba(var(--fg-rgb), 0.65)',
                   margin: 0,
                 }}
               >
@@ -158,15 +160,24 @@ export default function AiFocusSection() {
         initial={{ opacity: 0, scale: 0.98, y: 30 }}
         animate={inView ? { opacity: 1, scale: 1, y: 0 } : {}}
         transition={{ duration: 0.9, delay: 0.4 }}
-        className="grid grid-cols-1 md:grid-cols-2 gap-10 bg-[#1D2D44] border border-[rgba(116,140,171,0.25)] rounded-2xl p-6 md:p-12 shadow-[0_16px_40px_rgba(0,0,0,0.3)]"
+        style={{
+          display: 'grid',
+          gap: 40,
+          background: 'var(--card-surface)',
+          border: '1px solid var(--border-bright)',
+          borderRadius: 'var(--card-radius)',
+          padding: '48px',
+          boxShadow: 'var(--shadow-lg)',
+        }}
+        className="grid-cols-1 md:grid-cols-2"
       >
         <div>
           <div
             style={{
               fontFamily: 'var(--font-mono)',
               fontSize: 11,
-              letterSpacing: '0.2em',
-              color: '#748CAB',
+              letterSpacing: 'var(--label-tracking)',
+              color: 'var(--accent)',
               textTransform: 'uppercase',
               marginBottom: 12,
             }}
@@ -178,7 +189,7 @@ export default function AiFocusSection() {
               fontFamily: 'var(--font-display)',
               fontSize: 28,
               fontWeight: 800,
-              color: '#F0EBD8',
+              color: 'var(--fg)',
               marginBottom: 16,
             }}
           >
@@ -189,7 +200,7 @@ export default function AiFocusSection() {
               fontFamily: 'var(--font-body)',
               fontSize: 14,
               lineHeight: 1.7,
-              color: 'rgba(240,235,216,0.75)',
+              color: 'rgba(var(--fg-rgb), 0.75)',
               marginBottom: 24,
             }}
           >
@@ -204,9 +215,9 @@ export default function AiFocusSection() {
                   fontSize: 10,
                   letterSpacing: '0.08em',
                   padding: '4px 10px',
-                  background: '#0D1321',
-                  border: '1px solid rgba(116,140,171,0.25)',
-                  color: '#F0EBD8',
+                  background: 'var(--tag-bg)',
+                  border: '1px solid var(--tag-border)',
+                  color: 'var(--tag-fg)',
                   borderRadius: 4,
                 }}
               >
@@ -219,8 +230,8 @@ export default function AiFocusSection() {
         {/* Visual Architecture Diagram */}
         <div
           style={{
-            background: '#0D1321',
-            border: '1px solid rgba(116,140,171,0.15)',
+            background: 'var(--card-bg)',
+            border: '1px solid var(--card-border)',
             borderRadius: 12,
             padding: 24,
             display: 'flex',
@@ -228,7 +239,7 @@ export default function AiFocusSection() {
             gap: 12,
           }}
         >
-          <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: '#748CAB', textTransform: 'uppercase', borderBottom: '1px solid rgba(116,140,171,0.12)', paddingBottom: 8 }}>
+          <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--accent)', textTransform: 'uppercase', borderBottom: '1px solid var(--border)', paddingBottom: 8 }}>
             Agent Execution Pipeline
           </div>
           {[
@@ -244,12 +255,12 @@ export default function AiFocusSection() {
                 alignItems: 'center',
                 gap: 10,
                 padding: '10px 14px',
-                background: '#1D2D44',
+                background: 'var(--surface)',
                 borderRadius: 6,
-                borderLeft: '3px solid #748CAB',
+                borderLeft: '3px solid var(--accent)',
                 fontSize: 12,
                 fontFamily: 'var(--font-mono)',
-                color: '#F0EBD8',
+                color: 'var(--fg)',
               }}
             >
               {item.step}

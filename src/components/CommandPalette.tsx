@@ -151,7 +151,7 @@ export default function CommandPalette({
           position: 'fixed',
           inset: 0,
           zIndex: 999999,
-          background: 'rgba(4,4,8,0.85)',
+          background: 'rgba(0,0,0,0.75)',
           backdropFilter: 'blur(20px)',
           display: 'flex',
           alignItems: 'flex-start',
@@ -169,24 +169,24 @@ export default function CommandPalette({
           onClick={(e) => e.stopPropagation()}
           onWheel={(e) => e.stopPropagation()}
           style={{
-            background: '#1D2D44',
-            border: '1px solid rgba(116,140,171,0.3)',
-            borderRadius: 16,
+            background: 'var(--card-bg)',
+            border: '1px solid var(--border-bright)',
+            borderRadius: 'var(--card-radius)',
             maxWidth: 640,
             width: '100%',
             overflow: 'hidden',
-            boxShadow: '0 30px 90px rgba(0,0,0,0.9)',
+            boxShadow: 'var(--shadow-lg)',
           }}
         >
           {/* Input Header */}
           <div
             style={{
               padding: '16px 20px',
-              borderBottom: '1px solid rgba(116,140,171,0.15)',
+              borderBottom: '1px solid var(--border)',
               display: 'flex',
               alignItems: 'center',
               gap: 12,
-              background: '#0D1321',
+              background: 'var(--surface)',
             }}
           >
             <span style={{ fontSize: 18 }}>🔍</span>
@@ -200,7 +200,7 @@ export default function CommandPalette({
                 background: 'transparent',
                 border: 'none',
                 outline: 'none',
-                color: '#F0EBD8',
+                color: 'var(--fg)',
                 fontFamily: 'var(--font-mono)',
                 fontSize: 14,
                 width: '100%',
@@ -210,8 +210,9 @@ export default function CommandPalette({
               style={{
                 fontFamily: 'var(--font-mono)',
                 fontSize: 10,
-                color: '#748CAB',
-                background: '#1D2D44',
+                color: 'var(--accent)',
+                background: 'var(--card-surface)',
+                border: '1px solid var(--border)',
                 padding: '4px 8px',
                 borderRadius: 4,
               }}
@@ -226,7 +227,7 @@ export default function CommandPalette({
             style={{ maxHeight: 380, overflowY: 'auto', overscrollBehavior: 'contain', padding: 12 }}
           >
             {filtered.length === 0 ? (
-              <div style={{ padding: 24, textAlign: 'center', fontFamily: 'var(--font-mono)', fontSize: 12, color: '#748CAB' }}>
+              <div style={{ padding: 24, textAlign: 'center', fontFamily: 'var(--font-mono)', fontSize: 12, color: 'var(--accent)' }}>
                 No commands matching "{query}"
               </div>
             ) : (
@@ -244,12 +245,12 @@ export default function CommandPalette({
                     cursor: 'pointer',
                     transition: 'background 0.2s ease',
                   }}
-                  onMouseEnter={(e) => (e.currentTarget.style.background = '#0D1321')}
+                  onMouseEnter={(e) => (e.currentTarget.style.background = 'var(--surface)')}
                   onMouseLeave={(e) => (e.currentTarget.style.background = 'transparent')}
                 >
                   <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
                     <span style={{ fontSize: 18 }}>{item.icon}</span>
-                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: 13, color: '#F0EBD8', fontWeight: 500 }}>
+                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: 13, color: 'var(--fg)', fontWeight: 500 }}>
                       {item.label}
                     </span>
                   </div>
@@ -257,7 +258,7 @@ export default function CommandPalette({
                     style={{
                       fontFamily: 'var(--font-mono)',
                       fontSize: 10,
-                      color: '#748CAB',
+                      color: 'var(--accent)',
                       textTransform: 'uppercase',
                     }}
                   >

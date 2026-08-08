@@ -27,7 +27,7 @@ export const flagshipProjects: ProjectDetail[] = [
       { v: 'RBAC', l: 'Security Architecture' },
       { v: 'Live', l: 'Production Active' },
     ],
-    accentColor: '#748CAB',
+    accentColor: 'var(--accent)',
     link: 'https://nrt-ai-opr.nextrevolutiontech.tech/login',
     github: 'https://github.com/MuhammadAhsankhan786',
     year: '2025',
@@ -54,7 +54,7 @@ export const flagshipProjects: ProjectDetail[] = [
       { v: '100%', l: 'HIPAA & RBAC Compliant' },
       { v: 'Live', l: 'Production Ready' },
     ],
-    accentColor: '#748CAB',
+    accentColor: 'var(--accent)',
     link: 'https://pulse-portal.com/login',
     github: 'https://github.com/MuhammadAhsankhan786',
     year: '2025',
@@ -81,7 +81,7 @@ export const flagshipProjects: ProjectDetail[] = [
       { v: '100%', l: 'Responsive' },
       { v: 'Live', l: 'Production Active' },
     ],
-    accentColor: '#748CAB',
+    accentColor: 'var(--accent)',
     link: 'https://full-ecom-front-end.vercel.app/home',
     github: 'https://github.com/MuhammadAhsankhan786',
     year: '2024',
@@ -108,7 +108,7 @@ export const flagshipProjects: ProjectDetail[] = [
       { v: 'Real-time', l: 'Parcel Tracking' },
       { v: 'Live', l: 'Production Active' },
     ],
-    accentColor: '#748CAB',
+    accentColor: 'var(--accent)',
     link: 'https://hk-fabric-powered-by-parcel-ls3eigbee.vercel.app',
     github: 'https://github.com/nextrevolutiontech-maker',
     year: '2025',
@@ -139,7 +139,7 @@ export const allProjectsData: ProjectDetail[] = [
       { v: 'Automated', l: 'Grade & PDF Reports' },
       { v: 'Live', l: 'Production' },
     ],
-    accentColor: '#748CAB',
+    accentColor: 'var(--accent)',
     link: 'https://student-portal-mangment-system-dqjm.vercel.app',
     github: 'https://github.com/MuhammadAhsankhan786',
     year: '2024',
@@ -166,7 +166,7 @@ export const allProjectsData: ProjectDetail[] = [
       { v: 'Constellations', l: 'Starlink & Low-Earth' },
       { v: 'Live', l: 'Production Active' },
     ],
-    accentColor: '#748CAB',
+    accentColor: 'var(--accent)',
     link: 'https://satellite-offline-platform.vercel.app',
     github: 'https://github.com/MuhammadAhsankhan786',
     year: '2024',
@@ -193,7 +193,7 @@ export const allProjectsData: ProjectDetail[] = [
       { v: '100%', l: 'Responsive & Fast' },
       { v: 'Live', l: 'Global Edge' },
     ],
-    accentColor: '#748CAB',
+    accentColor: 'var(--accent)',
     link: 'https://www.nextrevolutiontech.tech',
     github: 'https://github.com/nextrevolutiontech-maker',
     year: '2025',
@@ -239,9 +239,9 @@ function BrowserMockup({
           transformStyle: 'preserve-3d',
           borderRadius: 12,
           overflow: 'hidden',
-          boxShadow: '0 20px 50px rgba(0,0,0,0.5)',
-          border: '1px solid rgba(116,140,171,0.25)',
-          background: '#1D2D44',
+          boxShadow: 'var(--shadow-lg)',
+          border: '1px solid var(--border-bright)',
+          background: 'var(--card-bg)',
           width: '100%',
           aspectRatio: '16/10',
           position: 'relative',
@@ -251,8 +251,8 @@ function BrowserMockup({
         <div
           style={{
             height: 36,
-            background: '#0D1321',
-            borderBottom: '1px solid rgba(116,140,171,0.15)',
+            background: 'var(--surface-2)',
+            borderBottom: '1px solid var(--border)',
             display: 'flex',
             alignItems: 'center',
             padding: '0 14px',
@@ -269,7 +269,7 @@ function BrowserMockup({
               flex: 1,
               margin: '0 12px',
               height: 20,
-              background: 'rgba(116,140,171,0.08)',
+              background: 'var(--decorative)',
               borderRadius: 4,
               display: 'flex',
               alignItems: 'center',
@@ -277,8 +277,8 @@ function BrowserMockup({
               gap: 6,
             }}
           >
-            <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#748CAB', opacity: 0.9 }} />
-            <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'rgba(240,235,216,0.6)' }}>
+            <div style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--accent)', opacity: 0.9 }} />
+            <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'rgba(var(--fg-rgb), 0.6)' }}>
               {project.link.replace('https://', '')}
             </span>
           </div>
@@ -298,22 +298,22 @@ function BrowserMockup({
                 transition: 'transform 0.4s ease',
               }}
             />
-            {/* Subtle Overlay Badge */}
+            {/* Overlay Badge */}
             <div
               style={{
                 position: 'absolute',
                 inset: 0,
-                background: 'linear-gradient(to top, rgba(13,19,33,0.92) 0%, transparent 60%)',
+                background: 'linear-gradient(to top, rgba(var(--bg-rgb), 0.92) 0%, transparent 60%)',
                 display: 'flex',
                 alignItems: 'flex-end',
                 justifyContent: 'space-between',
                 padding: 16,
               }}
             >
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: '#748CAB', fontWeight: 700 }}>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--accent)', fontWeight: 700 }}>
                 Explore Case Study →
               </span>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: '#F0EBD8', background: '#1D2D44', padding: '3px 8px', borderRadius: 4 }}>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--tag-fg)', background: 'var(--tag-bg)', border: '1px solid var(--tag-border)', padding: '3px 8px', borderRadius: 4 }}>
                 {project.category}
               </span>
             </div>
@@ -321,23 +321,23 @@ function BrowserMockup({
         ) : (
           <div style={{ padding: 20, height: 'calc(100% - 36px)', display: 'flex', flexDirection: 'column', gap: 12 }}>
             <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
-              <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#748CAB' }} />
-              <span style={{ fontFamily: 'var(--font-display)', fontSize: 16, fontWeight: 700, color: '#F0EBD8' }}>
+              <div style={{ width: 8, height: 8, borderRadius: '50%', background: 'var(--accent)' }} />
+              <span style={{ fontFamily: 'var(--font-display)', fontSize: 16, fontWeight: 700, color: 'var(--fg)' }}>
                 {project.name}
               </span>
             </div>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8 }}>
               {project.metrics.map((m, i) => (
-                <div key={i} style={{ background: '#0D1321', padding: 8, borderRadius: 6, border: '1px solid rgba(116,140,171,0.15)' }}>
-                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: 12, fontWeight: 700, color: '#748CAB' }}>{m.v}</div>
-                  <div style={{ fontSize: 9, color: 'rgba(240,235,216,0.6)', fontFamily: 'var(--font-mono)' }}>{m.l}</div>
+                <div key={i} style={{ background: 'var(--card-bg)', padding: 8, borderRadius: 6, border: '1px solid var(--border)' }}>
+                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: 12, fontWeight: 700, color: 'var(--accent)' }}>{m.v}</div>
+                  <div style={{ fontSize: 9, color: 'rgba(var(--fg-rgb), 0.6)', fontFamily: 'var(--font-mono)' }}>{m.l}</div>
                 </div>
               ))}
             </div>
 
-            <div style={{ flex: 1, background: '#0D1321', borderRadius: 6, padding: 12, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: 6, border: '1px solid rgba(116,140,171,0.12)' }}>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: '#748CAB', fontWeight: 600 }}>
+            <div style={{ flex: 1, background: 'var(--card-bg)', borderRadius: 6, padding: 12, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: 6, border: '1px solid var(--border)' }}>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--accent)', fontWeight: 600 }}>
                 Explore Deep Case Study →
               </span>
             </div>
@@ -364,37 +364,37 @@ function ProjectPanel({
       initial={{ opacity: 0, y: 50 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center pb-16 mb-16 border-b border-[rgba(116,140,171,0.12)]"
+      className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center pb-16 mb-16 border-b border-[var(--border)]"
     >
       {/* Detail Scanning Column */}
       <div>
-        <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#748CAB', marginBottom: 12, fontWeight: 600 }}>
+        <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: 'var(--label-tracking)', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: 12, fontWeight: 600 }}>
           FLAGSHIP CASE STUDY • {project.category} ({project.year})
         </div>
 
-        <h3 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(26px, 3.5vw, 44px)', fontWeight: 800, letterSpacing: '-0.02em', lineHeight: 1.1, color: '#F0EBD8', marginBottom: 10 }}>
+        <h3 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(26px, 3.5vw, 44px)', fontWeight: 'var(--heading-weight)' as any, letterSpacing: '-0.02em', lineHeight: 1.1, color: 'var(--fg)', marginBottom: 10 }}>
           {project.name}
         </h3>
 
-        <div style={{ fontFamily: 'var(--font-body)', fontSize: 14, color: '#748CAB', fontStyle: 'italic', marginBottom: 20 }}>
+        <div style={{ fontFamily: 'var(--font-body)', fontSize: 14, color: 'var(--accent)', fontStyle: 'italic', marginBottom: 20 }}>
           "{project.tagline}"
         </div>
 
-        {/* Quick Scan Structure: Problem -> Architecture -> Impact */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 24, background: '#1D2D44', padding: 16, borderRadius: 10, border: '1px solid rgba(116,140,171,0.15)' }}>
+        {/* Quick Scan Structure: Problem -> Architecture */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 24, background: 'var(--card-bg)', padding: 16, borderRadius: 'var(--card-radius)', border: '1px solid var(--card-border)', boxShadow: 'var(--card-shadow)' }}>
           <div>
-            <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: '#748CAB', textTransform: 'uppercase', fontWeight: 700 }}>
+            <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--accent)', textTransform: 'uppercase', fontWeight: 700 }}>
               Problem:
             </span>{' '}
-            <span style={{ fontFamily: 'var(--font-body)', fontSize: 13, color: 'rgba(240,235,216,0.85)' }}>
+            <span style={{ fontFamily: 'var(--font-body)', fontSize: 13, color: 'rgba(var(--fg-rgb), 0.85)' }}>
               {project.problem}
             </span>
           </div>
           <div>
-            <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: '#748CAB', textTransform: 'uppercase', fontWeight: 700 }}>
+            <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--accent)', textTransform: 'uppercase', fontWeight: 700 }}>
               Architecture:
             </span>{' '}
-            <span style={{ fontFamily: 'var(--font-body)', fontSize: 13, color: 'rgba(240,235,216,0.85)' }}>
+            <span style={{ fontFamily: 'var(--font-body)', fontSize: 13, color: 'rgba(var(--fg-rgb), 0.85)' }}>
               {project.architecture}
             </span>
           </div>
@@ -409,9 +409,9 @@ function ProjectPanel({
                 fontFamily: 'var(--font-mono)',
                 fontSize: 10,
                 padding: '4px 10px',
-                background: '#0D1321',
-                border: '1px solid rgba(116,140,171,0.2)',
-                color: '#F0EBD8',
+                background: 'var(--tag-bg)',
+                border: '1px solid var(--tag-border)',
+                color: 'var(--tag-fg)',
                 borderRadius: 4,
               }}
             >
@@ -427,13 +427,13 @@ function ProjectPanel({
             data-cursor-hover
             style={{
               padding: '10px 22px',
-              background: '#748CAB',
-              color: '#0D1321',
+              background: 'var(--btn-primary-bg)',
+              color: 'var(--btn-primary-fg)',
               fontFamily: 'var(--font-mono)',
               fontSize: 11,
               letterSpacing: '0.1em',
               textTransform: 'uppercase',
-              borderRadius: 6,
+              borderRadius: 'var(--btn-radius)',
               border: 'none',
               cursor: 'pointer',
               fontWeight: 700,
@@ -449,15 +449,15 @@ function ProjectPanel({
             rel="noopener noreferrer"
             style={{
               padding: '10px 18px',
-              background: '#1D2D44',
-              border: '1px solid rgba(116,140,171,0.25)',
-              color: '#F0EBD8',
+              background: 'var(--btn-secondary-bg)',
+              border: '1px solid var(--btn-border)',
+              color: 'var(--btn-secondary-fg)',
               fontFamily: 'var(--font-mono)',
               fontSize: 11,
               letterSpacing: '0.1em',
               textTransform: 'uppercase',
               textDecoration: 'none',
-              borderRadius: 6,
+              borderRadius: 'var(--btn-radius)',
             }}
           >
             Live Demo ↗
@@ -488,7 +488,8 @@ export default function Projects({
   return (
     <section
       id="projects"
-      className="relative px-6 md:px-20 py-20 md:py-32 bg-[#0D1321] overflow-hidden"
+      className="relative px-6 md:px-20 py-20 md:py-32 overflow-hidden"
+      style={{ background: 'var(--section-b)' }}
     >
       {/* Section label */}
       <motion.div
@@ -502,14 +503,14 @@ export default function Projects({
           style={{
             fontFamily: 'var(--font-mono)',
             fontSize: 11,
-            letterSpacing: '0.25em',
+            letterSpacing: 'var(--label-tracking)',
             textTransform: 'uppercase',
-            color: '#748CAB',
+            color: 'var(--accent)',
           }}
         >
           01 — Featured Flagship Case Studies
         </span>
-        <div style={{ flex: 1, height: 1, background: 'rgba(116,140,171,0.12)' }} />
+        <div style={{ flex: 1, height: 1, background: 'var(--border)' }} />
       </motion.div>
 
       {/* Headline */}
@@ -518,18 +519,18 @@ export default function Projects({
           style={{
             fontFamily: 'var(--font-display)',
             fontSize: 'clamp(28px, 3.5vw, 52px)',
-            fontWeight: 800,
-            color: '#F0EBD8',
+            fontWeight: 'var(--heading-weight)' as any,
+            color: 'var(--fg)',
             lineHeight: 1.1,
             marginBottom: 16,
           }}
         >
           Production Systems & <br />
-          <em style={{ fontStyle: 'italic', color: '#748CAB' }}>
+          <em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>
             Enterprise Flagship Software.
           </em>
         </h2>
-        <p style={{ fontFamily: 'var(--font-body)', fontSize: 15, color: 'rgba(240,235,216,0.7)', margin: 0, lineHeight: 1.6 }}>
+        <p style={{ fontFamily: 'var(--font-body)', fontSize: 15, color: 'rgba(var(--fg-rgb), 0.7)', margin: 0, lineHeight: 1.6 }}>
           Explore real-world software applications engineered for scalable operations, inventory management, healthcare portals, and AI workflows.
         </p>
       </div>
@@ -542,11 +543,11 @@ export default function Projects({
             onClick={() => setActiveCategory(cat)}
             data-cursor-hover
             style={{
-              background: activeCategory === cat ? '#748CAB' : '#1D2D44',
-              border: activeCategory === cat ? 'none' : '1px solid rgba(116,140,171,0.15)',
-              color: activeCategory === cat ? '#0D1321' : '#F0EBD8',
+              background: activeCategory === cat ? 'var(--btn-primary-bg)' : 'var(--btn-secondary-bg)',
+              border: activeCategory === cat ? 'none' : '1px solid var(--btn-border)',
+              color: activeCategory === cat ? 'var(--btn-primary-fg)' : 'var(--btn-secondary-fg)',
               padding: '8px 16px',
-              borderRadius: 6,
+              borderRadius: 'var(--btn-radius)',
               fontFamily: 'var(--font-mono)',
               fontSize: 11,
               letterSpacing: '0.08em',

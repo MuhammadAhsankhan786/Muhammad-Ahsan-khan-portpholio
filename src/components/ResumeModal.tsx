@@ -39,7 +39,7 @@ export default function ResumeModal({
           position: 'fixed',
           inset: 0,
           zIndex: 99999,
-          background: 'rgba(4,4,8,0.85)',
+          background: 'rgba(0,0,0,0.80)',
           backdropFilter: 'blur(16px)',
           display: 'flex',
           alignItems: 'center',
@@ -55,16 +55,16 @@ export default function ResumeModal({
           onClick={(e) => e.stopPropagation()}
           data-lenis-prevent
           style={{
-            background: '#0d0d1a',
-            border: '1px solid rgba(124,111,247,0.35)',
-            borderRadius: 16,
+            background: 'var(--card-bg)',
+            border: '1px solid var(--border-bright)',
+            borderRadius: 'var(--card-radius)',
             maxWidth: 900,
             width: '100%',
             maxHeight: '92vh',
             display: 'flex',
             flexDirection: 'column',
             overflow: 'hidden',
-            boxShadow: '0 30px 90px rgba(0,0,0,0.9), 0 0 50px rgba(124,111,247,0.2)',
+            boxShadow: 'var(--shadow-lg)',
             cursor: 'auto',
           }}
         >
@@ -73,11 +73,11 @@ export default function ResumeModal({
             className="no-print"
             style={{
               padding: '18px 24px',
-              borderBottom: '1px solid rgba(21,21,42,1)',
+              borderBottom: '1px solid var(--border)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
-              background: '#070712',
+              background: 'var(--surface)',
               cursor: 'auto',
             }}
           >
@@ -87,7 +87,7 @@ export default function ResumeModal({
                   fontFamily: 'var(--font-mono)',
                   fontSize: 11,
                   letterSpacing: '0.15em',
-                  color: '#a78bfa',
+                  color: 'var(--accent)',
                   textTransform: 'uppercase',
                 }}
               >
@@ -97,9 +97,9 @@ export default function ResumeModal({
                 style={{
                   padding: '3px 10px',
                   borderRadius: 20,
-                  background: 'rgba(74,222,128,0.15)',
-                  border: '1px solid rgba(74,222,128,0.3)',
-                  color: '#4ade80',
+                  background: 'rgba(var(--accent-rgb),0.15)',
+                  border: '1px solid rgba(var(--accent-rgb),0.3)',
+                  color: 'var(--accent)',
                   fontFamily: 'var(--font-mono)',
                   fontSize: 10,
                   fontWeight: 700,
@@ -114,11 +114,11 @@ export default function ResumeModal({
                 onClick={handlePrint}
                 data-cursor-hover
                 style={{
-                  background: 'linear-gradient(135deg, #7c6ff7, #a78bfa)',
+                  background: 'var(--btn-primary-bg)',
                   border: 'none',
-                  color: '#fff',
+                  color: 'var(--btn-primary-fg)',
                   padding: '10px 22px',
-                  borderRadius: 8,
+                  borderRadius: 'var(--btn-radius)',
                   fontFamily: 'var(--font-mono)',
                   fontSize: 12,
                   fontWeight: 700,
@@ -127,7 +127,7 @@ export default function ResumeModal({
                   display: 'flex',
                   alignItems: 'center',
                   gap: 8,
-                  boxShadow: '0 4px 15px rgba(124,111,247,0.4)',
+                  boxShadow: 'var(--shadow-sm)',
                 }}
               >
                 <svg width="15" height="15" viewBox="0 0 14 14" fill="none">
@@ -140,9 +140,9 @@ export default function ResumeModal({
                 onClick={onClose}
                 data-cursor-hover
                 style={{
-                  background: 'rgba(255,255,255,0.06)',
-                  border: '1px solid rgba(255,255,255,0.15)',
-                  color: '#fff',
+                  background: 'var(--card-surface)',
+                  border: '1px solid var(--border-bright)',
+                  color: 'var(--fg)',
                   width: 34,
                   height: 34,
                   borderRadius: '50%',
@@ -164,65 +164,66 @@ export default function ResumeModal({
             style={{
               padding: '36px 44px',
               overflowY: 'auto',
-              color: '#dcdcee',
+              color: 'var(--fg)',
               fontFamily: 'var(--font-body)',
               fontSize: 12.5,
               lineHeight: 1.6,
               userSelect: 'text',
+              background: 'var(--card-bg)',
             }}
           >
             {/* Header / Personal Information */}
-            <div style={{ borderBottom: '2px solid #7c6ff7', paddingBottom: 16, marginBottom: 20 }}>
+            <div style={{ borderBottom: '2px solid var(--accent)', paddingBottom: 16, marginBottom: 20 }}>
               <h1
                 style={{
                   fontFamily: 'var(--font-display)',
                   fontSize: 28,
                   fontWeight: 800,
-                  color: '#fff',
+                  color: 'var(--fg)',
                   margin: '0 0 4px',
                   letterSpacing: '-0.02em',
                 }}
               >
                 MUHAMMAD AHSAN KHAN
               </h1>
-              <div style={{ fontFamily: 'var(--font-mono)', fontSize: 12, color: '#a78bfa', fontWeight: 700, marginBottom: 10 }}>
+              <div style={{ fontFamily: 'var(--font-mono)', fontSize: 12, color: 'var(--accent)', fontWeight: 700, marginBottom: 10 }}>
                 Full Stack Developer | Founder, Next Revolution Tech | Enterprise Software, ERP, AI & Agentic AI Solutions
               </div>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px 20px', fontSize: 10.5, fontFamily: 'var(--font-mono)', color: 'rgba(220,220,238,0.75)' }}>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px 20px', fontSize: 10.5, fontFamily: 'var(--font-mono)', color: 'rgba(var(--fg-rgb),0.75)' }}>
                 <span>📍 Pakistan</span>
                 <span>📞 +92 344 2013217</span>
                 <span>📧 ahsan.khan@nextrevolutiontech.tech</span>
                 <span>✉ ahsankh079@gmail.com</span>
-                <span>🌐 <a href="https://www.nextrevolutiontech.tech" target="_blank" rel="noopener noreferrer" style={{ color: '#38bdf8' }}>nextrevolutiontech.tech</a></span>
-                <span>💼 <a href="https://www.linkedin.com/in/muhammad-ahsan-khan-61a51032a" target="_blank" rel="noopener noreferrer" style={{ color: '#38bdf8' }}>LinkedIn</a></span>
-                <span>💻 <a href="https://github.com/MuhammadAhsankhan786" target="_blank" rel="noopener noreferrer" style={{ color: '#38bdf8' }}>GitHub Personal</a></span>
-                <span>💻 <a href="https://github.com/nextrevolutiontech-maker" target="_blank" rel="noopener noreferrer" style={{ color: '#38bdf8' }}>GitHub Org</a></span>
+                <span>🌐 <a href="https://www.nextrevolutiontech.tech" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent)' }}>nextrevolutiontech.tech</a></span>
+                <span>💼 <a href="https://www.linkedin.com/in/muhammad-ahsan-khan-61a51032a" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent)' }}>LinkedIn</a></span>
+                <span>💻 <a href="https://github.com/MuhammadAhsankhan786" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent)' }}>GitHub Personal</a></span>
+                <span>💻 <a href="https://github.com/nextrevolutiontech-maker" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent)' }}>GitHub Org</a></span>
               </div>
             </div>
 
             {/* Professional Summary */}
             <div style={{ marginBottom: 20 }}>
-              <h2 style={{ fontFamily: 'var(--font-mono)', fontSize: 12, textTransform: 'uppercase', color: '#7c6ff7', letterSpacing: '0.12em', marginBottom: 6, borderBottom: '1px solid rgba(124,111,247,0.2)', paddingBottom: 3, fontWeight: 700 }}>
+              <h2 style={{ fontFamily: 'var(--font-mono)', fontSize: 12, textTransform: 'uppercase', color: 'var(--accent)', letterSpacing: '0.12em', marginBottom: 6, borderBottom: '1px solid var(--border)', paddingBottom: 3, fontWeight: 700 }}>
                 PROFESSIONAL SUMMARY
               </h2>
-              <p style={{ margin: 0, color: 'rgba(220,220,238,0.85)', fontSize: 12 }}>
+              <p style={{ margin: 0, color: 'rgba(var(--fg-rgb),0.85)', fontSize: 12 }}>
                 Results-driven Full Stack Developer with hands-on experience designing, developing, deploying, and maintaining enterprise-grade web applications, ERP systems, SaaS platforms, AI-powered business solutions, and custom software. Strong expertise in React.js, Next.js, TypeScript, Node.js, NestJS, Express.js, PostgreSQL, Prisma ORM, MongoDB, and REST APIs. Founder of Next Revolution Tech. Experienced across full SDLC including system architecture, database modeling, REST APIs, authentication, RBAC, deployment, and support. Actively expanding expertise in Agentic AI systems, AI Automation, and LLM-powered applications. Building a Personal Workspace AI Agent focused on intelligent task execution and workflow orchestration.
               </p>
             </div>
 
             {/* Professional Experience */}
             <div style={{ marginBottom: 20 }}>
-              <h2 style={{ fontFamily: 'var(--font-mono)', fontSize: 12, textTransform: 'uppercase', color: '#7c6ff7', letterSpacing: '0.12em', marginBottom: 10, borderBottom: '1px solid rgba(124,111,247,0.2)', paddingBottom: 3, fontWeight: 700 }}>
+              <h2 style={{ fontFamily: 'var(--font-mono)', fontSize: 12, textTransform: 'uppercase', color: 'var(--accent)', letterSpacing: '0.12em', marginBottom: 10, borderBottom: '1px solid var(--border)', paddingBottom: 3, fontWeight: 700 }}>
                 PROFESSIONAL EXPERIENCE
               </h2>
 
               {/* NRT */}
               <div style={{ marginBottom: 14 }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', fontWeight: 700, color: '#fff', fontSize: 13 }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontWeight: 700, color: 'var(--fg)', fontSize: 13 }}>
                   <span>Founder & Full Stack Developer — Next Revolution Tech</span>
-                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10.5, color: '#a78bfa' }}>June 2025 – Present</span>
+                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10.5, color: 'var(--accent)' }}>June 2025 – Present</span>
                 </div>
-                <ul style={{ margin: '6px 0 0', paddingLeft: 16, color: 'rgba(220,220,238,0.8)', fontSize: 11.5 }}>
+                <ul style={{ margin: '6px 0 0', paddingLeft: 16, color: 'rgba(var(--fg-rgb),0.8)', fontSize: 11.5 }}>
                   <li>Founded and actively leading Next Revolution Tech, delivering enterprise software, ERP systems, SaaS platforms, and AI automation.</li>
                   <li>Designed, developed, and deployed 10+ production-ready web applications across ERP, Healthcare, Education, Retail, Event Management, AI Operations, and eCommerce.</li>
                   <li>Built scalable frontend architectures using React.js, Next.js, TypeScript, HTML5, CSS3, and Tailwind CSS.</li>
@@ -234,11 +235,11 @@ export default function ResumeModal({
 
               {/* Codezyra */}
               <div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', fontWeight: 700, color: '#fff', fontSize: 13 }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontWeight: 700, color: 'var(--fg)', fontSize: 13 }}>
                   <span>Full Stack Developer — Codezyra</span>
-                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10.5, color: '#a78bfa' }}>January 2024 – May 2025</span>
+                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10.5, color: 'var(--accent)' }}>January 2024 – May 2025</span>
                 </div>
-                <ul style={{ margin: '6px 0 0', paddingLeft: 16, color: 'rgba(220,220,238,0.8)', fontSize: 11.5 }}>
+                <ul style={{ margin: '6px 0 0', paddingLeft: 16, color: 'rgba(var(--fg-rgb),0.8)', fontSize: 11.5 }}>
                   <li>Developed responsive web applications using React.js, Next.js, and modern TypeScript.</li>
                   <li>Built reusable UI components and scalable frontend architecture with integrated REST APIs.</li>
                   <li>Improved overall application performance, page loading speeds, and responsive cross-device layouts.</li>
@@ -248,7 +249,7 @@ export default function ResumeModal({
 
             {/* Selected Projects */}
             <div style={{ marginBottom: 20 }}>
-              <h2 style={{ fontFamily: 'var(--font-mono)', fontSize: 12, textTransform: 'uppercase', color: '#7c6ff7', letterSpacing: '0.12em', marginBottom: 10, borderBottom: '1px solid rgba(124,111,247,0.2)', paddingBottom: 3, fontWeight: 700 }}>
+              <h2 style={{ fontFamily: 'var(--font-mono)', fontSize: 12, textTransform: 'uppercase', color: 'var(--accent)', letterSpacing: '0.12em', marginBottom: 10, borderBottom: '1px solid var(--border)', paddingBottom: 3, fontWeight: 700 }}>
                 SELECTED PRODUCTION PROJECTS (11 SHIPPED)
               </h2>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
@@ -265,10 +266,10 @@ export default function ResumeModal({
                   { name: 'Event Management System', tech: 'React, Participant Registration, Ticketing Hub', link: 'event-management-system-ten-ashy.vercel.app' },
                   { name: 'Next Revolution Tech', tech: 'Official Company Portal, Next.js 19, Tailwind', link: 'www.nextrevolutiontech.tech' },
                 ].map((p, i) => (
-                  <div key={i} style={{ background: 'rgba(255,255,255,0.03)', padding: 8, borderRadius: 6, border: '1px solid rgba(255,255,255,0.06)' }}>
-                    <div style={{ fontWeight: 700, color: '#fff', fontSize: 11 }}>{p.name}</div>
-                    <div style={{ fontSize: 10, color: 'rgba(220,220,238,0.7)', margin: '1px 0' }}>{p.tech}</div>
-                    <div style={{ fontFamily: 'var(--font-mono)', fontSize: 9.5, color: '#38bdf8' }}>{p.link}</div>
+                  <div key={i} style={{ background: 'var(--surface)', padding: 8, borderRadius: 6, border: '1px solid var(--border)' }}>
+                    <div style={{ fontWeight: 700, color: 'var(--fg)', fontSize: 11 }}>{p.name}</div>
+                    <div style={{ fontSize: 10, color: 'rgba(var(--fg-rgb),0.7)', margin: '1px 0' }}>{p.tech}</div>
+                    <div style={{ fontFamily: 'var(--font-mono)', fontSize: 9.5, color: 'var(--accent)' }}>{p.link}</div>
                   </div>
                 ))}
               </div>
@@ -276,7 +277,7 @@ export default function ResumeModal({
 
             {/* Verified Client Reviews */}
             <div style={{ marginBottom: 20 }}>
-              <h2 style={{ fontFamily: 'var(--font-mono)', fontSize: 12, textTransform: 'uppercase', color: '#ec4899', letterSpacing: '0.12em', marginBottom: 10, borderBottom: '1px solid rgba(236,72,153,0.3)', paddingBottom: 3, fontWeight: 700 }}>
+              <h2 style={{ fontFamily: 'var(--font-mono)', fontSize: 12, textTransform: 'uppercase', color: 'var(--accent)', letterSpacing: '0.12em', marginBottom: 10, borderBottom: '1px solid var(--border)', paddingBottom: 3, fontWeight: 700 }}>
                 VERIFIED CLIENT REVIEWS & 5.0 ★ TESTIMONIALS
               </h2>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
@@ -288,12 +289,12 @@ export default function ResumeModal({
                   { name: 'Anas 🇵🇰 (Pakistan)', review: 'This time he proves himself very well. Thank you for your efforts. Will work more in future.', rating: '5.0 ★' },
                   { name: 'Abdelrahman 🇪🇬 (Egypt)', review: 'Good developer. NestJS & React Docs Portal built cleanly. I hope all the best for you!', rating: '5.0 ★' },
                 ].map((rev, i) => (
-                  <div key={i} style={{ background: 'rgba(236,72,153,0.04)', padding: 8, borderRadius: 6, border: '1px solid rgba(236,72,153,0.2)' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', fontWeight: 700, color: '#fff', fontSize: 10.5 }}>
+                  <div key={i} style={{ background: 'var(--surface)', padding: 8, borderRadius: 6, border: '1px solid var(--border)' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', fontWeight: 700, color: 'var(--fg)', fontSize: 10.5 }}>
                       <span>{rev.name}</span>
-                      <span style={{ color: '#ec4899', fontFamily: 'var(--font-mono)' }}>{rev.rating}</span>
+                      <span style={{ color: 'var(--accent)', fontFamily: 'var(--font-mono)' }}>{rev.rating}</span>
                     </div>
-                    <div style={{ fontSize: 10, color: 'rgba(220,220,238,0.75)', fontStyle: 'italic', marginTop: 2 }}>"{rev.review}"</div>
+                    <div style={{ fontSize: 10, color: 'rgba(var(--fg-rgb),0.75)', fontStyle: 'italic', marginTop: 2 }}>"{rev.review}"</div>
                   </div>
                 ))}
               </div>
@@ -302,10 +303,10 @@ export default function ResumeModal({
             {/* Technical Skills & Education */}
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
               <div>
-                <h2 style={{ fontFamily: 'var(--font-mono)', fontSize: 11.5, textTransform: 'uppercase', color: '#7c6ff7', letterSpacing: '0.1em', marginBottom: 6, borderBottom: '1px solid rgba(124,111,247,0.2)', paddingBottom: 3, fontWeight: 700 }}>
+                <h2 style={{ fontFamily: 'var(--font-mono)', fontSize: 11.5, textTransform: 'uppercase', color: 'var(--accent)', letterSpacing: '0.1em', marginBottom: 6, borderBottom: '1px solid var(--border)', paddingBottom: 3, fontWeight: 700 }}>
                   TECHNICAL SKILLS
                 </h2>
-                <div style={{ fontSize: 10.5, color: 'rgba(220,220,238,0.85)', lineHeight: 1.6 }}>
+                <div style={{ fontSize: 10.5, color: 'rgba(var(--fg-rgb),0.85)', lineHeight: 1.6 }}>
                   <strong>Frontend:</strong> React.js, Next.js, JavaScript (ES6+), TypeScript, HTML5, CSS3, Tailwind CSS<br />
                   <strong>Backend:</strong> Node.js, NestJS, Express.js, REST APIs, JWT, RBAC Auth<br />
                   <strong>Databases:</strong> PostgreSQL, MongoDB, Prisma ORM, Firebase<br />
@@ -315,10 +316,10 @@ export default function ResumeModal({
               </div>
 
               <div>
-                <h2 style={{ fontFamily: 'var(--font-mono)', fontSize: 11.5, textTransform: 'uppercase', color: '#7c6ff7', letterSpacing: '0.1em', marginBottom: 6, borderBottom: '1px solid rgba(124,111,247,0.2)', paddingBottom: 3, fontWeight: 700 }}>
+                <h2 style={{ fontFamily: 'var(--font-mono)', fontSize: 11.5, textTransform: 'uppercase', color: 'var(--accent)', letterSpacing: '0.1em', marginBottom: 6, borderBottom: '1px solid var(--border)', paddingBottom: 3, fontWeight: 700 }}>
                   EDUCATION & CERTIFICATIONS
                 </h2>
-                <div style={{ fontSize: 10.5, color: 'rgba(220,220,238,0.85)', lineHeight: 1.6 }}>
+                <div style={{ fontSize: 10.5, color: 'rgba(var(--fg-rgb),0.85)', lineHeight: 1.6 }}>
                   🎓 <strong>ADP in Computer Science</strong> — Virtual University of Pakistan<br />
                   🏆 <strong>micro1 AI Interview Certification</strong> (Outstanding Performance 2026)<br />
                   📜 <strong>SMIT Web & Mobile App Development Certificate</strong><br />

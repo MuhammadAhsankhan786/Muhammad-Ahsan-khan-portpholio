@@ -72,7 +72,8 @@ export default function Certifications() {
     <section
       id="certifications"
       ref={sectionRef}
-      className="relative px-6 md:px-20 py-20 md:py-36 bg-[#0D1321] overflow-hidden"
+      className="relative px-6 md:px-20 py-20 md:py-36 overflow-hidden"
+      style={{ background: 'var(--section-b)' }}
     >
       {/* Background ambient glow */}
       <div
@@ -84,7 +85,7 @@ export default function Certifications() {
           width: 600,
           height: 600,
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(116,140,171,0.06) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, var(--decorative) 0%, transparent 70%)',
           pointerEvents: 'none',
         }}
       />
@@ -100,14 +101,14 @@ export default function Certifications() {
           style={{
             fontFamily: 'var(--font-mono)',
             fontSize: 11,
-            letterSpacing: '0.25em',
+            letterSpacing: 'var(--label-tracking)',
             textTransform: 'uppercase',
-            color: '#748CAB',
+            color: 'var(--accent)',
           }}
         >
           04 — Verified Certifications & Credentials
         </span>
-        <div style={{ flex: 1, height: 1, background: 'rgba(116,140,171,0.12)' }} />
+        <div style={{ flex: 1, height: 1, background: 'var(--border)' }} />
       </motion.div>
 
       {/* Headline */}
@@ -119,16 +120,16 @@ export default function Certifications() {
           style={{
             fontFamily: 'var(--font-display)',
             fontSize: 'clamp(32px, 3.5vw, 56px)',
-            fontWeight: 700,
+            fontWeight: 'var(--heading-weight)' as any,
             letterSpacing: '-0.02em',
             lineHeight: 1.1,
-            color: '#F0EBD8',
+            color: 'var(--fg)',
             margin: '0 0 20px',
           }}
         >
           Verified AI & Software
           <br />
-          <em style={{ fontStyle: 'italic', color: '#748CAB' }}>
+          <em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>
             Certifications.
           </em>
         </motion.h2>
@@ -137,7 +138,7 @@ export default function Certifications() {
             fontFamily: 'var(--font-body)',
             fontSize: 15,
             lineHeight: 1.7,
-            color: 'rgba(240,235,216,0.7)',
+            color: 'rgba(var(--fg-rgb), 0.7)',
             margin: 0,
           }}
         >
@@ -156,9 +157,9 @@ export default function Certifications() {
             onClick={() => setActiveCert(cert)}
             data-cursor-hover
             style={{
-              background: '#1D2D44',
-              border: '1px solid rgba(116,140,171,0.15)',
-              borderRadius: 16,
+              background: 'var(--card-bg)',
+              border: '1px solid var(--card-border)',
+              borderRadius: 'var(--card-radius)',
               padding: 32,
               display: 'flex',
               flexDirection: 'column',
@@ -166,8 +167,9 @@ export default function Certifications() {
               cursor: 'pointer',
               position: 'relative',
               overflow: 'hidden',
+              boxShadow: 'var(--card-shadow)',
             }}
-            whileHover={{ y: -6, borderColor: '#748CAB' }}
+            whileHover={{ y: -6, boxShadow: 'var(--card-shadow-hover)' }}
           >
             {/* Top Verified Badge Indicator */}
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20 }}>
@@ -178,19 +180,19 @@ export default function Certifications() {
                   gap: 6,
                   padding: '4px 10px',
                   borderRadius: 20,
-                  background: 'rgba(116,140,171,0.15)',
-                  border: '1px solid rgba(116,140,171,0.3)',
-                  color: '#748CAB',
+                  background: 'rgba(var(--accent-rgb), 0.15)',
+                  border: '1px solid rgba(var(--accent-rgb), 0.3)',
+                  color: 'var(--accent)',
                   fontFamily: 'var(--font-mono)',
                   fontSize: 10,
                   fontWeight: 600,
                   textTransform: 'uppercase',
                 }}
               >
-                <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#748CAB' }} />
+                <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--accent)' }} />
                 VERIFIED CREDENTIAL
               </div>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'rgba(240,235,216,0.5)' }}>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'rgba(var(--fg-rgb), 0.5)' }}>
                 {cert.date}
               </span>
             </div>
@@ -201,7 +203,7 @@ export default function Certifications() {
                   fontFamily: 'var(--font-display)',
                   fontSize: 20,
                   fontWeight: 700,
-                  color: '#F0EBD8',
+                  color: 'var(--fg)',
                   marginBottom: 8,
                   lineHeight: 1.25,
                 }}
@@ -213,7 +215,7 @@ export default function Certifications() {
                 style={{
                   fontFamily: 'var(--font-mono)',
                   fontSize: 11,
-                  color: '#748CAB',
+                  color: 'var(--accent)',
                   marginBottom: 16,
                   fontWeight: 600,
                 }}
@@ -226,7 +228,7 @@ export default function Certifications() {
                   fontFamily: 'var(--font-body)',
                   fontSize: 13,
                   lineHeight: 1.6,
-                  color: 'rgba(240,235,216,0.65)',
+                  color: 'rgba(var(--fg-rgb), 0.65)',
                   margin: 0,
                   display: '-webkit-box',
                   WebkitLineClamp: 3,
@@ -242,13 +244,13 @@ export default function Certifications() {
               style={{
                 marginTop: 24,
                 paddingTop: 16,
-                borderTop: '1px solid rgba(116,140,171,0.12)',
+                borderTop: '1px solid var(--border)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
               }}
             >
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: '#748CAB' }}>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--accent)' }}>
                 Click to View Certificate →
               </span>
               <span style={{ fontSize: 14 }}>🔍</span>
@@ -269,7 +271,7 @@ export default function Certifications() {
               position: 'fixed',
               inset: 0,
               zIndex: 99999,
-              background: 'rgba(4,4,8,0.88)',
+              background: 'rgba(0,0,0,0.80)',
               backdropFilter: 'blur(20px)',
               display: 'flex',
               alignItems: 'center',
@@ -284,7 +286,7 @@ export default function Certifications() {
               transition={{ duration: 0.3 }}
               onClick={(e) => e.stopPropagation()}
               style={{
-                background: '#040408',
+                background: 'var(--card-bg)',
                 border: `2px solid ${activeCert.badgeColor}60`,
                 borderRadius: 20,
                 maxWidth: 720,
@@ -302,9 +304,9 @@ export default function Certifications() {
                   position: 'absolute',
                   top: 20,
                   right: 20,
-                  background: 'rgba(255,255,255,0.05)',
-                  border: '1px solid rgba(255,255,255,0.1)',
-                  color: '#fff',
+                  background: 'var(--card-surface)',
+                  border: '1px solid var(--border)',
+                  color: 'var(--fg)',
                   width: 36,
                   height: 36,
                   borderRadius: '50%',
@@ -322,7 +324,7 @@ export default function Certifications() {
                   border: `1px solid ${activeCert.badgeColor}40`,
                   borderRadius: 12,
                   padding: 40,
-                  background: '#09090b',
+                  background: 'var(--surface)',
                   textAlign: 'center',
                   position: 'relative',
                 }}
@@ -351,14 +353,14 @@ export default function Certifications() {
                     fontFamily: 'var(--font-display)',
                     fontSize: 28,
                     fontWeight: 800,
-                    color: '#fff',
+                    color: 'var(--fg)',
                     marginBottom: 8,
                   }}
                 >
                   Certified by <span style={{ color: activeCert.badgeColor }}>{activeCert.issuer}</span>
                 </div>
 
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: 12, color: 'rgba(220,220,238,0.5)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 24 }}>
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: 12, color: 'rgba(var(--fg-rgb), 0.5)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 24 }}>
                   This is to certify that
                 </div>
 
@@ -367,7 +369,7 @@ export default function Certifications() {
                     fontFamily: 'var(--font-display)',
                     fontSize: 34,
                     fontWeight: 800,
-                    color: '#fff',
+                    color: 'var(--fg)',
                     letterSpacing: '-0.01em',
                     marginBottom: 16,
                   }}
@@ -379,7 +381,7 @@ export default function Certifications() {
                   style={{
                     fontFamily: 'var(--font-body)',
                     fontSize: 15,
-                    color: 'rgba(220,220,238,0.7)',
+                    color: 'rgba(var(--fg-rgb), 0.7)',
                     maxWidth: 500,
                     margin: '0 auto 32px',
                     lineHeight: 1.6,
@@ -394,14 +396,14 @@ export default function Certifications() {
                     justifyContent: 'space-between',
                     alignItems: 'flex-end',
                     paddingTop: 24,
-                    borderTop: '1px solid rgba(255,255,255,0.08)',
+                    borderTop: '1px solid var(--border)',
                     fontSize: 12,
                     fontFamily: 'var(--font-mono)',
-                    color: 'rgba(220,220,238,0.6)',
+                    color: 'rgba(var(--fg-rgb), 0.6)',
                   }}
                 >
                   <div>
-                    <div>Issue Date: <strong style={{ color: '#fff' }}>{activeCert.date}</strong></div>
+                    <div>Issue Date: <strong style={{ color: 'var(--fg)' }}>{activeCert.date}</strong></div>
                     {activeCert.verifiedUrl && (
                       <div style={{ marginTop: 4 }}>
                         Verify: <a href={activeCert.verifiedUrl} target="_blank" rel="noopener noreferrer" style={{ color: activeCert.badgeColor }}>{activeCert.verifiedUrl.replace('https://', '')}</a>
@@ -409,7 +411,7 @@ export default function Certifications() {
                     )}
                   </div>
                   <div style={{ textAlign: 'right' }}>
-                    <div style={{ fontFamily: 'var(--font-display)', fontSize: 16, fontWeight: 700, color: '#fff', fontStyle: 'italic' }}>
+                    <div style={{ fontFamily: 'var(--font-display)', fontSize: 16, fontWeight: 700, color: 'var(--fg)', fontStyle: 'italic' }}>
                       {activeCert.signatory}
                     </div>
                   </div>

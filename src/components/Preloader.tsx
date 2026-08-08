@@ -51,7 +51,7 @@ export default function Preloader({ onComplete }: { onComplete: () => void }) {
             position: 'fixed',
             inset: 0,
             zIndex: 99999,
-            background: '#040408',
+            background: 'var(--bg)',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
@@ -173,8 +173,8 @@ export default function Preloader({ onComplete }: { onComplete: () => void }) {
               style={{
                 height: '100%',
                 width: `${progress}%`,
-                background: 'linear-gradient(90deg, #7c6ff7, #38bdf8)',
-                boxShadow: '0 0 10px #7c6ff7',
+                background: 'linear-gradient(90deg, var(--accent), var(--accent-2))',
+                boxShadow: '0 0 10px rgba(var(--accent-rgb), 0.7)',
               }}
             />
           </div>

@@ -56,7 +56,7 @@ export default function App() {
   return (
     <div
       style={{
-        background: 'var(--color-background)',
+        background: 'var(--bg)',
         minHeight: '100vh',
         position: 'relative',
       }}
@@ -140,14 +140,14 @@ export default function App() {
           right: 24,
           zIndex: 9000,
           padding: '12px 20px',
-          background: '#748CAB',
-          color: '#0D1321',
+          background: 'var(--accent)',
+          color: 'var(--accent-fg)',
           border: 'none',
           borderRadius: 30,
           fontFamily: 'var(--font-mono)',
           fontSize: 12,
           fontWeight: 700,
-          boxShadow: '0 10px 30px rgba(0,0,0,0.5)',
+          boxShadow: '0 10px 30px rgba(0,0,0,0.3)',
           cursor: 'pointer',
           display: 'flex',
           alignItems: 'center',

@@ -54,7 +54,8 @@ export default function Services() {
     <section
       id="services"
       ref={sectionRef}
-      className="relative px-6 md:px-20 py-20 md:py-36 bg-[#1D2D44] overflow-hidden"
+      className="relative px-6 md:px-20 py-20 md:py-36 overflow-hidden"
+      style={{ background: 'var(--section-b)' }}
     >
       {/* Background ambient glow */}
       <div
@@ -65,7 +66,7 @@ export default function Services() {
           width: 500,
           height: 500,
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(116,140,171,0.06) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, var(--decorative) 0%, transparent 70%)',
           pointerEvents: 'none',
         }}
       />
@@ -81,14 +82,14 @@ export default function Services() {
           style={{
             fontFamily: 'var(--font-mono)',
             fontSize: 11,
-            letterSpacing: '0.25em',
+            letterSpacing: 'var(--label-tracking)',
             textTransform: 'uppercase',
-            color: '#748CAB',
+            color: 'var(--accent)',
           }}
         >
           03 — Enterprise Solutions & Offerings
         </span>
-        <div style={{ flex: 1, height: 1, background: 'rgba(116,140,171,0.12)' }} />
+        <div style={{ flex: 1, height: 1, background: 'var(--border)' }} />
       </motion.div>
 
       {/* Main Headline */}
@@ -100,16 +101,16 @@ export default function Services() {
           style={{
             fontFamily: 'var(--font-display)',
             fontSize: 'clamp(32px, 3.5vw, 56px)',
-            fontWeight: 700,
+            fontWeight: 'var(--heading-weight)' as any,
             letterSpacing: '-0.02em',
             lineHeight: 1.1,
-            color: '#F0EBD8',
+            color: 'var(--fg)',
             margin: '0 0 20px',
           }}
         >
           High-Performance Software
           <br />
-          <em style={{ fontStyle: 'italic', color: '#748CAB' }}>
+          <em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>
             & Startup Engineering.
           </em>
         </motion.h2>
@@ -118,7 +119,7 @@ export default function Services() {
             fontFamily: 'var(--font-body)',
             fontSize: 15,
             lineHeight: 1.7,
-            color: 'rgba(240,235,216,0.7)',
+            color: 'rgba(var(--fg-rgb), 0.7)',
             margin: 0,
           }}
         >
@@ -135,25 +136,31 @@ export default function Services() {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
             style={{
-              background: '#0D1321',
-              border: '1px solid rgba(116,140,171,0.15)',
-              borderRadius: 16,
+              background: 'var(--card-bg)',
+              border: '1px solid var(--card-border)',
+              borderRadius: 'var(--card-radius)',
               padding: 32,
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'space-between',
-              transition: 'border-color 0.3s, transform 0.3s',
+              boxShadow: 'var(--card-shadow)',
+              cursor: 'default',
             }}
-            whileHover={{ borderColor: '#748CAB', y: -6 }}
+            whileHover={{
+              y: -6,
+              boxShadow: 'var(--card-shadow-hover)',
+              borderColor: 'var(--border-hover)',
+            }}
           >
             <div>
+              {/* Outline number */}
               <div
                 style={{
                   fontFamily: 'var(--font-display)',
                   fontSize: 40,
                   fontWeight: 800,
                   color: 'transparent',
-                  WebkitTextStroke: '1px #748CAB',
+                  WebkitTextStroke: '1px var(--accent)',
                   marginBottom: 16,
                   lineHeight: 1,
                 }}
@@ -166,7 +173,7 @@ export default function Services() {
                   fontFamily: 'var(--font-display)',
                   fontSize: 22,
                   fontWeight: 700,
-                  color: '#F0EBD8',
+                  color: 'var(--fg)',
                   marginBottom: 6,
                 }}
               >
@@ -177,7 +184,7 @@ export default function Services() {
                 style={{
                   fontFamily: 'var(--font-mono)',
                   fontSize: 11,
-                  color: '#748CAB',
+                  color: 'var(--accent)',
                   marginBottom: 16,
                   letterSpacing: '0.05em',
                 }}
@@ -190,7 +197,7 @@ export default function Services() {
                   fontFamily: 'var(--font-body)',
                   fontSize: 14,
                   lineHeight: 1.65,
-                  color: 'rgba(240,235,216,0.65)',
+                  color: 'rgba(var(--fg-rgb), 0.65)',
                   marginBottom: 28,
                 }}
               >
@@ -207,9 +214,9 @@ export default function Services() {
                     fontFamily: 'var(--font-mono)',
                     fontSize: 10,
                     padding: '4px 8px',
-                    background: '#1D2D44',
-                    border: '1px solid rgba(116,140,171,0.15)',
-                    color: 'rgba(240,235,216,0.85)',
+                    background: 'var(--tag-bg)',
+                    border: '1px solid var(--tag-border)',
+                    color: 'var(--tag-fg)',
                     borderRadius: 4,
                   }}
                 >

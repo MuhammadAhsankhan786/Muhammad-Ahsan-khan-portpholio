@@ -6,9 +6,16 @@ export default function AvailabilityBanner() {
       initial={{ opacity: 0, y: -10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.1 }}
-      className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#1D2D44]/90 border border-[#748CAB]/30 backdrop-blur-md"
       style={{
-        boxShadow: '0 4px 20px rgba(116, 140, 171, 0.15)',
+        display: 'inline-flex',
+        alignItems: 'center',
+        gap: 10,
+        padding: '6px 14px',
+        borderRadius: 30,
+        background: 'rgba(var(--surface-rgb), 0.9)',
+        border: '1px solid var(--border-bright)',
+        backdropFilter: 'blur(12px)',
+        boxShadow: 'var(--shadow-sm)',
       }}
     >
       {/* Live pulse dot */}
@@ -22,12 +29,17 @@ export default function AvailabilityBanner() {
           fontFamily: 'var(--font-mono)',
           fontSize: '11px',
           letterSpacing: '0.08em',
-          color: '#F0EBD8',
+          color: 'var(--fg)',
           fontWeight: 600,
           textTransform: 'uppercase',
         }}
       >
-        Available for <span className="text-[#748CAB]">Senior Full Stack Roles</span> • <span className="text-[#748CAB]">Consulting</span> • <span className="text-[#748CAB]">Enterprise ERP & AI</span>
+        Available for{' '}
+        <span style={{ color: 'var(--accent)' }}>Senior Full Stack Roles</span>
+        {' '}•{' '}
+        <span style={{ color: 'var(--accent)' }}>Consulting</span>
+        {' '}•{' '}
+        <span style={{ color: 'var(--accent)' }}>Enterprise ERP & AI</span>
       </span>
     </motion.div>
   )

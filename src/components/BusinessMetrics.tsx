@@ -35,7 +35,8 @@ export default function BusinessMetrics() {
   return (
     <section
       ref={sectionRef}
-      className="relative px-6 md:px-20 py-16 md:py-24 bg-[#0D1321] border-b border-[rgba(116,140,171,0.12)]"
+      className="relative px-6 md:px-20 py-16 md:py-24 overflow-hidden"
+      style={{ background: 'var(--section-a)', borderBottom: '1px solid var(--border)' }}
     >
       {/* Label */}
       <motion.div
@@ -50,12 +51,12 @@ export default function BusinessMetrics() {
             fontSize: 11,
             letterSpacing: '0.25em',
             textTransform: 'uppercase',
-            color: '#748CAB',
+            color: 'var(--accent)',
           }}
         >
           02 — Measurable Business Impact & Track Record
         </span>
-        <div style={{ flex: 1, height: 1, background: 'rgba(116,140,171,0.12)' }} />
+        <div style={{ flex: 1, height: 1, background: 'var(--border)' }} />
       </motion.div>
 
       {/* Grid */}
@@ -67,9 +68,9 @@ export default function BusinessMetrics() {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
             style={{
-              background: '#1D2D44',
-              border: '1px solid rgba(116,140,171,0.18)',
-              borderRadius: 14,
+              background: 'var(--card-bg)',
+              border: '1px solid var(--card-border)',
+              borderRadius: 'var(--card-radius)',
               padding: 24,
               display: 'flex',
               flexDirection: 'column',
@@ -82,7 +83,7 @@ export default function BusinessMetrics() {
                   fontFamily: 'var(--font-mono)',
                   fontSize: 10,
                   letterSpacing: '0.15em',
-                  color: '#748CAB',
+                  color: 'var(--accent)',
                   textTransform: 'uppercase',
                   marginBottom: 12,
                 }}
@@ -94,7 +95,7 @@ export default function BusinessMetrics() {
                   fontFamily: 'var(--font-display)',
                   fontSize: 'clamp(32px, 3.5vw, 48px)',
                   fontWeight: 800,
-                  color: '#748CAB',
+                  color: 'var(--accent)',
                   lineHeight: 1,
                   marginBottom: 12,
                 }}
@@ -106,7 +107,7 @@ export default function BusinessMetrics() {
                   fontFamily: 'var(--font-display)',
                   fontSize: 16,
                   fontWeight: 700,
-                  color: '#F0EBD8',
+                  color: 'var(--fg)',
                   marginBottom: 8,
                 }}
               >
@@ -116,7 +117,7 @@ export default function BusinessMetrics() {
                 style={{
                   fontFamily: 'var(--font-body)',
                   fontSize: 13,
-                  color: 'rgba(240,235,216,0.65)',
+                  color: 'rgba(var(--fg-rgb), 0.65)',
                   lineHeight: 1.6,
                   margin: 0,
                 }}
