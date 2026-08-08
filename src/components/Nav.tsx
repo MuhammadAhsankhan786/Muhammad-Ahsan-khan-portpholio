@@ -70,27 +70,17 @@ export default function Nav({
         {/* Logo */}
         <div
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="relative z-10 flex items-center gap-3 cursor-pointer"
+          className="relative z-10 flex items-center gap-2.5 cursor-pointer"
         >
-          <div
+          <img
+            src="/favicon.svg"
+            alt="MAK Logo Emblem"
             style={{
-              width: 24,
-              height: 24,
-              border: '1px solid rgba(116,140,171,0.5)',
-              display: 'grid',
-              placeItems: 'center',
-              transform: 'rotate(45deg)',
+              width: 28,
+              height: 28,
+              borderRadius: 6,
             }}
-          >
-            <div
-              style={{
-                width: 6,
-                height: 6,
-                background: '#748CAB',
-                transform: 'rotate(-45deg)',
-              }}
-            />
-          </div>
+          />
           <span
             style={{
               fontFamily: 'var(--font-mono)',
